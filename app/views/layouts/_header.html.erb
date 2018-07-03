@@ -114,11 +114,13 @@
         
        </a>    <div class="dropdown-menu animated flipInY">
                             <!-- text-->
+                            <%if current_user%>
                             <%if current_user.admin?%>
                                 <%if current_user.lawfirm?%>
                            <div class="dropdown-item">
                             <span class='dropdown-item'><%= link_to users_admin_path(current_user) do%> <i class="ti-user"></i>My Profile </span><%end%>
 </div>
+<%end%>
 <%end%>
 <%end%>
                          
