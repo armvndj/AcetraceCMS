@@ -9,6 +9,9 @@ def in_check
     if current_user.lawfirm.status == "inactive" ||  current_user.lawfirm.status == nil
          redirect_to new_transaction_path, notice: 'Your Lawfirm Subscription has Expire Contact your Lawfirm Admin!'
       end
+      else
+        redirect_to new_lawfirm_path, notice: 'Setup Your Lawfirm First'
+
     end
     end
   end

@@ -4,12 +4,16 @@ class AdminassistancesController < ApplicationController
 before_action :in_check
 def in_check
    if current_user.admin? || current_user.adminassistance? || current_user.client? || current_user.attorney?
-    if current_user.lawfirm
-    if current_user.lawfirm.status == "inactive" ||  current_user.lawfirm.status == nil
-         redirect_to new_transaction_path, notice: 'Your Lawfirm Subscription has Expire Contact your Lawfirm Admin!'
+      if current_user.lawfirm
+        if current_user.lawfirm.status == "inactive" ||  current_user.lawfirm.status == nil
+           redirect_to new_transaction_path, notice: 'Your Lawfirm Subscription has Expire Contact your Lawfirm Admin!'
+        end
+
+      else
+        redirect_to new_lawfirm_path, notice: 'Setup Your Lawfirm First'
+
       end
-end
-  end
+   end
  end
  
   def show
