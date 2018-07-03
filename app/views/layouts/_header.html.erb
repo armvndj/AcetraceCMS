@@ -121,6 +121,10 @@
                             <span class='dropdown-item'><%= link_to users_admin_path(current_user) do%> <i class="ti-user"></i>My Profile </span><%end%>
 </div>
 <%end%>
+<%else%>
+<div class="dropdown-item">
+                            <span class='dropdown-item'><%= link_to users_admin_path(current_user) do%> <i class="ti-user"></i>My Profile </span><%end%>
+
 <%end%>
 <%end%>
                          
