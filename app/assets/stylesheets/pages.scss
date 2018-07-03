@@ -33,11 +33,11 @@ File: scss
 *******************/
 
 .topbar {
-    position: relative;
+    position: fixed;
     z-index: 100;
     .top-navbar {
         min-height: 50px;
-        padding: 0px 15px 0 0;
+        padding: 0px 0px 0 0;
         .dropdown-toggle::after {
             display: none;
         }
