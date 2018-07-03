@@ -1,0 +1,232 @@
+<% provide( :title, "Lawfirm Admin Dashboard") %>
+
+   
+       <!-- ============================================================== -->
+      
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Lawfirm Admin Dashboard</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+                <div>
+                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="card-group">
+                <a href="/lawfirm-legalcases-repository">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6 class="card-subtitle"><i class="mdi mdi-briefcase-check text-info"></i> Lawfirm Cases</h6>
+                                    <h3 class=""><%=lawfirmcasescount%></h3>
+                                    </div>
+                                <div class="col-12">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <a href="/lawfirm-clients-repository"> <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                   <h6 class="card-subtitle"><i class="mdi mdi-alert-circle text-success"></i> Clients</h6>
+                                    <h3 class=""><%=clientscount%></h3>
+                                    </div>
+                                <div class="col-12">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                    <!-- Column -->
+                    <!-- Column -->
+                     <a href="/lawfirm-users-repository">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                               <h6 class="card-subtitle"><i class="mdi mdi-wallet text-purple"></i> Lawfirm Users</h6>
+                                    <h3 class=""><%=lawfirmusercount%></h3>
+                                    </div>
+                                <div class="col-12">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div></a>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <a href="/lawfirm-attorneys-repository">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12"><h6 class="card-subtitle"><i class="mdi mdi-buffer text-warning"></i> Attorneys</h6>
+                                    <h3 class=""><%=attorneyscount%></h3>
+                                    </div>
+                                <div class="col-12">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></a>
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-6 col-xlg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-flex flex-wrap">
+                                            <div>
+                                                <h4 class="card-title">Administrative Panel</h4>
+                                            </div>
+                                       
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                <a class="media media-single" href="/legalcase-new-entry">
+                   <h6 class="w-60px"><i class="fa fa-legal"></i></h6>
+                  <div class="media-body">
+                    <h5>Create a Case</h5>
+                    <small class="text-fader"><i class="fa fa-plus"></i> new legal-case</small>
+                  </div>
+                  
+                </a>
+
+               
+               <a class="media media-single" href="/clients/new">
+                 <h6 class="w-60px"><i class="fa fa-user"></i></h6>
+                  <div class="media-body">
+                    <h5>Add a Client</h5>
+                    <small class="text-fader"><i class="fa fa-plus"></i>client user</small>
+                  </div>
+                  
+                </a>
+
+                <a class="media media-single" href="/attorneys/new">
+                  <h6 class="w-60px"><i class="fa fa-tag"></i></h6>
+                  <div class="media-body">
+                    <h5>Add an Attorney</h5>
+                    <small class="text-fader"><i class="fa fa-gift"></i>attorney user</small>
+                  </div>
+                  
+                </a>
+                 <a class="media media-single" href="/adminassistances/new">
+                 <h6 class="w-60px"><i class="fa fa-user"></i></h6>
+                  <div class="media-body">
+                    <h5>Add an Adminassistance</h5>
+                    <small class="text-fader"><i class="fa fa-plus"></i>client user</small>
+                  </div>
+                  
+                </a>
+                <a class="media media-single" href="/lawfirm-legalcases-repository">
+                  <h6 class="w-60px"><i class="fa fa-money"></i></h6>
+                  <div class="media-body">
+                    <h5>Add Cost to Case</h5>
+                    <small class="text-fader"><i class="fa fa-gift"></i> money </small>
+                  </div>
+                  
+                </a>
+                <a class="media media-single" href="/lawfirm-legalcases-repository">
+                  <h6 class="w-60px"><i class="fa fa-certificate"></i></h6>
+                  <div class="media-body">
+                    <h5> Add Attorney to Case</h5>
+                    <small class="text-fader"><i class="fa fa-gift"></i> attorney</small>
+                  </div>
+                  
+                </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+<div class="col-md-6 col-xlg-6">
+<div class="card card-body">
+            <div class="box box-solid">
+                 <div class="box-header">
+
+              <h3 class="box-title">
+              <i class="fa fa-calendar"></i> Calendar</h3>
+             
+
+ <%=  month_calendar  events: @user_cases do |date, meetings| %>
+
+
+             
+             <div class="media-body">
+                    <%= date.day%>
+                    <% meetings.each do |meeting| %>
+                    <small class="text-fader"><i class="fa fa-gift"></i> <%= meeting.subject.to_s %></small>
+                  </div>
+                  <% end %>
+<% end %>
+
+                
+             
+        
+        
+          </div>
+          </div>
+
+
+
+
+            </div>
+
+
+
+
+  
+
+</div>
+</div>      
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+</div>
+</div>

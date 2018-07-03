@@ -1,0 +1,124 @@
+ <% provide( :title, "Signup") %>
+
+
+ <div class="login-box card">
+                <div class="card-body">
+                    
+<%= form_for(@user, html: { multipart: true }) do |f| %>
+<form class="form-horizontal form-material">
+                        <h3 class="box-title m-b-20">Sign Up</h3>
+ <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this admin from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+
+  <% end %>
+
+
+    <div class="form-group ">
+                            <div class="col-xs-12">
+      
+    
+
+    <%= f.text_field :first_name, autofocus: true, placeholder:"first name", required:"required", class:"form-control"%>
+
+      </div></div>
+  
+
+  <div class="form-group ">
+                            <div class="col-xs-12">
+	
+    <%= f.text_field :last_name,  autofocus: true,placeholder:"last name", required:"required", class:"form-control" %>
+ 
+   </div></div>
+
+
+ 
+   <div class="form-group ">
+                            <div class="col-xs-12">
+	
+    <%= f.email_field :email, autofocus: true, type:"email", placeholder:"email", required:"required", class:"form-control"%>
+ 
+ </div></div>
+  <div class="form-group ">
+                            <div class="col-xs-12">
+	
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+	
+    <%= f.password_field :password, autocomplete: "off", type:"password", required:"required", placeholder:"password",class:"form-control" %>
+ </div>
+ </div>
+   <div class="form-group ">
+                            <div class="col-xs-12">
+	
+    <%= f.password_field :password_confirmation, autocomplete: "off", type:"password", required:"required", placeholder:"password confirmation",class:"form-control" %>
+ 
+ </div></div>
+  <div class="form-group ">
+                            <div class="col-xs-12">
+	
+    <%= f.number_field :phone_number, type:"number",placeholder:"phone number", required:"required", class:"form-control" %>
+  
+ </div></div>
+
+
+
+
+ <div class="form-group">
+ <div class="col-xs-12">
+
+    <%= f.text_field :address, autofocus: true, type:"text",placeholder:"address", required:"required", class:"form-control"  %>
+ 
+   </div></div>
+  
+
+ <div class="form-group">
+ <div class="col-xs-12">
+  
+    <%= f.text_field :state, type:"number",placeholder:"state", required:"required", class:"form-control"%>
+  
+ </div></div>
+
+ <div class="form-group">
+ <div class="col-xs-12">
+  
+    <%= f.text_field :city, type:"number",placeholder:"city", required:"required", class:"form-control"%>
+
+  </div> 
+
+
+
+ <div class="form-group text-center m-t-20">
+                            <div class="col-xs-12">
+
+    <%= f.submit "Sign Up", class: "btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" %>
+</div>
+                        </div>
+<% end %>
+ <div class="form-group m-b-0">
+                            <div class="col-sm-12 text-center">
+                                <div>Already have an account? <b><%= link_to "Sign in", new_session_path(User), class:"text-info m-l-5" %></b></div>
+                            </div>
+                        </div>
+                    </form>
+
+ </div>
+            </div>
+        </div>
+    </section>
+   
+</div>
+</div>
+</div>
+</div>
+</div>
+
+

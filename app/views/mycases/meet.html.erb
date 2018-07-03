@@ -1,0 +1,87 @@
+ <% provide( :title, @mycase.caseNo) %>
+
+
+
+
+      <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Case Comments - <%=@mycase.subject%></h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+                <div>
+                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+ <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Recent Comments</h4>
+                               <div class="chat-box">
+                                    <!--chat Row -->
+                                    <ul class="chat-list">
+                                        <!--chat Row -->
+                                       
+                                        <!--chat Row -->
+                               
+<% if @mycase.mycasecomments.any? %>
+<%= pluralize @mycase.mycasecomments.size,'Comment' %> so far
+<% else %>
+Be the first to post discussion
+<% end %>
+<%= render :partial =>'mycasecomments/mycasecomment',
+:collection => @mycase.mycasecomments  %>
+
+     </ul>
+                                </div>
+                            </div>  
+
+
+<div class="card-body b-t">
+                                <div class="row">
+                                    <div class="col-8">
+                                  
+ 		
+		<h4>Post Discussion</h4>
+
+              
+ <%= form_for([@mycase, @mycase.mycasecomments.build], html: { multipart: true }) do |f| %>
+  
+	
+	<%= image_tag(current_user.avatars_url) if current_user.avatars? %>
+
+    <%= f.text_area :content, placeholder: "Add discussion",class:"publisher-input", class:"form-control b-0"%>
+     
+     
+
+    <%= f.file_field :attachment , class:"publisher-btn file-group" do %>
+    <i class="fa fa-paperclip file-browser"></i>
+
+	<%= f.hidden_field :attachment_cache %>
+	 <% end %>
+<div class="col-4 text-right">
+ <i class="fa fa-paper-plane-o"></i><%= f.submit "send", class:"btn btn-info btn-circle btn-lg"%>
+   
+  </div>
+  <% end %>
+
+	</div>
+	
+</div>
+	</div>
+  </div>
+  </div>
+  </div>
+  </div>

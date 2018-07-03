@@ -1,0 +1,93 @@
+  <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                               
+                              
+                                <h6 class="card-subtitle">Registration Phase </h6>
+
+                <div class="row">
+<%= form_with(model: lawfirm, local: true, html: { multipart: true }) do |form| %>
+  <% if lawfirm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lawfirm.errors.count, "error") %> prohibited this lawfirm from being saved:</h2>
+
+      <ul>
+      <% lawfirm.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :lawfirm_name,  type:"text",required:"required", class:"form-control" %>
+  </div></div>
+
+  <div class="col-md-6">
+ <div class="form-group">
+  
+ 
+  <%= form.label :logo %>
+    
+	<%= form.file_field :logos, autofocus: true, class:"form-control" %>
+  
+
+  </div>
+   
+  </div>
+  
+  <div class="col-md-6">
+  <div class="form-group">
+    <%= form.label :info %>
+    <%= form.text_area :info, id: :lawfirm_info, type:"text", required:"required", class:"form-control" %>
+  </div></div>
+
+  <div class="col-md-6">
+  <div class="form-group">
+
+
+ <%= form.label :type_of_organization%>
+            <%= form.select :type_of_organization, ["Lawfirm","Legal Chamber", "Institution"], prompt: "type...", class:"form-control has-feedback-left"%>
+            
+    </div></div>        
+
+<div class="col-md-6">
+  <div class="form-group">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :lawfirm_address, type:"text", required:"required", class:"form-control"%>
+  </div></div>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :lawfirm_email, type:"email", required:"required", class:"form-control" %>
+  </div></div>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= form.label :phone_number %>
+    <%= form.number_field :phone_number, id: :lawfirm_phone_number, type:"number",required:"required", class:"form-control"%>
+  </div></div>
+<div class="col-md-6">
+ <div class="form-group">
+    <%= form.label :state %>
+    <%= form.text_field :state, id: :lawfirm_state, type:"text", required:"required", class:"form-control"%>
+  </div></div>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :lawfirm_city, type:"text", required:"required", class:"form-control"%>
+  </div></div>
+ 
+ 
+   
+  </div></div>
+   </div><div class="action"> <%= form.submit "Create Lawfirm" , class: "btn btn-success" %>   <%= link_to "Cancel", :back, class:"btn btn-warning"%>
+
+
+</div>
+</div>
+</div>
+</div>
+<% end %>
+

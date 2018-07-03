@@ -1,0 +1,55 @@
+<% provide( :title, "My Events") %>
+
+      <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">My Events</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+                <div>
+                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                </div>
+            </div>
+<div class="row">
+<div class="col-lg-9">
+                        <div class="card">
+                            <div class="card-body">
+        
+                               
+                                <h2 class="card-title" style="color:orange;">
+    <%= t('notifications.all_notifications') %>
+</h2>
+     <div class="bg-light p-20">
+                                <div class="d-flex">
+                                    <div class="align-self-center">
+  </div>
+  <div>
+    <% if @notifications.blank? %>
+      <div class="no-records"><%= t('notifications.no_records') %></div>
+    <% else %>
+      <% @notification_groups.each do |group, notifications| %>
+        <div class="notification-group">
+          <h6 class="card-title" style="color:orange;"><%= group %></h6>
+          </div>
+          </div>
+          </div>
+       <div class="card-body" style="font-size:16px">
+          <%= render notifications %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= paginate @notifications %>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+  <%= link_to 'Dashboard', main_app.root_path, class:"btn btn-info" %> |
+
+<%= link_to "Back", :back, class:"btn btn-warning"%> 

@@ -1,0 +1,30 @@
+ <li>
+                                         
+ <div class="chat-img"><%= image_tag(mycasecomment.mycasecommenter.avatars_url) if mycasecomment.mycasecommenter.avatars? %></div>
+
+  <div class="chat-content">
+<%if mycasecomment%>    
+   <h5><%= mycasecomment.mycasecommenter.full_name %></h5>
+ <div class="box bg-light-info">
+
+	<%= mycasecomment.content %> 
+	</div></div>
+	<div class="chat-time"><%= time_ago_in_words(mycasecomment.created_at)%> ago</div>
+
+    <%if mycasecomment.attachment?%>
+	<%= link_to "get file", download_file_mycasecomment_path(mycasecomment), data: "case_file", class:'btn-info btn-xs' %>
+	<br>
+	<br>
+    <%end%>
+	<%= link_to "delete", [mycasecomment.mycase, mycasecomment], method: :delete, data: {confirm: "Are you sure"}%>
+		
+     
+	 <%end%>
+	
+ 
+ </li>
+	
+ 
+
+
+ 

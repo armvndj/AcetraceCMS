@@ -1,0 +1,195 @@
+<% provide( :title, "Super Admin") %>
+
+   <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Super Admin Dashboard</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+                <div>
+                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="card-group">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="m-b-0"><i class="mdi mdi-briefcase-check text-info"></i></h2>
+                                    <h3 class=""><%=lawfirmscount%></h3>
+                                    <h6 class="card-subtitle">Lawfirms</h6></div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 85%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="m-b-0"><i class="mdi mdi-alert-circle text-success"></i></h2>
+                                    <h3 class=""><%=alluser%></h3>
+                                    <h6 class="card-subtitle">System Users</h6></div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 40%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="m-b-0"><i class="mdi mdi-wallet text-purple"></i></h2>
+                                    <h3 class=""><%=adminscount%></h3>
+                                    <h6 class="card-subtitle">Admins</h6></div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 56%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="m-b-0"><i class="mdi mdi-buffer text-warning"></i></h2>
+                                    <h3 class=""><%=allcases%></h3>
+                                    <h6 class="card-subtitle">Total Cases</h6></div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 26%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="m-b-0"><i class="mdi mdi-buffer text-warning"></i></h2>
+                                    <h3 class=""><%=@total['data']['total_transactions']%></h3>
+                                    <h6 class="card-subtitle">Total Transactions</h6></div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 26%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+
+
+                     <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="m-b-0"><i class="mdi mdi-buffer text-warning"></i></h2>
+                                    <h3 class=""><%=@total['data']['total_volume']/100%></h3>
+                                    <h6 class="card-subtitle">Total Earnings</h6></div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 26%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-flex flex-wrap">
+                                            <div>
+                                                <h4 class="card-title">Administrative Panel</h4>
+                                            </div>
+                                            <div class="ml-auto">
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>System</h6> </li>
+                                                    <li>
+                                                        <h6 class="text-muted  text-info"><i class="fa fa-circle font-10 m-r-10"></i>Settings</h6> </li>
+                                                </ul>
+
+
+
+
+            
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                      
+
+                  <a class="media media-single" href="/L3D7ZLU9SEMWM0R7F8O906ILVU5WY91WV4MUJJKSTM774ONCMBTNVTMNJJHSQKH80OCASGF3F0S-acetrace-lawfirms-repo">
+                  <h6 class="w-60px"><i class="fa fa-tag"></i></h6>
+                  <div class="media-body">
+                    <h5> Lawfirms</h5>
+                    <small class="text-fader"><i class="fa fa-person"></i> lawfirms</small>
+                  </div>
+                  
+                </a>
+             
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+          <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->

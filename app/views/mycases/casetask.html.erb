@@ -1,0 +1,122 @@
+ <% provide( :title, @mycase.caseNo) %>
+
+
+
+
+      <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Case Tasks - <%=@mycase.subject%></h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+                <div>
+                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+
+
+
+
+
+
+
+<div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <%if current_user.admin?%>
+                                <button class="pull-right btn btn-sm btn-rounded btn-info" data-toggle="modal" data-target="#myModal">Add Task</button>
+                                <%end%>
+                                <h4 class="card-title">Case To Do list</h4>
+                                <h6 class="card-subtitle">List of next task to complete</h6>
+                                <!-- ============================================================== -->
+                                <!-- To do list widgets -->
+                                <!-- ============================================================== -->
+                                <div class="to-do-widget m-t-20">
+                                    <!-- .modal for add task -->
+                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Add Task</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    
+                                                      
+                                                        
+
+
+<%= form_for([@mycase, @mycase.tasks.build], html: { multipart: true }) do |f| %>
+<form>
+   <div class="form-group">
+   <label>Task name</label>
+                                                           
+    <%= f.text_area :message, placeholder: "Enter Task Name" , class: "form-control"%>
+  
+  
+                                                           </div>
+
+    <div class="form-group">
+    <%= f.file_field :document, class: "btn btn-sm btn-secondary"%>
+  <%= f.hidden_field :document_cache %>
+  </div>
+
+
+
+
+
+<div class="form-group">
+                                                            
+     <label>Assign to</label>                                                       
+ 
+    <%= f.select :taskter_id,  current_user.lawfirm.attorneys.map{|client|[(client.first_name+" "+client.last_name), client.id]}, include_blank: true, id: "index_of_the_client_id_select_box", class:"custom-select form-control pull-right"%>
+
+
+
+                                                        </div>
+                                                    
+                                                </div>
+                                                <div class="modal-footer">
+
+
+                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <%= f.submit "Add Task", class: "btn btn-success" %>
+  </div>
+    
+  <% end %>
+</form> 
+                                               </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                    <!-- /.modal -->
+
+<ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+                                
+
+<%= pluralize @mycase.tasks.size,'task' %> so far
+
+
+<%= render :partial =>'tasks/task',
+:collection => @mycase.tasks  %>
+                                    
+
+
+
+  
+  
+  
+  
+  

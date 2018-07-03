@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+      <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon.png">
+    <title><%= full_title( yield( :title)) %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	<%= render 'layouts/shim' %>
+	<!-- Latest compiled and minified CSS -->
+ </head>
+
+  <body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+  
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+     
+	   
+	   <%= render 'layouts/header' %>
+		
+
+    
+		 <div class="page-wrapper">
+          
+			 <% flash.each do |message_type, message| %>
+		<div class="alert alert-success" role="alert"><%= message_type.to_s.capitalize %> - <%= message %></div>
+		
+		<% end %>
+		 <% unless flash.empty? %>
+     <script type="text/javascript">
+          <% flash.each do |f| %>
+      <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+     toastr['<%= type %>']('<%= f[1] %>');
+   <% end %>
+     </script>
+<% end %>
+		
+	
+	    
+			<%= yield %>
+			
+			
+	
+   </div>
+   </div>
+    
+  </body>
+</html>
+
+

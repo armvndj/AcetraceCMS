@@ -1,0 +1,15 @@
+<%= form_for([@post, @post.comments.build]) do |form| %>
+ 
+
+  <div class="row">
+
+   <div class="col-md-6">
+   <div class="form-group">
+    <%= form.text_area :content, id: :comment_content, type:"text", style:"width:250px;height:250px;", required:"required", class:"form-control"%>
+  </div></div>
+
+</div>
+   <%= form.submit "Post Comment" , class: "btn btn-success" %>  
+  
+<% end %>
+

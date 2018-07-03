@@ -1,0 +1,112 @@
+
+<% provide( :title, "Lawfirm Attorneys") %>
+
+<%if current_user.admin? || current_user.adminassistance?%>
+
+
+      <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Lawfirm Attorneys</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+                <div>
+                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+
+  <div class="row">
+                    <div class="col-lg-9">
+                        <div class="card">
+                            <div class="card-body">
+                               
+                             
+                            </div>
+                            <div class="bg-light p-20">
+                                <div class="d-flex">
+                                    <div class="align-self-center">
+                                        <h3 class="m-b-0">Lawfirm Atorneys Repo</h3><small>All Lawfirm Attorneys</small></div>
+                                    <div class="ml-auto align-self-center">
+                                        <h2 class="text-success"></h2></div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                   <% if @lawfirm_attorneys.any?%> <table class="table table-hover earning-box">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Name</th>
+                                                <th></th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+        
+           <% @lawfirm_attorneys.each do |user| %>
+<tr>
+                                                <td style="width:50px;">
+<%if user.avatars?%>
+                                                <span class="round"><%= image_tag user.avatars_url, style:"width:50px;" %>
+<%end%>
+                                            </span></td>
+                                                <td>
+                                                    <h6><%= user.full_name %></h6><small class="text-muted"><%= user.phone_number %></small></td>
+                                                <td> <%= link_to 'view profile', attorney_path(user) %>
+                                                <%= link_to 'Edit', edit_attorney_path(user) %>
+      <%= link_to 'Delete', attorney_path(user.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+             </td>
+                                                <td><%= user.email %></td>
+                                            </tr>
+                                                       
+
+
+<%end%>
+
+                                        </tbody>
+                                    </table>
+
+
+           <%else%>
+<h5>There are no Attorneys on this lawfirm yet!</h5>
+<%end%>
+
+
+
+<%= link_to 'Add New Attorney', new_attorney_path, class:"btn btn-success" %>
+
+  <%= link_to 'Dashboard', root_path, class:"btn btn-info" %> |
+
+<%= link_to "Back", :back, class:"btn btn-warning"%> 
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+<%else%>
+
+<h5>Your are not allowed to view this page</h5>
+
+ <%end%>
+
+
+
+
+

@@ -1,0 +1,125 @@
+
+  <div class="row">
+
+   <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                               
+                                
+                <div class="row">
+<%= form_with(model: mycase, local: true) do |form| %>
+  <% if mycase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mycase.errors.count, "error") %> prohibited this mycase from being saved:</h2>
+
+      <ul>
+      <% mycase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+ <%if current_user.admin?%> 
+ <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :caseNo %>
+    <%= form.text_field :caseNo, id: :mycase_caseNo, class:"form-control" %>
+  </div></div>
+<div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :client_name %>
+    <%= form.text_field :client_name, id: :mycase_client_name, required:"required", class:"form-control" %>
+  </div></div>
+<div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :subject %>
+    <%= form.text_field :subject, id: :mycase_subject, required:"required", class:"form-control" %>
+  </div>
+</div>
+<div class="col-md-6">
+ <div class="form-group">
+    <%= form.label :area_of_practice %>
+    <%= form.text_field :area_of_practice, id: :mycase_area_of_practice, required:"required", class:"form-control"%>
+  </div></div>
+<div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :opponents %>
+    <%= form.text_area :opponents, id: :mycase_opponents, required:"required", class:"form-control" %>
+  </div></div>
+<div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :assigned_attorney %>
+    <%= form.text_field :assigned_attorney, id: :mycase_assigned_attorney, required:"required", class:"form-control"%>
+  </div></div>
+  <div class="col-md-6">
+ <div class="form-group">
+    <%= form.label :arrival_date %>
+    <%= form.date_select :arrival_date, id: :mycase_arrival_date, required:"required", class:"form-control" %>
+  </div></div>
+
+
+
+<div class="col-md-6">
+
+  <div class="form-group">
+    <%= form.label :due_date %>
+    <%= form.date_select :due_date, id: :mycase_due_date, class:"form-control" %>
+  </div></div>
+
+
+ <div class="form-group">
+    <%= form.label :summary_of_brief %>
+    <%= form.text_area :summary_of_brief, id: :mycase_summary_of_brief, type:"text", required:"required", class:"form-control" %>
+  </div>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= form.label :add_judge %>
+    <%= form.text_field :add_judge, id: :mycase_add_judge, type:"text", required:"required", class:"form-control" %>
+  </div></div>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= form.label :add_court %>
+    <%= form.text_field :add_court, id: :mycase_add_court, type:"text", required:"required", class:"form-control" %>
+  </div></div>
+ 
+<div class="col-md-6">
+ <div class="form-group">  
+    <%= form.label :client_id, "Client"%>
+	<%= form.collection_select :client_id, User.order(:first_name),:id, :first_name, include_blank: true, class:"form-control" %>
+   
+  </div></div>
+
+   <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :cost %>
+    <%= form.text_field :cost, id: :mycase_cost, type:"number", required:"required", class:"form-control"%>
+    </div></div>
+  
+
+<%end%>
+
+<div class="col-md-6">
+ <div class="form-group">
+  <%= form.label :status, "Update Case Status(Please be sure this case has successfully passed the current status)" %><br>
+  <%=  form.collection_select :status, Mycase.statuses.map{ |a| [a.first,a.first] },  :first, :second, class:"form-control" %>
+</div></div>
+
+<div class="col-md-6">
+ <div class="form-group">
+</div></div>
+
+
+  <div class="actions">
+    <%= form.submit "Update Case", class:"btn btn-success"%> | <%= link_to 'Show Case', @mycase, class:"btn btn-info" %> |
+ <%= link_to "Back", :back, class:"btn btn-warning"%>
+
+  </div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
+

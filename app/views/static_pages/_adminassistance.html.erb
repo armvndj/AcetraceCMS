@@ -1,0 +1,214 @@
+<% provide( :title, "Lawfirm Admin Dashboard") %>
+
+   
+       <!-- ============================================================== -->
+      
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Lawfirm Admin Dashboard</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+                <div>
+                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="card-group">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="m-b-0"><i class="mdi mdi-briefcase-check text-info"></i></h2>
+                                    <h3 class=""><%=lawfirmcasescount%></h3>
+                                    <h6 class="card-subtitle">Lawfirm Cases</h6></div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 85%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="m-b-0"><i class="mdi mdi-alert-circle text-success"></i></h2>
+                                    <h3 class=""><%=clientscount%></h3>
+                                    <h6 class="card-subtitle">Clients</h6></div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 40%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="m-b-0"><i class="mdi mdi-wallet text-purple"></i></h2>
+                                    <h3 class=""><%=lawfirmusercount%></h3>
+                                    <h6 class="card-subtitle">Lawfirm Users</h6></div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 56%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="m-b-0"><i class="mdi mdi-buffer text-warning"></i></h2>
+                                    <h3 class=""><%=attorneyscount%></h3>
+                                    <h6 class="card-subtitle">Attorneys</h6></div>
+                                <div class="col-12">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 26%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                     <div class="col-lg-8 col-xlg-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-flex flex-wrap">
+                                            <div>
+                                                <h4 class="card-title">Administrative Panel</h4>
+                                            </div>
+                                            <div class="ml-auto">
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>System</h6> </li>
+                                                    <li>
+                                                        <h6 class="text-muted  text-info"><i class="fa fa-circle font-10 m-r-10"></i>Settings</h6> </li>
+                                                </ul>
+
+
+
+
+            
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                <a class="media media-single" href="/legalcase-new-entry">
+                   <h6 class="w-60px"><i class="fa fa-legal"></i></h6>
+                  <div class="media-body">
+                    <h5>Create Case</h5>
+                    <small class="text-fader"><i class="fa fa-plus"></i> new legal-case</small>
+                  </div>
+                  
+                </a>
+
+               
+               <a class="media media-single" href="/clients/new">
+                 <h6 class="w-60px"><i class="fa fa-user"></i></h6>
+                  <div class="media-body">
+                    <h5>Add New Client</h5>
+                    <small class="text-fader"><i class="fa fa-plus"></i>client user</small>
+                  </div>
+                  
+                </a>
+
+                <a class="media media-single" href="/attorneys/new">
+                  <h6 class="w-60px"><i class="fa fa-tag"></i></h6>
+                  <div class="media-body">
+                    <h5>Add New Attorney</h5>
+                    <small class="text-fader"><i class="fa fa-gift"></i>attorney user</small>
+                  </div>
+                  
+                </a>
+              
+                <a class="media media-single" href="/lawfirm-legalcases-repository">
+                  <h6 class="w-60px"><i class="fa fa-money"></i></h6>
+                  <div class="media-body">
+                    <h5>Add Cost to Case</h5>
+                    <small class="text-fader"><i class="fa fa-gift"></i> money </small>
+                  </div>
+                  
+                </a>
+                <a class="media media-single" href="/lawfirm-legalcases-repository">
+                  <h6 class="w-60px"><i class="fa fa-certificate"></i></h6>
+                  <div class="media-body">
+                    <h5> Add Attorney to Case</h5>
+                    <small class="text-fader"><i class="fa fa-gift"></i> attorney</small>
+                  </div>
+                  
+                </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+
+
+</div>
+
+
+
+
+
+           
+
+
+
+
+  
+
+</div>
+</div>      
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>

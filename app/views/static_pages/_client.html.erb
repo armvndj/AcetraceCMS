@@ -1,0 +1,178 @@
+<% provide( :title, "Client Dashboard") %>
+
+   
+       <!-- ============================================================== -->
+      
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Client Dashboard</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+                <div>
+                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+
+    <div class="card-group">
+                    <a href="/client-legalcases-repo"><div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6 class="card-subtitle"><i class="mdi mdi-briefcase-check text-info"></i>Client Cases</h6>
+                                    <h3 class=""><%=usercases%></h3>
+                                    </div>
+                                <div class="col-12">
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                    <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-title"><strong>Client Desk</strong></h5>
+
+              <div class="media-list media-list-hover media-list-divided">
+              
+             
+                <a class="media media-single" href="client-legalcases-repo">
+                  <h6 class="w-60px"><i class="fa fa-comment"></i></h6>
+                  <div class="media-body">
+                    <h5>View Case Discusssions</h5>
+                    <small class="text-fader"><i class="fa fa-beer"></i> discuss</small>
+                  </div>
+                  
+                </a>
+                
+              </div>
+
+              
+            </div>
+          </div>
+
+
+
+ 
+
+
+
+
+<div class="col-md-12 col-lg-12 d-none d-lg-block">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title"><strong>Case Panel</strong></h5>
+                <div class="text-center py-20">
+                  <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7">Cases Associated to You</div>
+                </div>
+              </div>
+
+
+<div class="card-body card-body">
+                
+
+
+
+ <% if @user_cases.any?%>
+
+ <h5><strong><%= pluralize(@user_cases.count, "Case") %> Associated.
+
+  </strong><h5/>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Caseno</th>
+     
+      <th>Subject</th>
+      
+     
+      <th>Due date</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_cases.each do |mycase| %>
+  <tr>
+         
+        <td><%= mycase.caseNo %></td>
+    
+        <td><%= mycase.subject %></td>
+       
+       
+        <td><%= mycase.due_date %></td>
+        <td><%= mycase.status %></td>
+        <td><%= link_to 'Show', mycase_path(mycase) %></td>
+       </td>
+   </tr>
+   <%end%>
+  
+  </tbody>
+</table>
+<%else%>
+<div class="text-center py-20">
+                  <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7">There are no cases associated to you at the moment</div>
+                </div>
+<%end%>
+               
+              </div>
+</div>
+
+            </div>
+
+
+
+ <div class="col-md-7 col-lg-7 d-none d-lg-block">
+            <div class="card card-body">
+              <div class="flexbox align-items-center">
+                <h6 class="text-uppercase">Calender</h6>
+                <h6><i class="ion-android-arrow-dropup text-success fs-18 mr-1"></i>Monthly</h6>
+              </div>
+
+ <%=  month_calendar  events: current_user.mycases do |date, meetings| %>
+
+
+             <div class="media-body">
+                    <%= date.day%>
+                    <% meetings.each do |meeting| %>
+                    <small class="text-fader"><i class="fa fa-gift"></i> <%= meeting.subject.to_s %></small>
+                  </div>
+
+                   
+               
+                  <% end %>
+<% end %>
+
+                
+             
+        
+       
+          </div>
+          </div>
+
+
+
+</div>
+
+
+</h5>
+</h5></div></div></div>
+</div>
+</div>      
+
+</div>

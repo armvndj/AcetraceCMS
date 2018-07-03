@@ -1,0 +1,97 @@
+<%if current_user.admin? || current_user.sadmin?%>
+  <div class="col-12">
+            <div class="card">
+              <h4 class="card-title"><strong>Edit Lawfirm</strong>Entry</h4>
+
+              <div class="card-body">
+                <div class="row">
+
+<%= form_with(model: @lawfirm, local: true, html: { multipart: true }) do |form| %>
+  <% if @lawfirm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lawfirm.errors.count, "error") %> prohibited this lawfirm from being saved:</h2>
+
+      <ul>
+      <% @lawfirm.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="col-md-6">
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :lawfirm_name, class: 'form-control' %>
+  </div>
+
+  
+  <div class="field">
+  
+  <label>My Logo</label>
+  info
+    <%= image_tag(@lawfirm.logos_url)%>
+       <%= form.file_field :logos %>
+	    <label>
+        <%= form.check_box :remove_logos %>
+         Remove Logo
+        </label>
+	
+   
+  
+   
+  </div>
+  
+  
+  <div class="field">
+    <%= form.label :type_of_organization %>
+    <%= form.text_field :type_of_organization, id: :lawfirm_type_of_organization, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :lawfirm_address, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :lawfirm_email, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number %>
+    <%= form.number_field :phone_number, id: :lawfirm_phone_number, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state, id: :lawfirm_state, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :lawfirm_city , class: 'form-control'%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Update Lawfirm" , class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Show', @lawfirm, class:"btn btn-info" %> |
+ <%= link_to "Back", :back, class:"btn btn-warning"%>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<%else%>
+
+<h5>Your are not authorized  to view this page</h5>
+
+ <%end%>
+
+
+

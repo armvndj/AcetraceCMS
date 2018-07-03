@@ -1,0 +1,171 @@
+<%= wicked_pdf_stylesheet_link_tag "documents" %>
+
+<div class="document">
+
+
+  <div class="col-md-8 col-lg-8 d-none d-lg-block">
+            <div class="card">
+              
+
+
+
+             <h5 class="card-title"><strong> Legalcase at <%= current_user.lawfirm.name%> - acetracecms.com</strong></h5>
+
+
+
+
+                <h5 class="card-title"><strong>Case - <%= @mycase.caseNo %></strong></h5>
+                 <%= @mycase.caseNo %></div>
+                </div>
+              </div>
+
+
+<div class="card-body card-body">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+ <td> <strong>Caseno:</strong></td>
+  <td><%= @mycase.caseNo %></td>
+</tr>
+ <tr>
+<td>
+  <strong>Client name:</strong></td>
+  <td><%= @mycase.client_name %></td>
+</tr>
+
+ <tr>
+  <td><strong>Subject:</strong></td>
+ <td><%= @mycase.subject %></td>
+</tr>
+
+ <tr>
+  <td><strong>Area of practice:</strong></td>
+  <td><%= @mycase.area_of_practice %></td>
+</tr>
+
+ <tr>
+ <td> <strong>Opponents:</strong></td>
+ <td> <%= @mycase.opponents %></td>
+</tr>
+
+ <tr>
+  <td><strong>Assigned attorney:</strong></td>
+  <td><%= @mycase.assigned_attorney %></td>
+</tr>
+
+ <tr>
+  <td><strong>Arrival date:</strong></td>
+ <td> <%= @mycase.arrival_date %></td>
+</tr>
+
+ <tr>
+  <td><strong>Due date:</strong></td>
+  <td><%= @mycase.due_date %></td>
+</tr>
+
+ <tr>
+  <td><strong>Status:</strong></td>
+  <td><%= @mycase.status %></td>
+</tr>
+
+ <tr>
+ <td> <strong>Summary of brief:</strong></td>
+ <td> <%= @mycase.summary_of_brief %></td>
+</tr>
+
+ <tr>
+  <td><strong>Add judge:</strong></td>
+  <td><%= @mycase.add_judge %></td>
+</tr>
+
+ <tr>
+  <td><strong>Add court:</strong></td>
+  <td><%= @mycase.add_court %></td>
+</tr>
+
+ <br>
+ <td><h5><strong>Case Client</strong></h5></td>
+</tr>
+
+<div class="table-responsive">
+                          <table class="table table-hover earning-box">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Name</th>
+                                                <th></th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+<td style="width:50px;">
+<%if @client.avatars?%>
+                                                <span class="round"><%= image_tag @client.avatars_url, style:"width:50px;" %>
+
+<%end%>
+                                            </span></td>
+                                                <td>
+                                                    <h6><%= @client.full_name %></h6><small class="text-muted"><%= @client.phone_number %></small></td>
+                                 
+ <tr>
+ </tr>
+ </tbody>
+ </table>
+
+  <h5><strong>Case Attorneys</strong></h5>
+  
+</tr>
+     <div class="card-body">
+                                <div class="table-responsive">
+                                   <% if @attorneys.any?%> <table class="table table-hover earning-box">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Name</th>
+                                                <th></th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+        
+           <% @attorneys.each do |user| %>
+<tr>
+                                                <td style="width:50px;">
+<%if user.avatars?%>
+                                                <span class="round"><%= image_tag user.avatars_url, style:"width:50px;" %>
+<%end%>
+                                            </span></td>
+                                                <td>
+                                                    <h6><%= user.full_name %></h6><small class="text-muted"><%= user.phone_number %></small></td>
+                                                
+                                                <td><%= user.email %></td>
+                                            </tr>
+                                                       
+
+
+<%end%>
+
+                                        </tbody>
+                                    </table>
+
+
+           <%else%>
+<h5>There are no Attorneys assigned to this Case yet!</h5>
+<%end%>
+
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<br/>
+<br/>
+<br/>
+  <%= render :partial => 'shared/address.html.erb' %>
+</div>
