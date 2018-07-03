@@ -3,7 +3,7 @@
                             <div class="card-body">
                                
                               
-                                <h6 class="card-subtitle">Registration Phase </h6>
+                                <h6 class="card-subtitle">Lawfirm Setup </h6>
 
                 <div class="row">
 <%= form_with(model: lawfirm, local: true, html: { multipart: true }) do |form| %>
@@ -21,7 +21,7 @@
 
   <div class="col-md-6">
    <div class="form-group">
-    <%= form.label :name %>
+    <%= form.label :name, "Name of Lawfirm" %>
     <%= form.text_field :name, id: :lawfirm_name,  type:"text",required:"required", class:"form-control" %>
   </div></div>
 
@@ -29,7 +29,7 @@
  <div class="form-group">
   
  
-  <%= form.label :logo %>
+  <%= form.label :logo, "Lawfirm Logo" %>
     
 	<%= form.file_field :logos, autofocus: true, class:"form-control" %>
   
@@ -40,8 +40,8 @@
   
   <div class="col-md-6">
   <div class="form-group">
-    <%= form.label :info %>
-    <%= form.text_area :info, id: :lawfirm_info, type:"text", required:"required", class:"form-control" %>
+    <%= form.label :info, "About Lawfirm" %>
+    <%= form.text_area :info, id: :lawfirm_info, type:"text", required:"required",style:"height:250px;", class:"form-control" %>
   </div></div>
 
   <div class="col-md-6">
@@ -53,25 +53,21 @@
             
     </div></div>        
 
+
 <div class="col-md-6">
   <div class="form-group">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :lawfirm_address, type:"text", required:"required", class:"form-control"%>
-  </div></div>
-<div class="col-md-6">
-  <div class="form-group">
-    <%= form.label :email %>
+    <%= form.label :email, "Lawfirm Email" %>
     <%= form.text_field :email, id: :lawfirm_email, type:"email", required:"required", class:"form-control" %>
   </div></div>
 <div class="col-md-6">
   <div class="form-group">
-    <%= form.label :phone_number %>
+    <%= form.label :phone_number, "Lawfirm Telephone" %>
     <%= form.number_field :phone_number, id: :lawfirm_phone_number, type:"number",required:"required", class:"form-control"%>
   </div></div>
-<div class="col-md-6">
- <div class="form-group">
-    <%= form.label :state %>
-    <%= form.text_field :state, id: :lawfirm_state, type:"text", required:"required", class:"form-control"%>
+  <div class="col-md-6">
+  <div class="form-group">
+    <%= form.label :address, "Lawfirm Address" %>
+    <%= form.text_field :address, id: :lawfirm_address, type:"text", required:"required", class:"form-control"%>
   </div></div>
 <div class="col-md-6">
   <div class="form-group">
@@ -80,9 +76,15 @@
   </div></div>
  
  
+<div class="col-md-6">
+ <div class="form-group">
+    <%= form.label :state %>
+   <%= form.select :state, ["Abia","Adamawa","Akwa Ibom","Anambra","Bauchi","Bayelsa","Benue","Borno","Cross River","Delta", "Ebonyi","Edo","Ekiti","Enugu","FCT","Gombe","Imo","Jigawa","Kaduna","Kano","Katsina","Kebbi","Kogi","Kwara","Lagos","Nassarawa","Niger","Ogun","Ondo","Osun","Oyo State","Plateau","River State","Sokoto","Taraba","Yobe","Zamfara"], prompt: "Select...",class:"custom-select form-control pull-right", required:"required"%>
+         
+  </div></div>
    
   </div></div>
-   </div><div class="action"> <%= form.submit "Create Lawfirm" , class: "btn btn-success" %>   <%= link_to "Cancel", :back, class:"btn btn-warning"%>
+   </div><div class="action"> <%= form.submit "Create Lawfirm" , class: "btn btn-success" %>   
 
 
 </div>

@@ -32,7 +32,7 @@
 		 <div class="page-wrapper">
           
 			 <% flash.each do |message_type, message| %>
-		<div class="alert alert-success" role="alert"><%= message_type.to_s.capitalize %> - <%= message %></div>
+		<div class="alert alert-success" role="alert"><%= message %></div>
 		
 		<% end %>
 		 <% unless flash.empty? %>
