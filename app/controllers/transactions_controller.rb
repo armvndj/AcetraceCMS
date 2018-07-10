@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = Transaction.all
+    @ress = Transaction.all
   end
 
   # GET /transactions/1
@@ -13,6 +13,7 @@ class TransactionsController < ApplicationController
     @res = Transaction.find(params[:id])
   end
  
+
   def show
   
      new

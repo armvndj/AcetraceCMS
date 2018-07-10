@@ -22,12 +22,19 @@
 
 <div class="card-body card-body">
               <div class="card-header">
-            
+            <%if current_user.sadmin?%>
+             <h5 class="card-title"><strong>Status - <%= @res.status %></strong></h5>
+                  <div class="text-center py-20">
+                  <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7"></div>
+                </div>
+              </div>
+              <%else%>
                 <h5 class="card-title"><strong>Status - <%= @res['status'] %></strong></h5>
                   <div class="text-center py-20">
                   <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7">Lawfirm Email - <%= current_user.lawfirm.email %></div>
                 </div>
               </div>
+              <%end%>
  
 
 <div class="card-body card-body">
@@ -37,10 +44,23 @@
  <td> <strong>Reference:</strong></td>
   <td><%= @res.reference %></td>
 </tr>
+<%if current_user.sadmin?%>
+ <td> <strong>Lawfirm:</strong></td>
+  <td><%= @res.lawfirm.name %> <%= link_to "view lawfirm profile", lawfirm_path( @res.lawfirm)%></td>
+</tr>
+
+<%end%>
+
  <tr>
 <td>
-  <strong>Aount:</strong></td>
+  <strong>Amount:</strong></td>
   <td><%= @res.amount %></td>
+</tr>
+
+ <tr>
+<td>
+  <strong>Expires On:</strong></td>
+  <td><%= @res.expires_on %></td>
 </tr>
 
  <tr>

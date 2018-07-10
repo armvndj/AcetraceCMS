@@ -1,43 +1,70 @@
-<p id="notice"><%= notice %></p>
+  
+  <% provide( :title, "Transaction History") %>
 
-<h1>Subscriptions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Plan code</th>
-      <th>Amount</th>
-      <th>Lawfirm</th>
-      <th>Expires on</th>
-      <th>Amount</th>
-      <th>Reference</th>
-      <th>Customer code</th>
-      <th>Customer</th>
-      <th>Paid at</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @subscriptions.each do |subscription| %>
-      <tr>
-        <td><%= subscription.plan_code %></td>
-        <td><%= subscription.amount %></td>
-        <td><%= subscription.lawfirm %></td>
-        <td><%= subscription.expires_on %></td>
-        <td><%= subscription.amount %></td>
-        <td><%= subscription.reference %></td>
-        <td><%= subscription.customer_code %></td>
-        <td><%= subscription.customer_id %></td>
-        <td><%= subscription.paid_at %></td>
-        <td><%= link_to 'Show', subscription %></td>
-        <td><%= link_to 'Edit', edit_subscription_path(subscription) %></td>
-        <td><%= link_to 'Destroy', subscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+      <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Transaction History</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+                <div>
+                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+ <div class="col-md-8 col-lg-8 d-none d-lg-block">
+            <div class="card">
+              
 
-<%= link_to 'New Subscription', new_subscription_path %>
+
+<div class="card-body card-body">
+              <div class="card-header">
+            
+                <h5 class="card-title"><strong>Payment Reports</strong></h5>
+                  <div class="text-center py-20">
+                  <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7"></div>
+                </div>
+              </div>
+ 
+<% if @ress.any?%>
+ <h5><strong><%= pluralize(@ress.count, "Transaction") %> made.
+
+  </strong><h5/>
+
+<%@ress.each do |f| %>
+<div class="card-body card-body">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+ <td> <strong>Reference:</strong></td>
+  <td><%= f.reference %></td>
+</tr>
+ <tr>
+<td>
+  <strong>Status:</strong></td>
+  <td><%= f.status %></td>
+</tr>
+
+ <%= link_to 'view report', details_transaction_path(f.id), class:"btn btn-info" %>
+
+ <%end%>
+  <%end%>
+
+</div>
+</div>
+ <%= link_to 'Dashboard', root_path, class:"btn btn-info" %> |
+
+<%= link_to "Back", :back, class:"btn btn-warning"%> 
