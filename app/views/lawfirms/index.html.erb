@@ -58,11 +58,13 @@
                                         <thead>
                                             <tr>
                                                 <th colspan="2">Name</th>
-                                                <th></th>
+                                               
                                                 <th>Email</th>
+                                                <th>Status</th>
+                                                <th colspan="2"></th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+     <div style="font-size:16px;">                                    <tbody>
 
  <% @lawfirms.each do |lawfirm| %>
             <%unless lawfirm.name == "Acetracecms"%>
@@ -76,12 +78,15 @@
                                             </span></td>
                                                 <td>
                                                     <h6><%= lawfirm.name %></h6><small class="text-muted"><%= lawfirm.phone_number %></small></td>
-                                                <td> <span><%= link_to 'Show', lawfirm_path(lawfirm.id) %></span>
+                                               
+                                                <td><%= lawfirm.email %></td>
+                                                <td><%= lawfirm.status %></td>
+
+                                                 <td> <span><%= link_to 'Show', lawfirm_path(lawfirm.id) %></span>
         <span><%= link_to 'Edit', edit_lawfirm_path(lawfirm) %></span>
         <span><%= link_to 'Delete', lawfirm_path(lawfirm.id), method: :delete, data: { confirm: 'Are you sure?' } %></span>
 
               </span></td>
-                                                <td><%= lawfirm.email %></td>
                                             </tr>
                                                        <%end%>
 
@@ -96,7 +101,7 @@
                         </div>
                     </div>
 
-
+</div>
  
 </div>
 </div>
