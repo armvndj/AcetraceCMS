@@ -78,7 +78,7 @@
                                                     <h6><%= lawfirm.name %></h6><small class="text-muted"><%= lawfirm.phone_number %></small></td>
                                                 <td> <span class="btn-info btn-xs"><%= link_to 'Show', lawfirm_path(lawfirm.id) %></span>
         <span class="btn-warning btn-xs"><%= link_to 'Edit', edit_lawfirm_path(lawfirm) %></span>
-        <span class="btn-danger btn-xs"><%= link_to 'Delete', lawfirm_path(lawfirm.id), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        <span style="color:white;" class="btn-primary btn-xs"><%= link_to 'Delete', lawfirm_path(lawfirm.id), method: :delete, data: { confirm: 'Are you sure?' } %></span>
 
               </span></td>
                                                 <td><%= lawfirm.email %></td>

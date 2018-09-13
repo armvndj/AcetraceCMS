@@ -71,7 +71,10 @@
         <span class="btn-danger btn-xs"><%= link_to 'Delete', users_admin_path(user.id), method: :delete, data: { confirm: 'Are you sure?' } %></span>
 
               </span></td>
+              <%if user.lawfirm%>
                                                 <td><%= user.lawfirm.name %></td>
+
+                                                <%end%>
                                             </tr>
                                                        
 
