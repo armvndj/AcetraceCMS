@@ -15,7 +15,7 @@ class TransactionsController < ApplicationController
  
 
   def show
-  
+  res = 0;
      new
     transaction_reference = params[:trxref]
   transactions = PaystackTransactions.new(@paystackObj)
@@ -38,7 +38,7 @@ class TransactionsController < ApplicationController
           gateway_response: @res['gateway_response'],
           currency: @res['currency'], 
           status: @res['status'], 
-          expires_on: Date.today + res.days)
+          expires_on: Date.today + res)
    
   else
     redirect_to new_transaction_path, notice: 'Payment Failed. Please try again'

@@ -7,6 +7,7 @@ class RetractsController < ApplicationController
   # GET /transactions/1
   # GET /transactions/1.json
   def show
+    res = 0
     @paystackObj = Paystack.new(ENV['PUBLIC_KEY'], ENV['SECRET_KEY'])
     transaction_reference = params[:trxref]
     transactions = PaystackTransactions.new(@paystackObj)
@@ -28,12 +29,13 @@ class RetractsController < ApplicationController
       end
         lawfirm.transactions.create(amount: @res['amount'],
           channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
-          currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days)
+          currency: @res['currency'], status: @res['status'], expires_on: Date.today + res)
   
   end
 
   end
   def web
+    res = 0;
     @paystackObj = Paystack.new(ENV['PUBLIC_KEY'], ENV['SECRET_KEY'])
     transaction_reference = params[:trxref]
     transactions = PaystackTransactions.new(@paystackObj)
@@ -55,7 +57,8 @@ class RetractsController < ApplicationController
       end
         lawfirm.transactions.create(amount: @res['amount'],
           channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
-          currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days)
+          currency: @res['currency'], status: @res['status'], expires_on: Date.today + res
+          )
   
   end
 
