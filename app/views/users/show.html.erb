@@ -54,8 +54,13 @@
 Acetracecms
 
 <%else%>
+
+    <%if @user.lawfirm%>
           <%=link_to @user.lawfirm.name, lawfirm_path(@user.lawfirm.id)%></button></center>
-          <%end%>
+      <%else%>
+     <p style="font-size:16px; color:red;"> This Admin did not create a Lawfirm</p>
+        <%end%>
+  <%end%>
         </div>
         <!-- END SIDEBAR BUTTONS -->
         <!-- SIDEBAR MENU -->
@@ -109,7 +114,7 @@ Acetracecms
   <tbody>
     <% @user_cases.each do |mycase| %>
   <tr>
-         
+         <div style="font-size:16px;"> 
         <td><%= mycase.caseNo %></td>
         
         <td><%= mycase.subject %></td>
@@ -178,6 +183,7 @@ Acetracecms
  Address - 
   <%= @user.city %>
 </h6>
+</div>
 <%if current_user.id == @user.id%>
     <%= link_to 'Update Profile', edit_user_registration_path %> |
   <%else%>

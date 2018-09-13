@@ -57,7 +57,7 @@
                                         <tbody>
             <% if @admins.any?%>
            <% @admins.each do |user| %>
-            
+            <div style="font-size:16px;">
 <tr>
                                                 <td style="width:50px;">
 <%if user.avatars?%>
@@ -68,11 +68,14 @@
                                                     <h6><%= user.full_name %></h6><small class="text-muted"><%= user.phone_number %></small><p><small> <%= user.email %></small></p></td>
                                                 <td> <span class="btn-info btn-xs"><%= link_to 'view profile', users_admin_path(user) %></span>
         <span class="btn-warning btn-xs"><%= link_to 'Edit', edit_users_admin_path(user) %></span>
-        <span class="btn-danger btn-xs"><%= link_to 'Delete', users_admin_path(user.id), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        <span><%= link_to 'Delete', users_admin_path(user.id), method: :delete, data: { confirm: 'Are you sure?' } %></span>
 
               </span></td>
               <%if user.lawfirm%>
                                                 <td><%= user.lawfirm.name %></td>
+
+                                                 <%else%>
+     <p style="font-size:16px; color:red;"> This Admin did not create a Lawfirm</p>
 
                                                 <%end%>
                                             </tr>
@@ -89,7 +92,7 @@
            <%else%>
 <h5>There are no admins yet!</h5>
 <%end%>
-
+</div>
 <%= link_to 'Dashboard', root_url, class:"btn btn-info" %>
 <%= link_to "Back", :back, class:"btn btn-warning"%>
 

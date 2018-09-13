@@ -920,6 +920,7 @@ Table Cell
 
 .table td,
 .table th {
+     font-weight: 300;
     border-color: $table-border;
 }
 
@@ -1097,7 +1098,7 @@ Wave Effects
 }
 
 .badge-xs {
-    font-size: 9px;
+    font-size: 14px;
 }
 
 .badge-xs,
@@ -1179,7 +1180,7 @@ Buttons
     border-radius: 100%;
     width: 40px;
     height: 40px;
-    padding: 10px;
+    padding: 14px;
 }
 
 .btn-circle.btn-sm {
@@ -1206,12 +1207,14 @@ Buttons
 
 .btn-sm {
     padding: .25rem .5rem;
-    font-size: 12px;
+    color: #ffffff;
+    font-size: 14px;
 }
 
 .btn-xs {
     padding: .25rem .5rem;
-    font-size: 10px;
+    color: #ffffff;
+    font-size: 14px;
 }
 
 .button-list button,
@@ -1234,11 +1237,11 @@ Buttons
     }
     &.btn-sm {
         padding: .25rem .5rem;
-        font-size: 12px;
+        font-size: 14px;
     }
     &.btn-xs {
         padding: .25rem .5rem;
-        font-size: 10px;
+        font-size: 14px;
     }
     &.btn-md {
         padding: 12px 35px;
@@ -2264,7 +2267,7 @@ Layouts
 
 .profile-userbuttons .btn {
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   padding: 6px 15px;
   margin-right: 5px;
@@ -2361,14 +2364,14 @@ Layouts
 	a{
 	color:#397CAC;
 	text-decoration: none;
-	font-weight: 100;
+	font-weight: 300;
 	font-size: 1.25rem;
 
 	}
 	}
 	.date{
 	margi-top: .25rem;
-	font-size: 0.9rem;
+	font-size: 1.25rem;
 	color: #B2BAC2;
 	}
 	}
