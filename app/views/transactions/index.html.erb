@@ -47,24 +47,25 @@
 <%@ress.each do |f| %>
 <div class="card-body card-body">
                   <table style="font-size:16px;" class="table table-user-information">
+                  <thead>
                    <tr>
                      <th>Reference</th>
                      <th>Status</th>
                      <th colspan="2"></th>
 
                     </tr>
+                    </thead>
                     <tbody>
                       <tr>
- <td> <strong>Reference:</strong></td>
+
   <td><%= f.reference %></td>
-</tr>
- <tr>
-<td>
-  <strong>Status:</strong></td>
+
+
   <td><%= f.status %></td>
-</tr>
+
 
  <%= link_to 'view report', details_transaction_path(f.id), class:"btn btn-info" %>
+</tr>
 </tbody>
 </table>
 
