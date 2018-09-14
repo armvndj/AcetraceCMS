@@ -81,11 +81,12 @@
  <td><%= @res.currency%></td>
 </tr>
 
+<%if @res.created_at%>
  <tr>
   <td><strong>Paid At:</strong></td>
  <td><%= @res.created_at%></td>
 </tr>
-
+<%end%>
 </div>
 </div>
 

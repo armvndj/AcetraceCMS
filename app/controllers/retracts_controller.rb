@@ -30,7 +30,7 @@ class RetractsController < ApplicationController
         lawfirm.transactions.create(amount: @res['amount'],
           channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
           currency: @res['currency'], status: @res['status'], expires_on: Date.today + res,
-          created_at: Time.now)
+          created_at: Time.now, updated_at: Time.now)
   
   end
 
@@ -59,7 +59,7 @@ class RetractsController < ApplicationController
         lawfirm.transactions.create(amount: @res['amount'],
           channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
           currency: @res['currency'], status: @res['status'], expires_on: Date.today + res,
-          created_at: Time.now
+          created_at: Time.now, updated_at: Time.now
           )
   
   end
