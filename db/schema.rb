@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2027623737272136735) do
+ActiveRecord::Schema.define(version: 9999906161509136736) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -165,6 +165,8 @@ ActiveRecord::Schema.define(version: 2027623737272136735) do
     t.string "gateway_response"
     t.string "customer_code"
     t.string "currency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["lawfirm_id"], name: "index_transactions_on_lawfirm_id"
   end
 
