@@ -38,7 +38,8 @@ class TransactionsController < ApplicationController
           gateway_response: @res['gateway_response'],
           currency: @res['currency'], 
           status: @res['status'], 
-          expires_on: Date.today + res)
+          expires_on: Date.today + res,
+          created_at: Time.now)
    
   else
     redirect_to new_transaction_path, notice: 'Payment Failed. Please try again'
