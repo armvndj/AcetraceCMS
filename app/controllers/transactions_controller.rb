@@ -38,7 +38,7 @@ class TransactionsController < ApplicationController
           gateway_response: @res['gateway_response'],
           currency: @res['currency'], 
           status: @res['status'], 
-          expires_on: Date.today + res,
+          expires_on: Date.today + res.days,
           created_at: Time.now,
           updated_at: Time.now)
    
