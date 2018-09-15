@@ -1,7 +1,7 @@
 class Recharge
   include Delayed::RecurringJob
   run_every 1.day
-  run_at '07:45am'
+  run_at '09:00am'
   timezone 'Africa/Lagos'
   queue 'slow-jobs'
   def perform
