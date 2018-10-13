@@ -97,7 +97,11 @@ end
   resources :mycases, :path => 'legal-case' do
      resources :mycasecomments
 	   resources :tasks
-  end	 
+  end	
+  resources :tasks
+  resources :mycases, :path => 'legal-case' do
+     resources :tasks
+  end   
   resources :posts, :path => 'PFPM02FLORDO2WZF4QU47NORRUUP6WSU80K7K7VMRZKYP5JIDZAWLXP5KBNIMPV4E0QYWJSQUB5-acetracecms-forum-repo'
  resources :posts, :path => 'Acetrace-Forum-Post' do
      resources :comments

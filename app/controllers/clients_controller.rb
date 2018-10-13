@@ -51,11 +51,15 @@ end
  end
 def update
     #@lawfirm = Lawfirm.find_by(params[:lawfirm_id])
-     @user=Client.find_by(params[:id])
+     @user=Client.find(params[:id])
+     @user.update(user_params)
+if @user.update(user_params)
+    
+    redirect_to @user, notice: 'Client was successfully updated.' 
 
-    @user.update(user_params)
-    redirect_to attorneys_path(@user), notice: 'Client was successfully updated.' 
-        
+  else
+    redirect_to @user, notice: @user.errors 
+  end     
  end
   # POST /resource
   def create

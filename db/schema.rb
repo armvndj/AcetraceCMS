@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 9999906161509136736) do
+ActiveRecord::Schema.define(version: 9999906161509136738) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -99,6 +99,14 @@ ActiveRecord::Schema.define(version: 9999906161509136736) do
     t.integer "client_id"
     t.float "cost"
     t.string "slug"
+    t.string "entity"
+    t.string "company_name"
+    t.string "rc"
+    t.string "rep_first"
+    t.string "rep_last"
+    t.string "f_name"
+    t.string "l_name"
+    t.string "company_spec"
     t.index ["admin_id"], name: "index_mycases_on_admin_id"
     t.index ["slug"], name: "index_mycases_on_slug", unique: true
   end
@@ -194,6 +202,7 @@ ActiveRecord::Schema.define(version: 9999906161509136736) do
     t.string "avatars"
     t.string "slug"
     t.string "type"
+    t.string "position"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true

@@ -13,31 +13,29 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-	<%= render 'layouts/shim' %>
-	<!-- Latest compiled and minified CSS -->
+  <%= render 'layouts/shim' %>
+  <!-- Latest compiled and minified CSS -->
  </head>
 
   <body class="fix-header fix-sidebar card-no-border">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
-   
+  
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
-   
-	   <%= render 'layouts/header' %>
-		
-
+     
     
-		 <div class="page-wrapper">
+    
+     <div class="page-wrapper">
           
-			 <% flash.each do |message_type, message| %>
-		<div class="alert alert-success" role="alert"><%= message_type.to_s.capitalize %> - <%= message %></div>
-		
-		<% end %>
-		 <% unless flash.empty? %>
+       <% flash.each do |message_type, message| %>
+    <div class="alert alert-success" role="alert"><%= message %></div>
+    
+    <% end %>
+     <% unless flash.empty? %>
      <script type="text/javascript">
           <% flash.each do |f| %>
       <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
@@ -45,13 +43,13 @@
    <% end %>
      </script>
 <% end %>
-		
-	
-	    
-			<%= yield %>
-			
-			
-	
+    
+  
+      
+      <%= yield %>
+      
+      
+  
    </div>
    </div>
     

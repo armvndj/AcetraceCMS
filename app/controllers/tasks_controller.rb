@@ -101,11 +101,11 @@ end
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
-    @mycase = Mycase.find(params[:mycase_id])
-     @task=@mycase.tasks.find(params[:id])
+    @task = Task.find(params[:id])
+    id = @task.mycase.id
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to casetask_mycase_path(@mycase.id), notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to casetask_mycase_path(id), notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

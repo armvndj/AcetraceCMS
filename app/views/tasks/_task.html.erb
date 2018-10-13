@@ -7,10 +7,13 @@
                                                 <input type="checkbox" id="inputSchedule" name="inputCheckboxesSchedule">
                                                 <label for="inputSchedule" class=""> <span><%= task.message %></span> </label>
 <%if task.document?%>
-<i class="fa fa-file"></i><span class="label label-warning"><%= link_to "download task file", download_file_task_path(task), data: "task_file", class: "btn-info" %></span> </label>  <%end%>
+<i class="fa fa-file"></i><span class="label label-info"><%= link_to "download task file", download_file_task_path(task), data: "task_file", class: "btn-info" %></span> </label>  
+<%end%>
 
 
-                                                <span class="label label-danger"><%= link_to "delete", [task.mycase, task], method: :delete, data: {confirm: "Are you sure"}%></span> </label>
+                                                <span class="label label-warning"><%= link_to "delete", [task], method: :delete, data: {confirm: "Are you sure"}, class: "btn-warning"%></span> </label>
+
+                                             
                                             </div>
 
 
@@ -32,18 +35,13 @@
 </li>
                                             </ul>
                                         </li>
-                                         </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                                        <%end%>
+                   
 
 
 
   
 
-<%end%>
+
 
 

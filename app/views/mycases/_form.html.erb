@@ -27,11 +27,46 @@
     <%= form.label :caseNo %>
     <%= form.text_field :caseNo, id: :mycase_caseNo, class:"form-control" %>
   </div></div>
+
+  <h2>Private Individual</h2>
 <div class="col-md-6">
    <div class="form-group">
-    <%= form.label :client_name %>
-    <%= form.text_field :client_name, id: :mycase_client_name, required:"required", class:"form-control" %>
-  </div></div>
+    <%= form.label :f_name, "Client First Name" %>
+    <%= form.text_field :f_name, id: :mycase_f_name, type:"text", required:"required", class:"form-control"%>
+    </div</div>
+
+  <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :l_name, "Client Last Name" %>
+    <%= form.text_field :l_name, id: :mycase_l_name, type:"text", required:"required", class:"form-control"%>
+    </div</div>
+
+
+<h2>Corporate Entity</h2>
+ <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :company_name %>
+    <%= form.text_field :company_name, id: :mycase_company_name, type:"text", required:"required", class:"form-control"%>
+    </div</div>
+
+  <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :rc %>
+    <%= form.text_field :rc, id: :mycase_rc, type:"text", required:"required", class:"form-control"%>
+    </div</div>
+  
+
+
+       <div class="form-group">
+    <%= form.label :rep_first, "Rep. First name" %>
+    <%= form.text_field :rep_first, id: :mycase_rep_first, type:"text", required:"required", class:"form-control"%>
+    </div</div>
+
+     <div class="form-group">
+    <%= form.label :rep_last, "Rep. Last name" %>
+    <%= form.text_field :rep_last, id: :mycase_rep_last, type:"text", required:"required", class:"form-control"%>
+    </div</div>
+
 <div class="col-md-6">
    <div class="form-group">
     <%= form.label :subject %>

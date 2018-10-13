@@ -137,53 +137,14 @@
  </div>
 
 
- <div class="col-md-5 col-lg-5 d-none d-lg-block">
-            <div class="card card-body">
-              <div class="flexbox align-items-center">
-                <h6 class="text-uppercase">Assign Roles</h6>
-                <h6><i class="ion-android-arrow-dropup text-success fs-18 mr-1">here</i></h6>
-              </div>
 
- 
   <br>
   
-  <%if current_user.has_role? :lawfirmadmin, current_user.lawfirm%>
-  <%= link_to "Make admin assistance", make_adminassistance_users_admin_path(@user.id) , class: "btn btn-info"%>
-  <br>
-  <br>
-  <%= link_to "Revoke admin assistance", remove_adminassistance_users_admin_path(@user.id) , class: "btn btn-danger"%>
- 
- <br>
-  <br>
-  <%= link_to "Make lawfirm attorney", make_attorney_users_admin_path(@user.id) , class: "btn btn-primary"%>
-<br>
-  <br>
-  <%= link_to "Revoke lawfirm attorney", remove_attorney_users_admin_path(@user.id) , class: "btn btn-danger"%>
+  
 
-  <br>
-<br>
-<%end%>
+ <%= link_to 'Dashboard', root_path, class:"btn btn-info" %> |
 
-<%if current_user.has_role? :admin%>
-<%= link_to "Make lawfirm admin", make_lawfirmadmin_users_admin_path(@user.id) , class: "btn btn-success"%>
- <br>
-  <br>
-    <%= link_to "Revoke lawfirm admin", remove_lawfirmadmin_users_admin_path(@user.id) , class: "btn btn-danger"%>
-  <br>
-  <br>
-
-  <%= link_to "Make super admin", make_superadmin_users_admin_path(@user.id) , class: "btn btn-info"%>
-
-  <br>
-  <br>
-  <%= link_to "Revoke super admin", remove_superadmin_users_admin_path(@user.id) , class: "btn btn-danger"%>
-
-  <br>
-  <%end%>
-
-<%= link_to "Back To Users", users_admin_index_path , class: "btn btn-success"%>
-
-
+<%= link_to "Back", :back, class:"btn btn-warning"%> 
 
 </div>
 </div>

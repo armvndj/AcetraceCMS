@@ -1,13 +1,11 @@
-
-  <div class="row">
-
+ <div class="row">
    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
                                
                                
                 
-<div>
+
 <%= form_with(model: mycase, local: true) do |form| %>
   <% if mycase.errors.any? %>
     <div id="error_explanation">
@@ -20,17 +18,29 @@
       </ul>
     </div>
   <% end %>
-  
+  <h2>Client Data</h2>
  <div class="row">
 
-  
 <div class="col-md-6">
    <div class="form-group">
-    <%= form.label :client_name %>
-    <%= form.text_field :client_name, id: :mycase_client_name, type:"text", required:"required", class:"form-control"%>
-    </div</div>
+    <%= form.label :f_name, "Client First Name" %>
+    <%= form.text_field :f_name, id: :mycase_f_name, type:"text", required:"required", class:"form-control"%>
+    </div></div>
 
+  <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :l_name, "Client Last Name" %>
+    <%= form.text_field :l_name, id: :mycase_l_name, type:"text", required:"required", class:"form-control"%>
+    </div></div>
 
+  <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :entity %>
+    <%= form.text_field :entity, id: :mycase_entity, value: "Individual", type:"text", required:"required", class:"form-control"%>
+    </div></div>
+</div>
+  <h2>Case Details</h2>
+ <div class="row">
 <div class="col-md-6">
    <div class="form-group">
     <%= form.label :subject %>
@@ -51,8 +61,6 @@
     </div></div>
   
   <div class="col-md-6"> 
-
-
   <div class="form-group">
     <%= form.label :caseNo, "Generated CaseID" %>
   <%= form.text_field :caseNo, id: :mycase_caseNo,  value: generate_caseNo, readonly: true,  class:"form-control"%>
@@ -64,7 +72,7 @@
  <div class="col-md-6">
    <div class="form-group">
     <%= form.label :assigned_attorney %>
-    <%= form.text_field :assigned_attorney, id: :mycase_assigned_attorney, type:"text", required:"required", class:"form-control"%>
+    <%= form.text_field :assigned_attorney, id: :mycase_assigned_attorney, type:"text", class:"form-control"%>
     </div></div>
   
 
@@ -72,14 +80,14 @@
 <div class="col-md-6">
    <div class="form-group">
     <%= form.label :arrival_date, "Case Arrival date" %>
-    <%= form.date_field :arrival_date, id: :mycase_arrival_date, class:"form-control"%>
+    <%= form.date_field :arrival_date, id: :mycase_arrival_date,  required:"required", class:"form-control"%>
     </div></div>
 
  <div class="col-md-6">
    <div class="form-group">
     <%= form.label :due_date, "Case Due date" %>
      
-    <%= form.date_field :due_date, id: :mycase_due_date, autofocus: true, class:"form-control"%>
+    <%= form.date_field :due_date, id: :mycase_due_date, autofocus: true,  required:"required", class:"form-control"%>
     </div>
     </div>
 
@@ -91,20 +99,20 @@
 <div class="col-md-6">
    <div class="form-group">
     <%= form.label :add_judge %>
-    <%= form.text_field :add_judge, id: :mycase_add_judge, type:"text", required:"required", class:"form-control"%>
+    <%= form.text_field :add_judge, id: :mycase_add_judge, type:"text", class:"form-control"%>
     </div>
  </div>
 
  <div class="col-md-6">
    <div class="form-group">
     <%= form.label :add_court %>
-    <%= form.text_field :add_court, id: :mycase_add_court, type:"text", required:"required", class:"form-control"%>
+    <%= form.text_field :add_court, id: :mycase_add_court, type:"text", class:"form-control"%>
     </div></div>
 
     <div class="col-md-6">
    <div class="form-group">
     <%= form.label :cost %>
-    <%= form.text_field :cost, id: :mycase_cost, type:"number", required:"required", class:"form-control"%>
+    <%= form.text_field :cost, id: :mycase_cost, type:"number", class:"form-control"%>
     </div></div>
   
 <%end%>
@@ -129,9 +137,10 @@
     <%= form.submit "Create Case", class: "btn btn-info" %> |  <%= link_to "Back", :back, class:"btn btn-warning"%> 
   </div>
 <% end %>
-</p>
 
 </div>
 </div>
 </div>
 </div>
+</div>
+
