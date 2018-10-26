@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   get 'lawfirm-attorneys-repository' => 'static_pages#attorneys'
   get 'lawfirm-clients-repository' => 'static_pages#clients'
   get '7QXY84CQ3ZX9H21HQOVN24M5NF89L2WQQ4L3IUHW253C5JH60WA84622U9SRBYW8TMVE2B9Uacetrace-lawfirms-admins' => 'static_pages#admins'
- 
+  get 'legalcase-new-entry' => 'mycases#new'
   #get 'PW036GOYAVKRUI2S--24M5NF89L2WQQ4L3IU-HW253C5JH60WAnew-user-registration' => 'users#new'
   
 get 'M0R7F8O906ILVU5WY91WV4MUJJKSTM774ONCMBTNVTMNJJHSQKH80OCASGF3F0S-acetrace-lawfirms-new-entry' => 'lawfirms#new'
@@ -66,7 +66,6 @@ resources :sadmins
 	resources :admins
 resources :attorneys
 resources :retracts
-resources :mycases
 resources :clients
 resources :lawfirms do
       member do
