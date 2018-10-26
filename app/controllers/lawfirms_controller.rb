@@ -1,5 +1,6 @@
 class LawfirmsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  layout 'application', only: [:index, :show]
  #load_and_authorize_resource :lawfirm
   before_action :set_lawfirm, only: [:activate_lawfirm, :deactivate_lawfirm, :show, :edit, :update, :destroy]
 before_action :in_check
