@@ -20,7 +20,7 @@ Rails.application.routes.draw do
  get 'subscribers' => 'static_pages#subscribers'  
   get 'feeds' => 'notifications#index'
   post 'web' => "retracts#web"
-  post 'callback' => "transactions#callback"
+  get 'callback' => "transactions#callback"
   get 'upgrade' => "transactions#upgrade"  
 
   get '/' => 'static_pages#home'
