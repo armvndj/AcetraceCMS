@@ -19,9 +19,10 @@ Rails.application.routes.draw do
  get 'payment_history' => 'static_pages#payment_history'
  get 'subscribers' => 'static_pages#subscribers'  
   get 'feeds' => 'notifications#index'
-  post '/retracts/web', to: "retracts#web"
-  post '/transactions/callback', to: "transactions#callback"
-  post 'upgrade', to: "transactions#upgrade"  
+  post 'web' => "retracts#web"
+  get 'callback' => "transactions#callback"
+  get 'upgrade' => "transactions#upgrade"  
+
   get '/' => 'static_pages#home'
   devise_for :users, :path => 'system-authentication'
   get '/system-authentication/sign_out' => 'sessions#destroy'
