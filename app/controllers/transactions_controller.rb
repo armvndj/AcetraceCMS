@@ -13,6 +13,7 @@ class TransactionsController < ApplicationController
   def details
     @res = Transaction.find(params[:id])
   end
+
   def callback
     res = 0;
     @paystackObj = Paystack.new(ENV['PUBLIC_KEY'], ENV['SECRET_KEY'])
@@ -32,14 +33,14 @@ class TransactionsController < ApplicationController
           res = 365
       end
 
-          if current_user.lawfirm.transactions.any?
+        if current_user.lawfirm.transactions.any?
           if current_user.lawfirm.transactions.last.expires_on > Date.today
           
               rem = (current_user.lawfirm.transactions.last.expires_on - Date.today).to_s.split('/')
               offset = rem[0].to_i + res
 
 
-              @transaction = current_user.lawfirm.transactions.create(amount: @res['amount'],
+              @transaction = current_user.lawfirm.transactions.create(amount: (@res['amount'].to_f)/100,
               channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
               currency: @res['currency'], status: @res['status'], expires_on: Date.today + offset.days,
               created_at: Time.now, updated_at: Time.now)
@@ -47,7 +48,7 @@ class TransactionsController < ApplicationController
               redirect_to details_transaction_path(@transaction), notice: 'Your Subscription Upgrade was successful.'
 
           else
-             @transaction = current_user.lawfirm.transactions.create(amount: @res['amount'],
+             @transaction = current_user.lawfirm.transactions.create(amount: (@res['amount'].to_f)/100,
           channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
           currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
           created_at: Time.now, updated_at: Time.now)
@@ -58,7 +59,7 @@ class TransactionsController < ApplicationController
       
       else
 
-        @transaction =  current_user.lawfirm.transactions.create(amount: @res['amount'],
+        @transaction =  current_user.lawfirm.transactions.create(amount: (@res['amount'].to_f)/100,
           channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
           currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
           created_at: Time.now, updated_at: Time.now)
@@ -99,7 +100,7 @@ class TransactionsController < ApplicationController
               offset = rem[0].to_i + res
 
 
-              @transaction = current_user.lawfirm.transactions.create(amount: @res['amount'],
+              @transaction = current_user.lawfirm.transactions.create(amount: (@res['amount'].to_f)/100,
               channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
               currency: @res['currency'], status: @res['status'], expires_on: Date.today + offset.days,
               created_at: Time.now, updated_at: Time.now)
@@ -107,10 +108,10 @@ class TransactionsController < ApplicationController
               redirect_to details_transaction_path(@transaction), notice: 'Your Subscription Upgrade was successful.'
 
           else
-             @transaction = current_user.lawfirm.transactions.create(amount: @res['amount'],
-          channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
-          currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
-          created_at: Time.now, updated_at: Time.now)
+             @transaction = current_user.lawfirm.transactions.create(amount: (@res['amount'].to_f)/100,
+              channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
+              currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
+              created_at: Time.now, updated_at: Time.now)
 
             redirect_to details_transaction_path(@transaction), notice: 'Your Subscription was successful.'
           end
@@ -118,7 +119,7 @@ class TransactionsController < ApplicationController
       
       else
 
-        @transaction =  current_user.lawfirm.transactions.create(amount: @res['amount'],
+        @transaction =  current_user.lawfirm.transactions.create(amount: (@res['amount'].to_f)/100,
           channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
           currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
           created_at: Time.now, updated_at: Time.now)

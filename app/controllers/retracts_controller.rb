@@ -29,7 +29,7 @@ class RetractsController < ApplicationController
       end
        
 
-       lawfirm.transactions.create(amount: @res['amount'],
+       lawfirm.transactions.create(amount: (@res['amount'].to_f)/100,
           channel: @res['channel'], reference: @res['reference'], gateway_response: @res['gateway_response'], status: "success", gateway_response: @res['gateway_response'],
           currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
           created_at: Time.now, updated_at: Time.now
@@ -60,7 +60,7 @@ class RetractsController < ApplicationController
        elsif lawfirm == "yearly"
           res = 365
       end
-        lawfirm.transactions.create(amount: @res['amount'],
+        lawfirm.transactions.create(amount: (@res['amount'].to_f)/100,
           channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
           currency: @res['currency'], status: @res['status'],gateway_response: @res['gateway_response'], expires_on: Date.today + res.days,
           created_at: Time.now, updated_at: Time.now
