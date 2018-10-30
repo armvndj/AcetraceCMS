@@ -32,20 +32,20 @@ class TransactionsController < ApplicationController
           res = 365
       end
 
-         if lawfirm.transactions.any?
-          if lawfirm.transactions.last.expires_on > Date.today
+         if current_user.lawfirm.transactions.any?
+          if current_user.lawfirm.transactions.last.expires_on > Date.today
           
-              rem = (lawfirm.transactions.last.expires_on - Date.today).to_s.split('/')
+              rem = (current_user.lawfirm.transactions.last.expires_on - Date.today).to_s.split('/')
               offset = rem[0].to_i + res
 
 
-              lawfirm.transactions.create(amount: @res['amount'],
+              current_user.lawfirm.transactions.create(amount: @res['amount'],
               channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
               currency: @res['currency'], status: @res['status'], expires_on: Date.today + offset.days,
               created_at: Time.now, updated_at: Time.now)
 
           else
-               lawfirm.transactions.create(amount: @res['amount'],
+               current_user.lawfirm.transactions.create(amount: @res['amount'],
           channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
           currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
           created_at: Time.now, updated_at: Time.now)
@@ -54,7 +54,7 @@ class TransactionsController < ApplicationController
       
       else
 
-          lawfirm.transactions.create(amount: @res['amount'],
+          current_user.lawfirm.transactions.create(amount: @res['amount'],
           channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
           currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
           created_at: Time.now, updated_at: Time.now)
@@ -90,20 +90,20 @@ class TransactionsController < ApplicationController
           res = 365
       end
 
-         if lawfirm.transactions.any?
-          if lawfirm.transactions.last.expires_on > Date.today
+         if current_user.lawfirm.transactions.any?
+          if current_user.lawfirm.transactions.last.expires_on > Date.today
           
-              rem = (lawfirm.transactions.last.expires_on - Date.today).to_s.split('/')
+              rem = (current_user.lawfirm.transactions.last.expires_on - Date.today).to_s.split('/')
               offset = rem[0].to_i + res
 
 
-              lawfirm.transactions.create(amount: @res['amount'],
+              current_user.lawfirm.transactions.create(amount: @res['amount'],
               channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
               currency: @res['currency'], status: @res['status'], expires_on: Date.today + offset.days,
               created_at: Time.now, updated_at: Time.now)
 
           else
-               lawfirm.transactions.create(amount: @res['amount'],
+               current_user.lawfirm.transactions.create(amount: @res['amount'],
           channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
           currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
           created_at: Time.now, updated_at: Time.now)
@@ -112,7 +112,7 @@ class TransactionsController < ApplicationController
       
       else
 
-          lawfirm.transactions.create(amount: @res['amount'],
+          current_user.lawfirm.transactions.create(amount: @res['amount'],
           channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
           currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
           created_at: Time.now, updated_at: Time.now)
