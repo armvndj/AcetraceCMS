@@ -1,7 +1,7 @@
 class MycasesController < ApplicationController
   skip_before_action :verify_authenticity_token
   #skip_before_action :authenticate_user!, :only => [:index, :show]
-  before_action :set_mycase, only: [:assign_attorney, :new_assign, :casetask, :meet, :show, :edit, :update, :destroy]
+  before_action :set_mycase, only: [:billing, :assign_attorney, :new_assign, :casetask, :meet, :show, :edit, :update, :destroy]
 before_action :in_check
 def in_check
    if current_user.admin? || current_user.adminassistance? || current_user.client? || current_user.attorney?
@@ -156,6 +156,16 @@ end
 	
 		#@attorney_user = @mycase.attorney_user
 	#user = Challenge.find_by id: id_value
+  end
+
+   def billing
+  #@user = Mycase.find_by id: user_id
+  
+  # @user = User.find_by id: @mycase.user_id
+  #@attorney_user = User.find_by id: @mycase.attorney_id
+  
+    #@attorney_user = @mycase.attorney_user
+  #user = Challenge.find_by id: id_value
   end
   
   def meet

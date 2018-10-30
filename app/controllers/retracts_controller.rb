@@ -13,7 +13,7 @@ class RetractsController < ApplicationController
     transactions = PaystackTransactions.new(@paystackObj)
     result = transactions.verify(transaction_reference)
     @res = result['data']
-  @customer = result['data']['customer']
+    @customer = result['data']['customer']
   
   if @res['status'] == "success"
     lawfirm = lawfirm.find_by_email(@customer['email']) 
@@ -27,10 +27,33 @@ class RetractsController < ApplicationController
        elsif lawfirm == "yearly"
           res = 365
       end
-        lawfirm.transactions.create(amount: @res['amount'],
+       
+       if lawfirm.transactions.any?
+          if lawfirm.transactions.last.expires_on > Date.today
+          
+              rem = (lawfirm.transactions.last.expires_on - Date.today).to_s.split('/')
+              offset = rem[0].to_i + res
+
+
+              lawfirm.transactions.create(amount: @res['amount'],
+              channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
+              currency: @res['currency'], status: @res['status'], expires_on: Date.today + offset.days,
+              created_at: Time.now, updated_at: Time.now)
+
+          end
+
+      
+      else
+
+          lawfirm.transactions.create(amount: @res['amount'],
           channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
           currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
           created_at: Time.now, updated_at: Time.now)
+
+       end
+
+
+        
   
   end
 

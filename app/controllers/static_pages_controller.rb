@@ -48,12 +48,22 @@ end
   end
     end
 
-if current_user.sadmin?
-  paystackObj = Paystack.new(ENV['PUBLIC_KEY'], ENV['SECRET_KEY'])
-  transactions = PaystackTransactions.new(paystackObj)
-  @total = transactions.totals()
+    if current_user.admin?
+         if current_user.lawfirm.transactions.any?
+              rem = (current_user.lawfirm.transactions.last.expires_on - Date.today).to_s.split('/')
+              @offset = rem[0].to_i
+
+          end
+
+    end
+
+
+  if current_user.sadmin?
+      paystackObj = Paystack.new(ENV['PUBLIC_KEY'], ENV['SECRET_KEY'])
+      transactions = PaystackTransactions.new(paystackObj)
+      @total = transactions.totals()
   end
-  	end
+end
 
     def subscribers
       @lawfirms = Lawfirm.where(status: 1).all.paginate(page: params[:page], per_page: 5)

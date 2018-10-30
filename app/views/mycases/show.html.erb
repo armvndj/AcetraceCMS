@@ -130,10 +130,7 @@
   <td><%= @mycase.due_date %></td>
 </tr>
 
- <tr>
-  <td><strong>Case Cost:</strong></td>
-  <td><%= @mycase.cost %></td>
-</tr>
+
  <tr>
   <td><strong>Status:</strong></td>
   <td><%= @mycase.status %></td>
@@ -259,11 +256,16 @@
 
 <%if current_user.admin?%>
 <%= link_to 'Add Task', casetask_mycase_path(@mycase) , class:'btn btn-primary'%> 
+
+<%= link_to 'Add Billing', billing_mycase_path(@mycase) , class:'btn btn-primary'%> 
+
 <%end%>
 
 <%if current_user.attorney?%>
 <%= link_to 'See Task', casetask_mycase_path(@mycase) , class:'btn btn-primary'%> 
 <%end%>
+
+<%= link_to 'See Billing', billing_mycase_path(@mycase) , class:'btn btn-primary'%> 
 
 <%= link_to 'Discussions', meet_mycase_path(@mycase) , class:'btn btn-info'%> 
 

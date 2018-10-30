@@ -3,6 +3,7 @@ class Mycase < ApplicationRecord
   # belongs_to :mycase, optional: true
   has_many :mycasecomments, dependent: :destroy
   has_many :tasks, dependent: :destroy
+  has_many :billings, dependent: :destroy
   belongs_to :lawfirm
   has_and_belongs_to_many :users
   belongs_to :client, foreign_key: :client_id

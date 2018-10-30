@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :billings
   mount Notifications::Engine => "/notifications"
   resources :transactions
 
@@ -19,7 +20,8 @@ Rails.application.routes.draw do
  get 'subscribers' => 'static_pages#subscribers'  
   get 'feeds' => 'notifications#index'
   post '/retracts/web', to: "retracts#web"
-  post '/transactions/callback', to: "transactions#callback" 
+  post '/transactions/callback', to: "transactions#callback"
+  post 'upgrade', to: "transactions#upgrade"  
   get '/' => 'static_pages#home'
   devise_for :users, :path => 'system-authentication'
   get '/system-authentication/sign_out' => 'sessions#destroy'
@@ -44,6 +46,7 @@ get 'M0R7F8O906ILVU5WY91WV4MUJJKSTM774ONCMBTNVTMNJJHSQKH80OCASGF3F0S-acetrace-la
 resources :mycases, :path => 'QI0V438P4SIPW0-Legal-Case' do
   member do
     get 'meet'
+    get 'billing'
 	get 'casetask'
   get 'inview'
   get 'completed'
@@ -79,8 +82,6 @@ resources :lawfirms do
 resources :adminassistances
 resources :lawfirms, :path => 'L3D7ZLU9SEMWM0R7F8O906ILVU5WY91WV4MUJJKSTM774ONCMBTNVTMNJJHSQKH80OCASGF3F0S-acetrace-lawfirms-repo'
  
-    
-   
 
 resources :mycasecomments, :path => 'Legal-case-discussion' do 
 	member do
@@ -94,6 +95,14 @@ resources :tasks, :path => 'Legal-case-task' do
 		#match 'mycasecomments/download_file/:id', => 'mycasecomments#download_file' :as => :attachment 
   end
 end	
+
+resources :billings, :path => 'Legal-case-billing' do 
+  member do
+    get 'download_file'
+    get 'approve_billing'
+    #match 'mycasecomments/download_file/:id', => 'mycasecomments#download_file' :as => :attachment 
+  end
+end 
   resources :mycases, :path => 'legal-case' do
      resources :mycasecomments
 	   resources :tasks
@@ -101,6 +110,10 @@ end
   resources :tasks
   resources :mycases, :path => 'legal-case' do
      resources :tasks
+  end 
+
+  resources :mycases, :path => 'legal-case' do
+     resources :billings
   end   
   resources :posts, :path => 'PFPM02FLORDO2WZF4QU47NORRUUP6WSU80K7K7VMRZKYP5JIDZAWLXP5KBNIMPV4E0QYWJSQUB5-acetracecms-forum-repo'
  resources :posts, :path => 'Acetrace-Forum-Post' do

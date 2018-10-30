@@ -1,0 +1,79 @@
+
+ 
+
+                                    <%if billing%>     
+                                    <li class="list-group-item" data-role="billing">
+                                            <div class="checkbox checkbox-info">
+                                                <input type="checkbox" id="inputSchedule" name="inputCheckboxesSchedule">
+                                                <label for="inputSchedule" class=""> <span><%= billing.cost %></span> </label>
+
+                                                <span><%= billing.description %></span> </label>
+<%if billing.payment?%>
+<i class="fa fa-file"></i><span class="label label-info"><%= link_to "download billing file", download_file_billing_path(billing), data: "billing_file", class: "btn-info" %></span> </label>  
+<%end%>
+
+
+                                                <span class="label label-warning"><%= link_to "delete", [billing], method: :delete, data: {confirm: "Are you sure"}, class: "btn-warning"%></span> </label>
+
+                                             
+                                            </div>
+
+
+  <div class="item-date"> <%=time_ago_in_words(billing.created_at) if billing.created_at? %></div>
+          
+
+
+           <%if billing.poster.type == "Client"%>        
+                
+ <ul class="assignedto">
+     <h6>Status:</h6>
+      <li>
+
+   
+
+<%=billing.status%>
+
+
+     </li>
+     <%if current_user.admin?%>
+        <% if billing.status == "inactive"%>
+
+        <li>
+
+
+   
+<%= link_to 'Approve Payment', approve_billing_billing_path(billing.id), class:'btn btn-success' %> 
+
+
+     </li>
+     <%end%>
+   <%end%>
+
+  </ul>
+    <%end%>
+
+                                          
+
+                   
+
+                                            <ul class="assignedto">
+                                            <h6>Posted By:</h6>
+   <%if billing.poster%>                                              <li>
+        <%if billing.poster.avatars?%>
+        <%= image_tag billing.poster.avatars_url%>
+        <%end%>
+        <%=billing.poster.first_name%> <%=billing.poster.last_name%>
+    <%end%>
+</li>
+                                            </ul>
+                                        </li>
+                                        <%end%>
+                   
+
+
+
+  
+
+
+
+

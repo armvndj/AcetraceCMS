@@ -60,6 +60,17 @@ class TransactionsController < ApplicationController
   
   end
 
+  def upgrade
+
+     @paystackObj = Paystack.new(ENV['PUBLIC_KEY'], ENV['SECRET_KEY'])
+    page_number = 1
+    plans = PaystackPlans.new(@paystackObj)
+    result = plans.list(page_number)  #Optional `page_number` parameter,  50 items per page
+    @plans_list = result['data']
+    @transaction = Transaction.new
+    
+  end
+
 
   # GET /transactions/1/edit
   def edit

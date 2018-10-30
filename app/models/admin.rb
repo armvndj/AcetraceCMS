@@ -19,6 +19,7 @@ class Admin < User
   has_many :mycasecomments, as: :mycasecommenter, foreign_key: :mycasecommenter_id
   has_many :posts
   has_many :comments, as: :commenter, foreign_key: :commenter_id
+  has_many :billings, as: :poster, foreign_key: :poster_id
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

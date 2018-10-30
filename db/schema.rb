@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 9999906161509136738) do
+ActiveRecord::Schema.define(version: 9999906161509136741) do
+
+  create_table "billings", force: :cascade do |t|
+    t.float "cost"
+    t.text "description"
+    t.string "payment"
+    t.integer "mycase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "poster_id"
+    t.string "poster_type"
+    t.integer "status"
+    t.index ["mycase_id"], name: "index_billings_on_mycase_id"
+    t.index ["poster_type", "poster_id"], name: "index_billings_on_poster_type_and_poster_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "content"

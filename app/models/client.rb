@@ -13,7 +13,8 @@ class Client < User
   #validates :password_confirmation, presence: true, length: { maximum: 50 }
    mount_uploader :avatars, AvatarsUploader
 
-  
+   has_many :billings, as: :poster, foreign_key: :poster_id
+ 
   belongs_to :lawfirm
   has_many :mycases
   
