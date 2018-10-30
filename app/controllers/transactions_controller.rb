@@ -17,7 +17,8 @@ class TransactionsController < ApplicationController
 
   def show
   res = 0;
-     new
+    @paystackObj = Paystack.new(ENV['PUBLIC_KEY'], ENV['SECRET_KEY'])
+   
     transaction_reference = params[:trxref]
   transactions = PaystackTransactions.new(@paystackObj)
   result = transactions.verify(transaction_reference)
