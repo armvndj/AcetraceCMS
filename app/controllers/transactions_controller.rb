@@ -13,7 +13,63 @@ class TransactionsController < ApplicationController
   def details
     @res = Transaction.find(params[:id])
   end
- 
+  def callback
+    res = 0;
+    @paystackObj = Paystack.new(ENV['PUBLIC_KEY'], ENV['SECRET_KEY'])
+   
+    transaction_reference = params[:trxref]
+  transactions = PaystackTransactions.new(@paystackObj)
+  result = transactions.verify(transaction_reference)
+  if result['data']['status'] == "success"
+     @res = result['data']
+     @customer = result['data']['customer']
+      current_user.lawfirm.update(status: 1 )
+      if current_user.lawfirm.interval == "monthly"
+         res = 30
+       elsif current_user.lawfirm.interval == "quarterly"
+         res = 90
+       elsif current_user.lawfirm == "yearly"
+          res = 365
+      end
+
+         if lawfirm.transactions.any?
+          if lawfirm.transactions.last.expires_on > Date.today
+          
+              rem = (lawfirm.transactions.last.expires_on - Date.today).to_s.split('/')
+              offset = rem[0].to_i + res
+
+
+              lawfirm.transactions.create(amount: @res['amount'],
+              channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
+              currency: @res['currency'], status: @res['status'], expires_on: Date.today + offset.days,
+              created_at: Time.now, updated_at: Time.now)
+
+          else
+               lawfirm.transactions.create(amount: @res['amount'],
+          channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
+          currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
+          created_at: Time.now, updated_at: Time.now)
+          end
+
+      
+      else
+
+          lawfirm.transactions.create(amount: @res['amount'],
+          channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
+          currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
+          created_at: Time.now, updated_at: Time.now)
+
+       end
+
+
+
+        
+   
+  else
+    redirect_to new_transaction_path, notice: 'Payment Failed. Please try again'
+  end
+
+  end
 
   def show
   res = 0;
@@ -34,15 +90,38 @@ class TransactionsController < ApplicationController
           res = 365
       end
 
-        current_user.lawfirm.transactions.create(amount: @res['amount'],
-          channel: @res['channel'], 
-          reference: @res['reference'], 
-          gateway_response: @res['gateway_response'],
-          currency: @res['currency'], 
-          status: @res['status'], 
-          expires_on: Date.today + res.days,
-          created_at: Time.now,
-          updated_at: Time.now)
+         if lawfirm.transactions.any?
+          if lawfirm.transactions.last.expires_on > Date.today
+          
+              rem = (lawfirm.transactions.last.expires_on - Date.today).to_s.split('/')
+              offset = rem[0].to_i + res
+
+
+              lawfirm.transactions.create(amount: @res['amount'],
+              channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
+              currency: @res['currency'], status: @res['status'], expires_on: Date.today + offset.days,
+              created_at: Time.now, updated_at: Time.now)
+
+          else
+               lawfirm.transactions.create(amount: @res['amount'],
+          channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
+          currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
+          created_at: Time.now, updated_at: Time.now)
+          end
+
+      
+      else
+
+          lawfirm.transactions.create(amount: @res['amount'],
+          channel: @res['channel'], reference: @res['reference'], status: "success", gateway_response: @res['gateway_response'],
+          currency: @res['currency'], status: @res['status'], expires_on: Date.today + res.days,
+          created_at: Time.now, updated_at: Time.now)
+
+       end
+
+
+
+        
    
   else
     redirect_to new_transaction_path, notice: 'Payment Failed. Please try again'
