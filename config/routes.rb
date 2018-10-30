@@ -19,8 +19,8 @@ Rails.application.routes.draw do
  get 'payment_history' => 'static_pages#payment_history'
  get 'subscribers' => 'static_pages#subscribers'  
   get 'feeds' => 'notifications#index'
-  get 'web' => "retracts#web"
-  get 'callback' => "transactions#callback"
+  post 'web' => "retracts#web"
+  post 'callback' => "transactions#callback"
   get 'upgrade' => "transactions#upgrade"  
 
   get '/' => 'static_pages#home'
