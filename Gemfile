@@ -50,9 +50,11 @@ gem 'jquery-ui-rails'
 gem 'modernizr-rails'
 gem 'font-awesome-rails'
 
-gem 'wisepdf'
+gem 'wicked_pdf'
 gem 'kaminari'
-gem 'wkhtmltopdf-binary'
+
+gem 'wkhtmltopdf-binary-edge', group: [:development]
+gem 'wkhtmltopdf-heroku', group: [:production, :staging]
 
 gem 'friendly_id', '~> 5.2', '>= 5.2.3' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 

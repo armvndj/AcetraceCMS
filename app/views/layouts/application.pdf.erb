@@ -1,15 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!doctype html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <%= wisepdf_stylesheet_tag "pdf" -%>
-    <%= wisepdf_javascript_tag "number_pages" %>
+    <meta charset='utf-8' />
+    <style type="text/css">
+h1 {
+font-family: "Gill Sans";
+font-size: 24pt;
+font-weight: lighter;
+font-variant: small-caps;
+}
+</style>
   </head>
   <body onload='number_pages'>
-    <div id="header">
-      <%= wisepdf_image_tag 'logo.png' %>
-    </div>
     <div id="content">
       <%= yield %>
     </div>
