@@ -211,7 +211,7 @@ end
   # POST /mycases
   # POST /mycases.json
   def create  
-    @client = Client.find_by(params[:client_id])
+    @client = Client.find(params[:client_id])
     @admin =  current_user.lawfirm.admin   
    #build admin as a user to create notofication to admin  
    
