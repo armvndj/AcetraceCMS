@@ -34,9 +34,19 @@
         <div class="profile-usertitle">
           <div class="profile-usertitle-name">
           <div class="profile-userpic">
-          <%if @user.avatars?%>
-        <%= image_tag @user.avatars_url, class:"img-circle" %>
-<%end%>
+       
+        
+
+   <%if @user.avatars?%>
+       <%= image_tag @user.avatars_url, class:"img-circle" %>
+
+
+        <%else%>
+
+        <img class:"img-circle" src="../assets/fallback/default.png" />
+        <%end%>
+
+
         </div>
             <%= @user.full_name %>
           </div>

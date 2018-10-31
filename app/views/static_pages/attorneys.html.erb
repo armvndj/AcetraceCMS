@@ -85,10 +85,10 @@
 <%end%>
 
 
-
+<%if current_user.admin?%>
 <%= link_to 'Add New Attorney', new_attorney_path, class:"btn btn-success" %>
-
-  <%= link_to 'Dashboard', root_path, class:"btn btn-info" %> |
+<%end%>
+  <%= link_to 'Back to Dashboard', root_path, class:"btn btn-info" %> |
 
 <%= link_to "Back", :back, class:"btn btn-warning"%> 
 

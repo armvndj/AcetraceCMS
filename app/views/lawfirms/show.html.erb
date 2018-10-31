@@ -32,7 +32,15 @@
         <div class="profile-usertitle">
           <div class="profile-usertitle-name">
            <div class="profile-userpic">
-        <%= image_tag(@lawfirm.logos_url) if @lawfirm.logos? %>
+           <%if @user.logos?%>
+       <%= image_tag @user.logos_url, class:"img-circle" %>
+
+
+        <%else%>
+
+        <img class:"img-circle" src="../assets/fallback/logo.png" />
+        <%end%>
+
 
         </div>
              <%= @lawfirm.name %>
