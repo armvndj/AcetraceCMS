@@ -104,13 +104,17 @@
                                     <!-- /.modal -->
 
 <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
-                                
+ <%if @mycase.billings.count > 1%>                                
 
-<%= pluralize @mycase.tasks.size,'task' %> so far
+<%= pluralize @mycase.tasks.size-1,'task' %> so far
 
 
 <%= render :partial =>'tasks/task',
 :collection => @mycase.tasks  %>
+
+<%else%>
+<li style="color:orange;">No Case Task added yet!</li>
+<%end%>
 </ul>
 </div>
 </div>
