@@ -1,10 +1,10 @@
-<%= wicked_pdf_stylesheet_link_tag "documents" %>
+<%= wisepdf_stylesheet_link_tag "documents" %>
 
 <div class="document">
 
 
   <div class="col-md-8 col-lg-8 d-none d-lg-block">
-             <center> <%= wicked_pdf_image_tag 'logo-icon.png' %></center>
+             <center> <%= wisepdf_image_tag 'logo-icon.png' %></center>
 
   
                  
@@ -16,7 +16,7 @@
 </center>
 
      
-        <%= wicked_pdf_image_tag @mycase.lawfirm.logos_url  %>
+        <%= wisepdf_image_tag @mycase.lawfirm.logos_url  %>
        
      
                 <h2 class="card-title"><strong>Case - <%= @mycase.caseNo %></strong></h2>
@@ -156,7 +156,7 @@
                                         <tbody>
 <td style="width:50px;">
 <%if @client.avatars?%>
-                                                <span class="round"><%= wicked_pdf_image_tag @client.avatars_url, style:"width:50px;" %>
+                                                <span class="round"><%= wisepdf_image_tag @client.avatars_url, style:"width:50px;" %>
 
 <%end%>
                                             </span></td>
@@ -187,7 +187,7 @@
 <tr>
                                                 <td style="width:50px;">
 <%if user.avatars?%>
-                                                <span class="round"><%= wicked_pdf_image_tag user.avatars_url, style:"width:50px;" %>
+                                                <span class="round"><%= wisepdf_image_tag user.avatars_url, style:"width:50px;" %>
 <%end%>
                                             </span></td>
                                                 <td>

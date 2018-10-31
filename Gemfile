@@ -50,7 +50,7 @@ gem 'jquery-ui-rails'
 gem 'modernizr-rails'
 gem 'font-awesome-rails'
 
-gem 'wicked_pdf'
+gem 'wisepdf'
 gem 'kaminari'
 gem 'wkhtmltopdf-binary'
 
