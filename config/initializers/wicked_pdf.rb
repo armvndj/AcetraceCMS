@@ -10,5 +10,5 @@
 
 
 WickedPdf.config = {
-  exe_path: (Rails.env.development? ? "/usr/local/bin/wkhtmltopdf" : "/bin/wkhtmltopdf")
+  exe_path: Rails.root.join('bin', 'wicked_pdf').to_s
 }

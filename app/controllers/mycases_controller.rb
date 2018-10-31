@@ -31,12 +31,14 @@ end
 		respond_to do |format|
     format.html
      format.pdf do
-       render pdf: "cetracecms_legalcase_file_pdf",
-     template: "mycases/show.pdf.erb",
-     layout: "layouts/application.pdf.erb"
          # @example_text = "some text"
           #render :pdf => "cetracecms_legalcase_file_pdf"
-            
+            pdf = WickedPdf.new.pdf_from_string(
+                        render_to_string(
+                          template: 'mycases/show.pdf.erb',
+                          layout: 'layouts/application.pdf.erb'))
+            render :pdf => "cetracecms_legalcase_file_pdf"
+        
                  
 	#@user_lawfirm = @user.lawfirm
 	#@user_cases = @user.mycases
