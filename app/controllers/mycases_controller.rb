@@ -211,22 +211,18 @@ end
   # POST /mycases
   # POST /mycases.json
   def create  
-    @client = Client.find_by(params[:client_id])
+ 
     @admin =  current_user.lawfirm.admin   
    #build admin as a user to create notofication to admin  
    
   
-      @mycase = @client.mycases.create(mycase_params)
+      @mycase = Mycase.new(mycase_params)
     
       @lawfirm = current_user.lawfirm
       @mycase.lawfirm_id=  @lawfirm.id
       @mycase.admin_id = @admin.id
     @mycase.status= 0
-  #@mycase= @attorney_user.mycases.build(mycase_params)
-   
-   
-  
-  
+
  @mycase.save
       respond_to do |format|
         if @mycase.save
