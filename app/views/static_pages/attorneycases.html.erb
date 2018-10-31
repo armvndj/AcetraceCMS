@@ -48,8 +48,7 @@
         <td><%= mycase.arrival_date %></td>
         <td><%= mycase.due_date %></td>
        
-     <td><%= link_to current_user.lawfirm.name, lawfirm_path(current_user.lawfirm.id) %></td>
-       
+     <td><%= link_to current_user.lawfirm.name, lawfirm_path(current_user.lawfirm.id) %></td>       
         <td><%= link_to 'Show', mycase %></td>
         <td><%= link_to 'Update', edit_mycase_path(mycase) %></td>
       
