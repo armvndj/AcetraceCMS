@@ -27,20 +27,18 @@
                 
  <ul class="assignedto">
      <h6>Status:</h6>
-      <li>
+      <li style="color:orange;"><strong>
 
    
 
 <%=billing.status%>
-
+</strong>
 
      </li>
      <%if current_user.admin?%>
-        <% if billing.status == "inactive"%>
+        <% if billing.status == "unapproved "%>
 
         <li>
-
-
    
 <%= link_to 'Approve Payment', approve_billing_billing_path(billing.id), class:'btn btn-success' %> 
 

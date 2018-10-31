@@ -64,7 +64,7 @@
                                             </span></td>
                                                 <td>
                                                     <h6><%= user.full_name %></h6><small class="text-muted"><%= user.phone_number %></small></td>
-                                                <td> <%= link_to 'view profile', attorney_path(user) %>
+                                                <td> <%= link_to 'View Profile', attorney_path(user) %>
                                                 <%= link_to 'Edit', edit_attorney_path(user) %>
       <%= link_to 'Delete', attorney_path(user.id), method: :delete, data: { confirm: 'Are you sure?' } %>
 

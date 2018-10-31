@@ -184,10 +184,15 @@ end
 
   # GET /mycases/new
   def new
-	@lawfirm = current_user.lawfirm
+    if current_user.lawfirm.clients.any?
+	     @lawfirm = current_user.lawfirm
 
-	@mycase=Mycase.new
-  newcase
+	     @mycase=Mycase.new
+      newcase
+    else
+      redirect_to new_client_path, notice: 'Your Lawfirmhas no client yet, Create a Client First'
+
+    end
   
 end
 
@@ -235,7 +240,7 @@ end
     Notification.create(
       notify_type: 'mention',
       actor: current_user,
-      user: @client,
+      user: @mycase.client,
       target: @mycase)
         format.html { redirect_to @mycase, notice: 'Legal Case was successfully created.' }
         format.json { render :show, status: :ok, location: @mycase }
@@ -250,8 +255,6 @@ end
   end
 
 
-
- 
 
   # PATCH/PUT /mycases/1
   # PATCH/PUT /mycases/1.json
