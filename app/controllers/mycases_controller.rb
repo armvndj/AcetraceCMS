@@ -32,8 +32,8 @@ end
     format.html
      format.pdf do
        render pdf: "cetracecms_legalcase_file_pdf",
-     template: "mycases/show.pdf.erb"
-     layout: 'layouts/application.pdf.erb'
+     template: "mycases/show.pdf.erb",
+     layout: "layouts/application.pdf.erb"
          # @example_text = "some text"
           #render :pdf => "cetracecms_legalcase_file_pdf"
             
