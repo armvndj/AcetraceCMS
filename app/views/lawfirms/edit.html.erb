@@ -1,11 +1,9 @@
 <%if current_user.admin? || current_user.sadmin?%>
-  <div class="col-12">
-            <div class="card">
-              <h4 class="card-title"><strong>Edit Lawfirm</strong>Entry</h4>
+   <div class="login-page ">
+  
 
-              <div class="card-body">
-                <div class="row">
-
+<h2 class="title1"><img src="../assets/img/actionaid-logo.png" style="float:left;"/>Edit Lawfirm Form</h2>
+<div class="sign-up-row widget-shadow">
 <%= form_with(model: @lawfirm, local: true, html: { multipart: true }) do |form| %>
   <% if @lawfirm.errors.any? %>
     <div id="error_explanation">
@@ -19,15 +17,16 @@
     </div>
   <% end %>
 
-<div class="col-md-6">
-  <div class="field">
+<form>
+
+<div class="sign-u">
     <%= form.label :name %>
     <%= form.text_field :name, id: :lawfirm_name, class: 'form-control' %>
-  </div>
+   <div class="clearfix"> </div>
+          </div>
 
-  
-  <div class="field">
-  
+
+   <div class="sign-u">
   <label>My Logo</label>
   info
     <%= image_tag(@lawfirm.logos_url)%>
@@ -37,55 +36,74 @@
          Remove Logo
         </label>
 	
-   
-  
-   
-  </div>
-  
-  
-  <div class="field">
+    <div class="clearfix"> </div>
+          </div>
+
+
+   <div class="sign-u">
     <%= form.label :type_of_organization %>
     <%= form.text_field :type_of_organization, id: :lawfirm_type_of_organization, class: 'form-control' %>
-  </div>
+   <div class="clearfix"> </div>
+          </div>
 
-  <div class="field">
+
+   <div class="sign-u">
     <%= form.label :address %>
     <%= form.text_field :address, id: :lawfirm_address, class: 'form-control' %>
-  </div>
+   <div class="clearfix"> </div>
+          </div>
 
-  <div class="field">
+
+   <div class="sign-u">
     <%= form.label :email %>
     <%= form.text_field :email, id: :lawfirm_email, class: 'form-control' %>
-  </div>
+   <div class="clearfix"> </div>
+          </div>
 
-  <div class="field">
+
+   <div class="sign-u">
     <%= form.label :phone_number %>
     <%= form.number_field :phone_number, id: :lawfirm_phone_number, class: 'form-control' %>
-  </div>
+   <div class="clearfix"> </div>
+          </div>
 
-  <div class="field">
+
+   <div class="sign-u">
     <%= form.label :state %>
     <%= form.text_field :state, id: :lawfirm_state, class: 'form-control' %>
-  </div>
+   <div class="clearfix"> </div>
+          </div>
 
-  <div class="field">
+
+   <div class="sign-u">
     <%= form.label :city %>
     <%= form.text_field :city, id: :lawfirm_city , class: 'form-control'%>
-  </div>
+  <div class="clearfix"> </div>
+          </div>
 
-  <div class="actions">
-    <%= form.submit "Update Lawfirm" , class: "btn btn-primary" %>
-  </div>
+
+          <div class="sub_home">
+    <%= form.submit "Update" , class: "btn btn-primary" %>
+ <div class="clearfix"> </div>
+          </div>
+
 <% end %>
 
 
 <%= link_to 'Show', @lawfirm, class:"btn btn-info" %> |
  <%= link_to "Back", :back, class:"btn btn-warning"%>
-</div>
-</div>
-</div>
-</div>
-</div>
+<br>
+<br>
+<br>
+   
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+
 
 <%else%>
 

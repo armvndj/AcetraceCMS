@@ -29,7 +29,11 @@ def in_check
 
   # GET /posts/new
   def new
-    @post = Post.new
+    unless current_user.sadmin? || current_user.client?
+        @post = Post.new
+    else redirect_to root_path notice: 'Super admin and clients can not create forum post.'
+
+    end
   end
 
   # GET /posts/1/edit

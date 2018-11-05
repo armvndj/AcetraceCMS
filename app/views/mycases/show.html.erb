@@ -2,24 +2,16 @@
   <% provide( :title, @mycase.caseNo) %>
 
 
+    <h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;">  <%= @mycase.caseNo %></h2>
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+
+</div>
 
 
-      <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor"><%=@mycase.caseNo%></h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-           
-            <div class="container-fluid">
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> Details</h3> </div> <div class="panel-body">
+        <br />
  <div class="col-md-12 col-lg-12 d-none d-lg-block">
             <div class="card">
               
@@ -185,13 +177,21 @@
                                         <tbody>
 <td style="width:50px;">
 <%if @client.avatars?%>
-                                                <span class="round"><%= image_tag @client.avatars_url, style:"width:50px;" %>
+                                                <span class="prfil-img"><%= image_tag @client.avatars_url, style:"width:50px;" %>
 
 <%end%>
                                             </span></td>
                                                 <td>
                                                     <h6><%= @client.full_name %></h6><small class="text-muted"><%= @client.phone_number %></small></td>
-                                                <td> <span><%= link_to 'view profile', client_path(@client) %></span>
+                                                <td> <span>
+   <a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/clients/<%=@client.id%>">
+        <i style="font-size:27px"class="fa fa-eye"></i>
+
+        </a>
+                                               
+
+                                                </span>
        </td>
  <tr>
  </tr>
@@ -217,12 +217,23 @@
 <tr>
                                                 <td style="width:50px;">
 <%if user.avatars?%>
-                                                <span class="round"><%= image_tag user.avatars_url, style:"width:50px;" %>
+                                                <span class="prfil-img"><%= image_tag user.avatars_url, style:"width:50px;" %>
 <%end%>
                                             </span></td>
                                                 <td>
                                                     <h6><%= user.full_name %></h6><small class="text-muted"><%= user.phone_number %></small></td>
-                                                <td> <span><%= link_to 'view profile', attorney_path(user) %></span>
+                                                <td> 
+
+                                                <span>
+   <a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/attorneys/<%=user.id%>">
+        <i style="font-size:27px"class="fa fa-eye"></i>
+
+        </a>
+
+                                            
+
+                                                </span>
        </td>
                                                 <td><%= user.email %></td>
                                             </tr>
@@ -250,21 +261,21 @@
  <div class="col-md-4 col-lg-4 d-none d-lg-block">
             <div class="card card-body">
               <div class="flexbox align-items-center">
-                <h6 class="text-uppercase">Start</h6>
-                <h6><i class="ion-android-arrow-dropup text-success fs-18 mr-1">here</i></h6>
+                <h1 style="color:green;" class="text-uppercase">Start</h1>
+                <h3><i class="ion-android-arrow-dropup text-success fs-18 mr-1">here</i></h3>
               </div>
 
 <%if current_user.admin?%>
 <%= link_to 'Add Task', casetask_mycase_path(@mycase) , class:'btn btn-primary'%> 
 
-<%= link_to 'Add Billing', billing_mycase_path(@mycase) , class:'btn btn-primary'%> 
+<%= link_to 'Add Billing', billing_mycase_path(@mycase) , class:'btn btn-warning'%> 
 <%else%>
-<%= link_to 'See Billing', billing_mycase_path(@mycase) , class:'btn btn-primary'%> 
+<%= link_to 'See Billing', billing_mycase_path(@mycase) , class:'btn btn-info'%> 
 
 <%end%>
 
 <%if current_user.attorney?%>
-<%= link_to 'See Task', casetask_mycase_path(@mycase) , class:'btn btn-primary'%> 
+<%= link_to 'See Task', casetask_mycase_path(@mycase) , class:'btn btn-succes'%> 
 <%end%>
 
 
@@ -280,13 +291,14 @@
 </div>
 </tbody>
 </table>
+
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
 <%= link_to 'Dashboard', root_path, class:"btn btn-info" %> |
 
 <%= link_to "Back", :back, class:"btn btn-warning"%>
-</div>
-</div>
-
-
-</div>
-</div>
-</div>

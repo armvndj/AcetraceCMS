@@ -62,6 +62,9 @@ end
       paystackObj = Paystack.new(ENV['PUBLIC_KEY'], ENV['SECRET_KEY'])
       transactions = PaystackTransactions.new(paystackObj)
       @total = transactions.totals()
+      @actives = Lawfirm.where(status: 1)
+      @ats = Attorney.all
+      @cls = Client.all
   end
 end
 
@@ -72,9 +75,32 @@ end
       def lawfirmusers
          if current_user.admin? || current_user.adminassistance? || current_user.client? || current_user.attorney?
      if current_user.lawfirm
+
+       if current_user.mycases.any?
+
+      @aopen = current_user.mycases.where(status: 0)
+      @ainview = current_user.mycases.where(status: 1)
+      @acompleted = current_user.mycases.where(status: 2)
+
+       else
+        @aopen = 0
+      @ainview = 0
+      @acompleted = 0
+       end
     if current_user.lawfirm.mycases || current_user.lawfirm.clients || current_user.lawfirm.attorneys|| current_user.lawfirm.adminassistances
      @lawfirm_users ||= []
       @lawfirm_cases = current_user.lawfirm.mycases
+     
+      @lopen = current_user.lawfirm.mycases.where(status: 0)
+      @linview = current_user.lawfirm.mycases.where(status: 1)
+      @lcompleted = current_user.lawfirm.mycases.where(status: 2)
+      
+
+      
+      @copen = current_user.mycases.where(status: 0)
+      @cinview = current_user.mycases.where(status: 1)
+      @ccompleted = current_user.mycases.where(status: 2)
+  
       @clients = current_user.lawfirm.clients
       
        @lawfirm_adminassistance = current_user.lawfirm.adminassistances

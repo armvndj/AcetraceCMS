@@ -1,36 +1,21 @@
   
   <% provide( :title, "Transaction History") %>
   
-      <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Transaction History</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
- <div class="col-md-8 col-lg-8 d-none d-lg-block">
-            <div class="card">
-              
+ 
+      <h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;">Payhemt History</h2>
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+         
+  
+
+</div>
 
 
+
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> Details</h3> </div> <div class="panel-body">
 <div class="card-body card-body">
               <div class="card-header">
-            
-                <h5 class="card-title"><strong>Payment Reports</strong></h5>
                   <div class="text-center py-20">
                   <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7">Lawfirm Email - <%= current_user.lawfirm.email %></div>
                 </div>
@@ -40,23 +25,29 @@
  <h5><strong><%= pluralize(@ress.count, "Transaction") %> made.
 
   </strong><h5/>
-
+<table class="table table-user-information">
+  <thead>
+                                            <tr>
+                                                <th >ref</th>
+                                                <th>status</th>
+                                                <th colspan="2">action</th>
+                                            </tr>
+                                        </thead>
+                    <tbody>
 <%@ress.each do |f| %>
 <div class="card-body card-body">
-                  <table class="table table-user-information">
-                    <tbody>
+                  
                       <tr>
- <td> <strong>Reference:</strong></td>
+
   <td><%= f.reference %></td>
-</tr>
- <tr>
-<td>
-  <strong>Status:</strong></td>
+
+
   <td><%= f.status %></td>
-</tr>
 
+<td>
  <%= link_to 'view report', details_transaction_path(f.id), class:"btn btn-info" %>
-
+ </td>
+</tr>
  <%end%>
   <%end%>
 

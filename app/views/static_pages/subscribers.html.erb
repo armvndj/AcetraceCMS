@@ -3,47 +3,17 @@
 <%if current_user.sadmin?%>
 
 
-      <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Active Lawfirms</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-
-  <div class="row">
-                    <div class="col-lg-9">
-                        <div class="card">
-                            <div class="card-body">
-                               
-                                <h4 class="card-title">Subscribed Lawfirm</h4>
-                                <h6 class="card-subtile">Index of Subscribed Firms </h6>
-
-                                 <a class="btn btn-sm"  href="L3D7ZLU9SEMWM0R7F8O906ILVU5WY91WV4MUJJKSTM774ONCMBTNVTMNJJHSQKH80OCASGF3F0S-acetrace-lawfirms-repo/new">
-                   
-                  
-                    <small class="text-fader"><i class="fa fa-plus"></i> new <i class="fa fa-legal"></i>lawfirm</small>
-                 
-                  
-                </a>
-              
+    
+ <h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;">Subscribed Lawfirms</h2>
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+    
+</div>
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title">active lawfirms</h3> </div> <div class="panel-body">              
                             </div>
+
+                            <%if @lawfirms.any?%>
                             <div class="bg-light p-20">
                                 <div class="d-flex">
                                     <div class="align-self-center">
@@ -95,7 +65,12 @@
                     </div>
 </div>
 </div>
+<%else%>
 
+<h5 style="color:red;">No active lawfirm at the moment!</h5>
+<br/>
+
+ <%end%>
 
  
 <%= link_to 'Back to Dashboard', root_url, class:"btn btn-info" %>

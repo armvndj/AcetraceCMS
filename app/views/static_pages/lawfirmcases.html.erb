@@ -3,37 +3,15 @@
 <%if current_user.admin? || current_user.adminassistance?%>
 
 
-      <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Lawfirm Cases"</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-
-<div class="col-md-12">
-            <div class="card">
-              
-
-
-<div class="card-body card-body">
-
+    
+ <h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;">Lawfirm Cases</h2>
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+    
+</div>
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title">All cases</h3> </div> <div class="panel-body">              
+                            </div>
 
 <% if @lawfirm_cases.any? %>
 
@@ -52,9 +30,7 @@
       <th>Arrival Date</th>
       <th>Due Date</th>
        <th>Lawfirm</th>
-      <th>Show</th>
-      <th>Update</th>
-      <th>Delete</th>
+      <th>action</th>
      
      
     
@@ -76,9 +52,31 @@
         
     <%if current_user.admin?%>
        
-        <td><%= link_to 'Show', mycase %></td>
-        <td><%= link_to 'Update', edit_mycase_path(mycase) %></td>
-        <td><%= link_to 'Delete', mycase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<td>
+
+  <a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/legal-case/<%=mycase.id%>">
+        <i style="font-size:27px"class="fa fa-eye"></i>
+
+        </a>
+     
+
+        
+
+        <a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/legal-case/<%=mycase.id%>/edit">
+        <i style="font-size:27px"class="fa fa-edit"></i>
+
+        </a>
+
+        <%= link_to mycase, method: :delete, data: { confirm: 'Are you sure you really want to delete this post?' } do%><i onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" style="font-size:27px"class="fa fa-trash"></i>
+    <% end %>
+
+
+
+
+       </td>
       </tr>
     <% end %>
     <%end%>

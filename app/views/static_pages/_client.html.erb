@@ -1,77 +1,114 @@
-<% provide( :title, "Client Dashboard") %>
 
-   
-       <!-- ============================================================== -->
-      
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Client Dashboard</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
+<% provide( :title, "Dashboard") %>
 
-    <div class="card-group">
-                    <a href="/client-legalcases-repo"><div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h6 class="card-subtitle"><i class="mdi mdi-briefcase-check text-info"></i>Client Cases</h6>
-                                    <h3 class=""><%=usercases%></h3>
-                                    </div>
-                                <div class="col-12">
-                                  
-                                </div>
-                            </div>
-                        </div>
+
+      <div class="col_3">
+      <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-gift user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=attorneycases%></strong></h5>
+                      <span>Attorney Cases</span>
                     </div>
-                    </a>
-                    <div class="col-md-6">
-            <div class="card">
-              <h5 class="card-title"><strong>Client Desk</strong></h5>
+                </div>
+          </div>
+          
+          <div class="col-md-3 widget">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-users icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@aopen.count%></strong></h5>
+                      <span>Cases Opened</span>
+                    </div>
+                </div>
+           </div>
 
-              <div class="media-list media-list-hover media-list-divided">
-              
-             
-                <a class="media media-single" href="client-legalcases-repo">
-                  <h6 class="w-60px"><i class="fa fa-comment"></i></h6>
-                  <div class="media-body">
-                    <h5>View Case Discusssions</h5>
-                    <small class="text-fader"><i class="fa fa-beer"></i> discuss</small>
-                  </div>
-                  
+           <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-edit user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@ainview.count%></strong></h5>
+                      <span>Cases Inview</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-dollar user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@acompleted.count%></strong></h5>
+                      <span>Cases Completed</span>
+                    </div>
+                </div>
+          </div>
+
+          
+          <div class="clearfix"> </div>
+    </div>
+    <br/>
+     
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <div class="stats">
+                <a class="actions" href="/client-legalcases-repo">
+                  <h5 style="color:blue;" class="w-60px"><i class="fa fa-tag"></i>
+                    View Case Discusions
+                    </h5>
                 </a>
-                
-              </div>
+  </div>
+                </div>
+          </div>
+          
+             <div class="clearfix"> </div>
+</div>
+         <br/>
+   <div class="clearfix"> </div>
 
-              
+  
+      
+          <div class="clearfix"> </div>
+        </div>
+                       
+   <div class="charts">
+          
+          
+          <div class="charts-grids widget states-mdl">
+            <div class="card-header">
             </div>
+            <div class="demo-placeholder">
+               <h3 class="box-title">
+              <i class="fa fa-calendar"></i>Cases Calendar</h3>
+             
+
+ <%=  month_calendar  events:  current_user.mycases do |date, meetings| %>
+
+
+             
+             <div class="media-body">
+                    <%= date.day%>
+                    <% meetings.each do |meeting| %>
+                    <small class="text-fader"><i class="fa fa-gift"></i> <%= meeting.subject.to_s %></small>
+                  </div>
+                  <% end %>
+<% end %>
+
+                
+
+            </div>
+   </div>
           </div>
 
 
 
+<div class="col-md-12 panel-grids">
+</div>
  
+            <div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title">Cases Associated to you! </h3> </div> <div class="panel-body">
 
+          
 
-
-
+ <div class="row">
 <div class="col-md-12 col-lg-12 d-none d-lg-block">
             <div class="card">
               <div class="card-header">
@@ -87,9 +124,9 @@
 
 
 
- <% if @user_cases.any?%>
+ <% if current_user.mycases.any?%>
 
- <h5><strong><%= pluralize(@user_cases.count, "Case") %> Associated.
+ <h5><strong><%= pluralize(current_user.mycases.count, "Case") %> Associated.
 
   </strong><h5/>
 <table class="table">
@@ -107,7 +144,7 @@
   </thead>
 
   <tbody>
-    <% @user_cases.each do |mycase| %>
+    <%current_user.mycases.each do |mycase| %>
   <tr>
          
         <td><%= mycase.caseNo %></td>
@@ -117,8 +154,20 @@
        
         <td><%= mycase.due_date %></td>
         <td><%= mycase.status %></td>
+    
         <td><%= link_to 'Show', mycase_path(mycase) %></td>
-       </td>
+        <td> <%if @user.tasks.any?%>
+       <%if @user.tasks == mycase.tasks%>
+    
+       
+                  
+              
+           <td><%= link_to 'see tasks', casetask_mycase_path(mycase.id) %> </td>
+          
+           
+      <%end%>  
+    
+    <%end%> </td>
    </tr>
    <%end%>
   
@@ -137,42 +186,14 @@
 
 
 
- <div class="col-md-7 col-lg-7 d-none d-lg-block">
-            <div class="card card-body">
-              <div class="flexbox align-items-center">
-                <h6 class="text-uppercase">Calender</h6>
-                <h6><i class="ion-android-arrow-dropup text-success fs-18 mr-1"></i>Monthly</h6>
-              </div>
 
- <%=  month_calendar  events: current_user.mycases do |date, meetings| %>
-
-
-             <div class="media-body">
-                    <%= date.day%>
-                    <% meetings.each do |meeting| %>
-                    <small class="text-fader"><i class="fa fa-gift"></i> <%= meeting.subject.to_s %></small>
-                  </div>
-
-                   
-               
-                  <% end %>
-<% end %>
-
-                
-             
-        
-       
-          </div>
-          </div>
+      
 
 
 
-</div>
+<br/>
 
+<br/>
 
-</h5>
-</h5></div></div></div>
-</div>
-</div>      
+<br/>
 
-</div>

@@ -90,7 +90,7 @@ end
       @mycase.update(status: 1)
        respond_to do |format|
       if @mycase.update(status: 1)
-         if mycase.users.any?
+         if @mycase.users.any?
       @mycase.users.each do |f|
           Notification.create(
           notify_type: 'update',
@@ -126,7 +126,7 @@ def completed
       @mycase.update(status: 2)
        respond_to do |format|
       if @mycase.update(status: 2)
-         if mycase.users.any?
+         if @mycase.users.any?
       @mycase.users.each do |f|
           Notification.create(
           notify_type: 'update',

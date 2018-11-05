@@ -1,75 +1,107 @@
-<% provide( :title, "Forum Post") %>
-
-      <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Forum Post</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-
-
-  <%= link_to 'Create Post', new_post_path, class:"btn btn-primary" %>              <!-- Start Page Content -->
-
-  <div class="row">
-<div class="col-lg-9">
-                        <div class="card">
-                            <div class="card-body">
+<% provide( :title, @post.title) %>
+<div class="forms">
         
-                               
-                                <h2 class="card-title" style="color:orange;">
-   <%= @post.title %></h2>
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+            <div class="form-title">
+              <h4>OneMilMap Forum Post</h4>
+            </div>
+
+ <div class="form-body">
+<a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/Acetrace-Forum-Post">
+        <i style="font-size:27px"class="fa fa-group"> <span style="color:blue;" onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='blue'">Back to Forum</span></i>
+        </a>
+
+<center><h1><%=@post.title%></h1></center>
+<center><small style="color:blue;">Post By:  <%= @post.poster.first_name%> <%= @post.poster.last_name%></small></center>
+<center><p class="lead" style="color:orange;">more file upload..? you can still do this in the comments section</p></center>
+</div>
+<br>
+<br>
+<br>
+<%if @post.file?%>
+       <center> <%= image_tag(@post.file_url) %></center>
+
+        <%else%>
+
+      <center>  <img src="../assets/fallback/wood.png"/></center>
+        <%end%>
 
 
- <div class="bg-light p-20">
-                                <div class="d-flex">
-                                    <div class="align-self-center">
-                                        <h5 class="m-b-0">By <%=@post.poster.first_name%> <%=@post.poster.last_name%> Lawfirm - <%=@post.poster.lawfirm.name%> - Position - <%=@post.poster.type%> </h5><small>Publised at <%=time_ago_in_words(@post.created_at)%></small></div>
-                                    <div class="ml-auto align-self-center">
-                                        <h2 class="text-success"></h2></div>
-                                </div>
-                            </div>
-
-
-		
-                            <div class="card-body" style="font-size:16px">
-                            
+<%if @post.file? %>
+<p>
  
-  				<%= @post.body %>
-	
 
-	<div id="comments">
-   <h2><%=@post.comments.count%> Comments</h2>
-   		<%= render :partial =>'comments/comment',
+<%= link_to "download post photo", download_file_post_path(@post), data: "case_file", class:'btn-info btn-sm' %>
+ </p>
+
+
+<%end%>
+
+<p class="lead">
+ <%= raw @post.body %></p>
+<br>
+<br>
+
+<a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/Acetrace-Forum-Post">
+        <i style="font-size:27px"class="fa fa-group"> <span style="color:blue;" onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='blue'">Back to Forum</span></i>
+
+        </a>
+<br>
+
+<div class="main-page compose">
+        <div class="col-md-12">
+     <div class="chat-grid widget-shadow">
+   
+
+<% if @post.comments.any? %>
+<p class="lead">Posted Comments</p>
+<%= pluralize @post.comments.size,'Comment' %> so far
+<% else %>
+Be the first to post discussion
+<% end %>
+<%= render :partial =>'comments/comment',
 :collection => @post.comments  %>
-   	<h3> Reply to thread</h3>
-   		<%= render "comments/form"%>
-	
-<div id="comments">
-<div class="comment"><br><br><br>
-<%= link_to 'Edit Post', edit_post_path(@post), class:"btn btn-success"%> 
-<%= link_to 'Delete Post', post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete this post"}, class:"btn btn-danger" %>
-<%= link_to 'Back to Forum', posts_path, class:"btn btn-warning" %>
-<%= link_to 'Dashboard', root_url, class:"btn btn-info" %>
 
 
+ <%= render 'comments/form' %> 
 
+           
+  <br/>
+<br/>
+<br/>           
+  
+
+
+    
+
+
+ </div>
+<div class="clearfix"></div>
+      </div>
+
+      <div class="x_content">
+
+    
+
+
+        </div>
+          </div>
+
+ <% if current_user.admin? || @post.poster == current_user %>
+     <%= link_to 'Edit Post', edit_post_path(@post), class: "btn btn-success" %> |
+
+<%end%>
 </div>
-</div>
-</div>
-</div>
-</div>
+
+ <br>
+<br>
+<br>
+<%= link_to 'Back', posts_path, class: "btn btn-primary" %>
+  <%= link_to 'Dashboard', root_path, class:"btn btn-info" %> |
+ 
+   <%= link_to "Back", :back, class:"btn btn-warning"%> 
+    

@@ -1,74 +1,71 @@
-<% provide( :title, "Adminassistance") %>
+<% provide( :title, "Admin Assistants") %>
 
 <%if current_user.admin?%>
 
 
-      <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Admin Assistance</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-<%if @users.any?%>
-  <div class="row">
-                    <div class="col-lg-9">
-                        <div class="card">
-                            <div class="card-body">
-                               
-                            
-                            </div>
-                            <div class="bg-light p-20">
-                                <div class="d-flex">
-                                    <div class="align-self-center">
-                                        <h3 class="m-b-0">Adminassistance</h3><small>Index of adminassistance</small></div>
-                                    <div class="ml-auto align-self-center">
-                                        <h2 class="text-success"></h2></div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table style="font-size:16px;" class="table table-hover earning-box">
+      <h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;">Lawfirm Admin Assistants</h2>
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+
+</div>
+
+
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> Details</h3> </div> <div class="panel-body">
+        <br />
+
+                                    <table style="font-size:16px;" class="table">
                                         <thead>
                                             <tr>
-                                                <th colspan="2">Name</th>
+                                                <th colspan="2">Info</th>
                                                 <th></th>
-                                                <th>Email</th>
+                                                <th>Lawfirm</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+            <% if @users.any?%>
            <% @users.each do |user| %>
-            
+            <div style="font-size:16px;">
 <tr>
                                                 <td style="width:50px;">
 <%if user.avatars?%>
-                                                <span class="round"><%= image_tag user.avatars_url, style:"width:50px;" %>
+                                                <span class="prfil-img"><%= image_tag user.avatars_url, style:"width:50px;" %>
 <%end%>
                                             </span></td>
                                                 <td>
-                                                    <h6><%= user.full_name %></h6><small class="text-muted"><%= user.phone_number %></small></td>
-                                                <td> <span><%= link_to 'view profile', adminassistance_path(user) %></span>
-        <span><%= link_to 'Edit', edit_adminassistance_path(user) %></span>
-        <span><%= link_to 'Delete', adminassistance_path(user.id), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+                        <h5><%= user.full_name %></h5><small class="text-muted"><%= user.phone_number %></small><p><small> <%= user.email %></small></p></td>
+                                                
+                                                <td> <span>
+    <a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/adminassistances/<%=user.id%>">
+        <i style="font-size:27px"class="fa fa-eye"></i>
+
+        </a>
+                                                </span>
+
+        <span>  <a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/adminassistances/<%=user.id%>/edit">
+        <i style="font-size:27px"class="fa fa-edit"></i>
+
+        </a></span>
+
+
+        <span>
+
+  <%= link_to users_admin_path(user.id), method: :delete, data: { confirm: 'Are you sure you really want to delete this post?' } do%><i onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" style="font-size:27px"class="fa fa-trash"></i><%end%>
+
+        </span>
+
 
               </span></td>
-                                                <td><%= user.email %></td>
+              <%if user.lawfirm%>
+                                                <td><%= user.lawfirm.name %></td>
+
+                                                 <%else%>
+   <td style="font-size:16px; color:red;"> This Admin did not create a Lawfirm</td>
+
+                                                <%end%>
                                             </tr>
                                                        
 
@@ -80,20 +77,22 @@
 
 
 
+           <%else%>
+<h5>There are no admin assistants yet!</h5>
+<%end%>
+</div>
+<%= link_to 'Back to Dashboard', root_url, class:"btn btn-info" %>
+<%= link_to "Back", :back, class:"btn btn-warning"%>
+
+
+
                                 </div>
                             </div>
-                             <%= link_to 'Back to Dashboard', root_path, class:"btn btn-info" %> |
-
-<%= link_to "Back", :back, class:"btn btn-warning"%> 
                         </div>
                     </div>
 
 
-<%else%>
 
-
-<p style="color:red;">No Admin assistance in this lawfirm Yet!</p>
-<%end%>
 
 <%else%>
 
@@ -101,4 +100,11 @@
 
  <%end%>
 
- </div></div>
+
+
+
+
+
+
+
+

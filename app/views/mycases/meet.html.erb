@@ -1,29 +1,17 @@
  <% provide( :title, @mycase.caseNo) %>
 
 
+    <h2 class="title1" style="background-color:#edeff2; font-size:30px; color:orange;"> Case Discussions - <%=@mycase.subject%></h2>
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+
+</div>
+
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> Details</h3> </div> <div class="panel-body">
+        <br />
 
 
-      <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Case Comments - <%=@mycase.subject%></h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
  <div class="row">
                     <div class="col-lg-6">
                         <div class="card">
@@ -48,11 +36,7 @@ Be the first to post discussion
                                 </div>
                             </div>  
 
-
-<div class="card-body b-t">
-                                <div class="row">
-                                    <div class="col-8">
-                                  
+                        
  		
 		<h4>Post Discussion</h4>
 
@@ -60,8 +44,6 @@ Be the first to post discussion
  <%= form_for([@mycase, @mycase.mycasecomments.build], html: { multipart: true }) do |f| %>
   
 	
-	<%= image_tag(current_user.avatars_url) if current_user.avatars? %>
-
     <%= f.text_area :content, placeholder: "Add discussion",class:"publisher-input", class:"form-control b-0"%>
      
      
@@ -72,7 +54,7 @@ Be the first to post discussion
 	<%= f.hidden_field :attachment_cache %>
 	 <% end %>
 <div class="col-4 text-right">
- <i class="fa fa-paper-plane-o"></i><%= f.submit "send", class:"btn btn-info btn-circle btn-lg"%>
+  <span class="prfil-img"><%= image_tag current_user.avatars_url, style:"width:50px;" %></span><i class="fa fa-paper-plane-o"></i><%= f.submit "send", class:"btn btn-info btn-circle btn-lg"%>
    
   </div>
   <% end %>

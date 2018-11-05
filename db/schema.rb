@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 9999906161509136741) do
+ActiveRecord::Schema.define(version: 9999906161509136742) do
 
   create_table "billings", force: :cascade do |t|
     t.float "cost"
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(version: 9999906161509136741) do
     t.string "slug"
     t.integer "poster_id"
     t.string "poster_type"
+    t.string "file"
     t.index ["poster_type", "poster_id"], name: "index_posts_on_poster_type_and_poster_id"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end

@@ -1,183 +1,104 @@
-<% provide( :title, "Super Admin") %>
 
-   <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Super Admin Dashboard</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <!-- Row -->
-                <div class="card-group">
-                    <a href="/L3D7ZLU9SEMWM0R7F8O906ILVU5WY91WV4MUJJKSTM774ONCMBTNVTMNJJHSQKH80OCASGF3F0S-acetrace-lawfirms-repo"><div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h2 class="m-b-0"><i class="mdi mdi-briefcase-check text-info"></i></h2>
-                                    <h3 class=""><%=lawfirmscount%></h3>
-                                    <h6 class="card-subtitle">Lawfirms</h6></div>
-                                <div class="col-12">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <!-- Column -->
-                    <!-- Column -->
-                    <a href="/QI0V438P4SIPW036GOYAVKRUI2SOJT9QFPV8AGQ7YUNP3F8D8PWTH155QWQBBAMOCVGASQSMNKF-acetrace-membership-rep"><div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h2 class="m-b-0"><i class="mdi mdi-alert-circle text-success"></i></h2>
-                                    <h3 class=""><%=alluser%></h3>
-                                    <h6 class="card-subtitle">System Users</h6></div>
-                                <div class="col-12">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <!-- Column -->
-                    <!-- Column -->
-                   <a href="/7QXY84CQ3ZX9H21HQOVN24M5NF89L2WQQ4L3IUHW253C5JH60WA84622U9SRBYW8TMVE2B9Uacetrace-lawfirms-admins"> <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h2 class="m-b-0"><i class="mdi mdi-wallet text-purple"></i></h2>
-                                    <h3 class=""><%=adminscount%></h3>
-                                    <h6 class="card-subtitle">Admins</h6></div>
-                                <div class="col-12">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <!-- Column -->
-                    <!-- Column -->
-                  <a href="">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h2 class="m-b-0"><i class="mdi mdi-buffer text-warning"></i></h2>
-                                    <h3 class=""><%=allcases%></h3>
-                                    <h6 class="card-subtitle">Total Cases</h6></div>
-                                <div class="col-12">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-</a>
-                  <a href="/transactions">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h2 class="m-b-0"><i class="mdi mdi-buffer text-warning"></i></h2>
-                                    <h3 class=""><%=@total['data']['total_transactions']%></h3>
-                                    <h6 class="card-subtitle">Total Transactions</h6></div>
-                                <div class="col-12">
-                                   
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-</a>
-<a href="">
-                     <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h2 class="m-b-0"><i class="mdi mdi-buffer text-warning"></i></h2>
-                                    <h3 class=""><%=@total['data']['total_volume']/100%></h3>
-                                    <h6 class="card-subtitle">Total Earnings</h6></div>
-                                <div class="col-12">
-                                   
-                                </div>
-                            </div>
-                        </div>
+
+<% provide( :title, "Dashboard") %>
+
+
+      <div class="col_3">
+      <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-gift user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=lawfirmscount%></strong></h5>
+                      <span>Lawfirms Registered</span>
                     </div>
                 </div>
-                </a>
-                <!-- Row -->
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-lg-8 col-xlg-9">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="d-flex flex-wrap">
-                                            <div>
-                                                <h4 class="card-title">Administrative Panel</h4>
-                                            </div>
-                                            <div class="ml-auto">
-                                               
-
-
-
-            
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                      
-
-                  <a class="media media-single" href="/L3D7ZLU9SEMWM0R7F8O906ILVU5WY91WV4MUJJKSTM774ONCMBTNVTMNJJHSQKH80OCASGF3F0S-acetrace-lawfirms-repo">
-                  <h6 class="w-60px"><i class="fa fa-tag"></i></h6>
-                  <div class="media-body">
-                    <h5> Lawfirms</h5>
-                    <small class="text-fader"><i class="fa fa-person"></i> lawfirms</small>
-                  </div>
-                  
-                </a>
-             
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  
-
-
-
-
-
-
-                        </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-dollar icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@actives.count%></strong></h5>
+                      <span>Lawfirms Active</span>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
-            </div>
-          <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-laptop user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=alluser%></strong></h5>
+                      <span>Users</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-money user2 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=adminscount%></strong></h5>
+                      <span>Lawfirm Admins</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-adjust icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=allcases%></strong></h5>
+                      <span>Cases</span>
+                    </div>
+                </div>
+           </div>
+          <div class="col-md-3 widget">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-users icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@total['data']['total_transactions']%></strong></h5>
+                      <span>Transactions Made</span>
+                    </div>
+                </div>
+           </div>
+
+           <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-edit user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@ats.count%></strong></h5>
+                      <span>Attorneys</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-dollar user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong>&#8358; <%=@total['data']['total_volume']/100%></strong></h5>
+                      <span>Earned</span>
+                    </div>
+                </div>
+          </div>
+
+               <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-group icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@cls.count%></strong></h5>
+                      <span>Clients</span>
+                    </div>
+                </div>
+           </div>
+          
+          <div class="clearfix"> </div>
     </div>
-    <!-- ============================================================== -->
+    <br/>
+   <div class="clearfix"> </div>
+
+
+
+
+<br/>
+
+<br/>
+
+<br/>
+

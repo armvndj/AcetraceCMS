@@ -29,7 +29,7 @@ class TransactionsController < ApplicationController
          res = 30
        elsif current_user.lawfirm.interval == "quarterly"
          res = 90
-       elsif current_user.lawfirm == "yearly"
+       elsif current_user.lawfirm == "annually"
           res = 365
       end
 
@@ -89,7 +89,7 @@ class TransactionsController < ApplicationController
          res = 30
        elsif current_user.lawfirm.interval == "quarterly"
          res = 90
-       elsif current_user.lawfirm == "yearly"
+       elsif current_user.lawfirm == "annually"
           res = 365
       end
 
@@ -126,10 +126,6 @@ class TransactionsController < ApplicationController
 
         redirect_to details_transaction_path(@transaction), notice: 'Your Subscription was successful.'
        end
-
-
-
-        
    
   else
     redirect_to new_transaction_path, notice: 'Payment Failed. Please try again'
@@ -163,7 +159,6 @@ class TransactionsController < ApplicationController
   # GET /transactions/1/edit
   def edit
   end
-
 
   
   # POST /transactions

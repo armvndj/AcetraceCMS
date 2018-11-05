@@ -1,15 +1,21 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+<div class="actions">
+  <%= link_to "Log in", new_session_path(resource_name) %>
+
+  </div><br />
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
    <div class="form-group m-b-0">
                             <div class="col-sm-12 text-center">
-                                <div>Don't have an account? <b><%= link_to "Sign up", new_admin_path, class:"text-info m-l-5" %></b></div>
+                                <div>Don't have an account? 
+                                   <div class="actions">
+                                   <b><%= link_to "Sign up", new_admin_path%></b></div></div>
                            
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+
   <%= link_to "Forgot password?", new_password_path(resource_name),  class:"text-dark pull-right" %><br />
 <% end -%>
 

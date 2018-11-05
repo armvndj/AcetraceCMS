@@ -24,7 +24,7 @@ class RetractsController < ApplicationController
          res = 30
        elsif lawfirm.interval == "quarterly"
          res = 90
-       elsif lawfirm == "yearly"
+       elsif lawfirm == "annually"
           res = 365
       end
        
@@ -57,7 +57,7 @@ class RetractsController < ApplicationController
          res = 30
        elsif lawfirm.interval == "quarterly"
          res = 90
-       elsif lawfirm == "yearly"
+       elsif lawfirm == "annually"
           res = 365
       end
         lawfirm.transactions.create(amount: (@res['amount'].to_f)/100,

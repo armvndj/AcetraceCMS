@@ -1,33 +1,14 @@
 <% provide( :title, "Subscription Plan") %>
 
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+
+</div>
 
 
-
-      <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Subscription Plans</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Plans</a></li>
-                        <li class="breadcrumb-item active">List</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-    <div class="row">
-<div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> Details</h3> </div> <div class="panel-body">
+        <br />
 
 <div class="col-md-12">
             <div class="card">
@@ -40,7 +21,7 @@
 
 
 <div class="card-header">
-                <h5 class="card-title"><strong>Your Lawfirm has <%=current_user.lawfirm.interval%> plan active</strong></h5>
+                <h5 class="card-title" style="color:orange;"><strong>Your Lawfirm has <%=current_user.lawfirm.interval%> plan active</strong></h5>
 
               </div>
 
@@ -145,7 +126,9 @@
                             </div>
                             </div>
 
+ <%= link_to 'Back to Dashboard', root_path, class:"btn btn-info" %> |
 
+<%= link_to "Back", :back, class:"btn btn-warning"%> 
 </div>
 </div>
 </div>

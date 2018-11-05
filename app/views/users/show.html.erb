@@ -1,31 +1,15 @@
 <% provide( :title, @user.full_name) %>
 
-      <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">User Profile</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-<!-- Column -->
-                    
+     <h1 class="title1">Profile Info</h1>
+<div class="col-md-12 panel-grids">
+</div>
+ 
+            <div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title">  <%= @user.full_name%></h3> </div> <div class="panel-body">
 
-    <div class="row profile">
-    <div class="col-lg-4 col-xlg-3 col-md-5">
+<div class="col-md-4 widget widget1 panel-grids">
+          
+
+ <div class="row">
       <div class="profile-sidebar">
         <!-- SIDEBAR USERPIC -->
         
@@ -83,20 +67,19 @@ Acetracecms
 
             </li>
             
-            
-          </ul>
+         </ul>
         </div>
         <!-- END MENU -->
       </div>
-    </div>
-  <div class="col-lg-8">
-                        <div class="card">
-                        
 
-            <div class="tab-content">
-                                
-                                    <div class="card-body">
-                                        <div class="profiletimeline">
+    </div>
+   
+    </div>
+    
+
+  <div class="col-md-6 widget widget1">
+            <div class="r3_counter_box">
+            <div class="profile-content">
                                         <center><h3>Timeline</h3></center>
          <p>
 <% if @user.type == "Attorney" || @user.type == "Client" %>
@@ -158,47 +141,60 @@ Acetracecms
 <%end%>
 
 <%end%>
+         <table class="table">
 
-<h6>
+        <tbody>
+
+        <tr>
+ <div style="font-size:16px;">
+<tr><td>
   First name  - 
   <%= @user.first_name %>
-</h6>
-<h6>
+</td></tr>
+<tr><td>
  Last name  -
   <%= @user.last_name %>
-</h6>
-<h6>
+</td></tr>
+<tr><td>
  Date of Birth  - 
-  <%= @user.birthday %>
-</h6>
-<h6>
+  <%= @user.birthday %></td>
+</tr>
+<tr></td>
   Email - 
-  <%= @user.email %>
-</h6>
+  <%= @user.email %></td>
+</tr>
 
-<h6>
+<tr><td>
  Phone number - 
-  <%= @user.phone_number %>
-</h6>
+  <%= @user.phone_number %></td>
+</tr>
 
-<h6>
+<tr><td>
   Address - 
-  <%= @user.address %>
-</h6>
-<h6>
+  <%= @user.address %></td>
+</tr>
+<tr><td>
  State -
-  <%= @user.state %>
-</h6>
-<h6>
+  <%= @user.state %></td>
+</tr>
+<tr><td>
  Address - 
-  <%= @user.city %>
-</h6>
-</div>
+  <%= @user.city %></td>
+</tr>
+
+<tr><td>
 <%if current_user.id == @user.id%>
     <%= link_to 'Update Profile', edit_user_registration_path %> |
   <%else%>
 <%= link_to 'Edit User', edit_users_admin_path(@user) %> |
 <%end%>
+</td>
+</tr>
+
+</tr>
+</tbody>
+</table>
+
  <%= link_to 'Dashboard', root_path, class:"btn btn-info" %> |
 
 <%= link_to "Back", :back, class:"btn btn-warning"%> 

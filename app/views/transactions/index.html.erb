@@ -2,42 +2,14 @@
   <% provide( :title, "Transaction History") %>
 
 
-
-
-      <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Transaction History</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
+<div class="forms">
+        
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+            <div class="form-title">
+              <h4>Transactions</h4>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
- <div class="col-md-8 col-lg-8 d-none d-lg-block">
-            <div class="card">
-              
 
-
-<div class="card-body card-body">
-              <div class="card-header">
-            
-                <h5 class="card-title"><strong>Payment Reports</strong></h5>
-                  <div class="text-center py-20">
-                  <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7"></div>
-                </div>
-              </div>
+ <div class="form-body">
  
 <% if @ress.any?%>
  <h5><strong><%= pluralize(@ress.count, "Transaction") %> made.
@@ -75,11 +47,9 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+
 
 <br>
- <%= link_to 'Dashboard', root_path, class:"btn btn-info" %> |
+ <%= link_to 'Back to Dashboard', root_path, class:"btn btn-info" %> |
 
 <%= link_to "Back", :back, class:"btn btn-warning"%> 

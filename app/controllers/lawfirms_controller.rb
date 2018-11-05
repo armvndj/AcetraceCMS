@@ -37,7 +37,11 @@ end
 
   # GET /lawfirms/new
   def new
-    @lawfirm = Lawfirm.new
+    if current_user.admin?
+      @lawfirm = Lawfirm.new
+    else
+      redirect_to root_path, notice: 'Sorry, Only Lawfirm Admins Create Lawfirm'
+    end
   end
 
   # GET /lawfirms/1/edit
