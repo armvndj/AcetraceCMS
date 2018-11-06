@@ -135,10 +135,6 @@
   <%=  form.collection_select :status, Mycase.statuses.map{ |a| [a.first,a.first] },  :first, :second, class:"form-control" %>
 </div></div>
 
-<div class="col-md-6">
- <div class="form-group">
-</div></div>
-
 
   <div class="actions">
     <%= form.submit "Update Case", class:"btn btn-success"%> | <%= link_to 'Show Case', @mycase, class:"btn btn-info" %> |
