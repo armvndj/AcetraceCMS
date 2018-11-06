@@ -1,83 +1,86 @@
-  <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <aside class="left-sidebar">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
-                <!-- User profile -->
-                <div class="user-profile">
-                    <!-- User profile image -->
-                    <div class="profile-text">
-                 
-<% if user_signed_in? %> 
-           
-          <%if current_user.avatars?%>
-          
-        <%= image_tag current_user.avatars_url, :class => "profile-img"  %>
-        <%else%>
-          <img class="profile-img" src="../assets/img/avatar/default.png" alt="..."></span>
-        <%end%>
-  
-                    
-                        <h5><%= current_user.first_name %> <%= current_user.last_name %></h5><%end%>
-       
-                        
-                     <%= link_to destroy_user_session_path, method: :delete , class:'dropdown-item' do%><i class="fa fa-power-off"></i>Logout <%end%>
-                    </div>
-
-
+  <aside class="sidebar-left">
+      <nav class="navbar navbar-inverse">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <h1><a class="navbar-brand" href="/"><span class="fa fa-area-chart"></span>Acetrace<span class="dashboard_text">A. Assistant's Dashboard</span></a></h1>
           </div>
-                <!-- End User profile text-->
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="nav-devider"></li>
-                        
-                        <li> <a class="has-arrow waves-effect waves-dark" href="/"><i class="mdi mdi-widgets"></i><span class="hide-menu">Dashboard </span></a>
-                        </li>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="sidebar-menu">
+              <li class="header">MAIN NAVIGATION</li>
+              <li class="treeview">
+                <a href="/">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                </a>
+              </li>
+     
 
-                        <li> <a class="has-arrow waves-effect waves-dark" href="/lawfirm-legalcases-repository"><i class="mdi mdi-widgets"></i><span class="hide-menu">Case Files </span></a>
-                        </li>
-
-               
-
- <li>
-            <a class="has-arrow waves-effect waves-dark" href="/lawfirm-users-repository">
-              <i class="mdi mdi-table"></i>
-              <span class="hide-menu">Lawfirm Users</span>
-            </a>
-          </li>
-          <li>
-            <a class="has-arrow waves-effect waves-dark" href="/lawfirm-attorneys-repository">
-              <i class="mdi mdi-file"></i>
-              <span class="hide-menu">Lawfirm Attorneys</span>
-            </a>
-          </li>
-
-            <li> <a class="has-arrow waves-effect waves-dark" href="/lawfirm-clients-repository"><i class="mdi mdi-file-chart"></i><span class="hide-menu">Lawfirm Clients</span></a>
-                        </li>
-         
-
-           
-            <li>
-            <a class="has-arrow waves-effect waves-dark" href="/PFPM02FLORDO2WZF4QU47NORRUUP6WSU80K7K7VMRZKYP5JIDZAWLXP5KBNIMPV4E0QYWJSQUB5-acetracecms-forum-repo">
-              <i  class="icon fa fa-comment"></i>
-              <span class="hide-menu">Forum</span>
-            </a>
-          </li>
+               <li class="treeview"><a href="/lawfirm-legalcases-repository">
+                 <i class="fa fa-file"></i>
+                <span>Case Files</span>
+                <i class="fa fa-angle-left pull-right"></i>
+               </a>
+   </li>
 
 
 
+        <li class="treeview"><a href="/lawfirm-users-repository">
+                 <i class="fa fa-user"></i>
+                <span>Lawfirm Users</span>
+                <i class="fa fa-angle-left pull-right"></i>
+               </a>
 
-                    </ul>
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
-        </aside>
+   </li>
+
+
+   <li class="treeview"><a href="/lawfirm-attorneys-repository">
+                 <i class="fa fa-th"></i>
+                <span>Lawfirm Attorneys</span>
+                <i class="fa fa-angle-left pull-right"></i>
+               </a>
+   </li>
 
 
 
 
 
+ <li class="treeview"><a  href="/lawfirm-clients-repository"><i class="fa fa-desktop"></i> Lawfirm Clients</a></li>
+
+
+
+    <li class="treeview">
+                <a href="/Acetrace-Forum-Post">
+                <i class="fa fa-envelope"></i> <span>Forum </span>
+                <i class="fa fa-angle-left pull-right"></i><small class="label pull-right label-info1">post</small><span class="label label-primary1 pull-right">new</span></a>
+                   
+                <ul class="treeview-menu">
+                  <li><a href="/Acetrace-Forum-Post"><i class="fa fa-angle-right"></i>View Posts </a></li>
+                 
+                </ul>
+              </li>
+ 
+      
+
+                <li class="treeview">
+
+                <%= link_to destroy_user_session_path, method: :delete do%> 
+  
+                  <i class="fa fa-sign-out"></i> <span>Logout</span>
+                <i class="fa fa-angle-left pull-right"></i>
+                <%end%>
+
+              </li>
+
+
+                         </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </nav>
+    </aside>
+  
 
 

@@ -1,181 +1,156 @@
-<% provide( :title, "Lawfirm Admin Dashboard") %>
-
-   
-       <!-- ============================================================== -->
-      
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Lawfirm Admin Dashboard</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <!-- Row -->
-                <div class="card-group">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h2 class="m-b-0"><i class="mdi mdi-briefcase-check text-info"></i></h2>
-                                    <h3 class=""><%=lawfirmcasescount%></h3>
-                                    <h6 class="card-subtitle">Lawfirm Cases</h6></div>
-                                <div class="col-12">
-                                    <div class="progress">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 85%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <!-- Column -->
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h2 class="m-b-0"><i class="mdi mdi-alert-circle text-success"></i></h2>
-                                    <h3 class=""><%=clientscount%></h3>
-                                    <h6 class="card-subtitle">Clients</h6></div>
-                                <div class="col-12">
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 40%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <!-- Column -->
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h2 class="m-b-0"><i class="mdi mdi-wallet text-purple"></i></h2>
-                                    <h3 class=""><%=lawfirmusercount%></h3>
-                                    <h6 class="card-subtitle">Lawfirm Users</h6></div>
-                                <div class="col-12">
-                                    <div class="progress">
-                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 56%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <!-- Column -->
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h2 class="m-b-0"><i class="mdi mdi-buffer text-warning"></i></h2>
-                                    <h3 class=""><%=attorneyscount%></h3>
-                                    <h6 class="card-subtitle">Attorneys</h6></div>
-                                <div class="col-12">
-                                    <div class="progress">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 26%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Row -->
-                <div class="row">
-                    <!-- Column -->
-                     <div class="col-lg-8 col-xlg-9">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="d-flex flex-wrap">
-                                            <div>
-                                                <h4 class="card-title">Administrative Panel</h4>
-                                            </div>
-                                            <div class="ml-auto">
-                                                
 
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                <a class="media media-single"href="/legalcase-new-entry" target="_blank">
-                   <h6 class="w-60px"><i class="fa fa-legal"></i></h6>
-                  <div class="media-body">
-                    <h5>Create Case</h5>
-                    <small class="text-fader"><i class="fa fa-plus"></i> new legal-case</small>
-                  </div>
-                  
+<% provide( :title, "Dashboard") %>
+
+
+      <div class="col_3">
+      <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-gift user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=lawfirmcasescount%></strong></h5>
+                      <span>Lawfirm Cases</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-dollar icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=clientscount%></strong></h5>
+                      <span>Clients</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-laptop user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=lawfirmusercount%></strong></h5>
+                      <span>Lawfirm Users</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-money user2 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=attorneyscount%></strong></h5>
+                      <span>Lawfirm Attorneys</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-adjust icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@offset%> Days</strong></h5>
+                      <span>Active Subscription</span>
+                    </div>
+                </div>
+           </div>
+          <div class="col-md-3 widget">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-users icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@lopen.count%></strong></h5>
+                      <span>Cases Opened</span>
+                    </div>
+                </div>
+           </div>
+
+           <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-edit user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@linview.count%></strong></h5>
+                      <span>Cases Inview</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-dollar user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@lcompleted.count%></strong></h5>
+                      <span>Cases Completed</span>
+                    </div>
+                </div>
+          </div>
+
+          
+          <div class="clearfix"> </div>
+    </div>
+    <br/>
+     
+
+                 <div class="col_3">
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <div class="stats">
+                <a style="color:blue;" href="/legalcase-new-entry" target="_blank">
+                   <h5 style="color:blue;" class="w-60px"><i style="color:blue;" class="fa fa-legal"></i>Create a Case</h5>
                 </a>
-
+  </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <div class="stats">
                
-               <a class="media media-single" href="/clients/new">
-                 <h6 class="w-60px"><i class="fa fa-user"></i></h6>
-                  <div class="media-body">
-                    <h5>Add New Client</h5>
-                    <small class="text-fader"><i class="fa fa-plus"></i>client user</small>
-                  </div>
+               <a style="color:blue;" href="/clients/new">
+                 <h5 style="color:blue;" class="w-60px"><i class="fa fa-user"></i> Add a Client
+                 </h5>
+                  
                   
                 </a>
-
-             
-              
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  
-
-
+  </div>
+                </div>
+          </div>
+    
+             <div class="clearfix"> </div>
 </div>
-
-
-
-
-
-           
-
-
-
+         <br/>
+   <div class="clearfix"> </div>
 
   
+      
+          <div class="clearfix"> </div>
+        
+                       
+   <div class="charts">
+          
+          
+          <div class="charts-grids widget states-mdl">
+            <div class="card-header">
+            </div>
+            <div class="demo-placeholder">
+               <h3 class="box-title">
+              <i class="fa fa-calendar"></i>Cases Calendar</h3>
+             
 
-</div>
-</div>      
-
-</div>
+ <%=  month_calendar  events:  @lawfirm_cases do |date, meetings| %>
 
 
+             
+             <div class="media-body">
+                    <%= date.day%>
+                    <% meetings.each do |meeting| %>
+                    <small class="text-fader"><i class="fa fa-gift"></i> <%= meeting.subject.to_s %></small>
+                  </div>
+                  <% end %>
+<% end %>
+
+                
+
+            </div>
+   </div>
+          </div>
 
 
+<br/>
 
+<br/>
 
+<br/>
 
-
-
-
-
-</div>
-</div>

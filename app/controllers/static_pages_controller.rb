@@ -75,18 +75,19 @@ end
       def lawfirmusers
          if current_user.admin? || current_user.adminassistance? || current_user.client? || current_user.attorney?
      if current_user.lawfirm
+          if current_user.attorney? || current_user.client?
+            if current_user.mycases.any?
 
-       if current_user.mycases.any?
+                  @aopen = current_user.mycases.where(status: 0)
+                  @ainview = current_user.mycases.where(status: 1)
+                  @acompleted = current_user.mycases.where(status: 2)
 
-      @aopen = current_user.mycases.where(status: 0)
-      @ainview = current_user.mycases.where(status: 1)
-      @acompleted = current_user.mycases.where(status: 2)
-
-       else
-        @aopen = 0
-      @ainview = 0
-      @acompleted = 0
-       end
+            else
+                  @aopen = 0
+                  @ainview = 0
+                  @acompleted = 0
+            end
+          end
     if current_user.lawfirm.mycases || current_user.lawfirm.clients || current_user.lawfirm.attorneys|| current_user.lawfirm.adminassistances
      @lawfirm_users ||= []
       @lawfirm_cases = current_user.lawfirm.mycases
