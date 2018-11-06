@@ -7,6 +7,36 @@
         <!--notification menu end -->
       
       </span>
+      <div class="profile_details_left"><!--notifications of menu start -->
+          <ul class="nofitications-dropdown">
+            
+            <li class="dropdown head-dpdn">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue"><%=@ncount%></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div class="notification_header">
+                    <h3>You have <%=@ncount%> new notification</h3>
+                  </div>
+                </li>
+                
+                <%if current_user%>
+                 <li>
+                  <div class="notification_bottom">
+                    <a href="/notifications">See all notifications</a>
+                  </div> 
+                </li>
+                <%end%>
+
+              </ul>
+            </li> 
+           
+              </ul>
+            
+          <div class="clearfix"> </div>
+        </div>
+        <!--notification menu end -->
+        <div class="clearfix"> </div>
+      </div>
       <div class="header-right">
        
         <!--search-box-->
@@ -74,7 +104,7 @@
                
                         <li>
                          <%= link_to destroy_user_session_path, method: :delete do%> 
-                  <i class="fa fa-sign-out"></i> Logout
+                  <i class="fa fa-lock"></i> Logout
                 <%end%>
 
                 </li>

@@ -11,7 +11,7 @@ module Notifications
 
     def clean
       notifications.delete_all
-      redirect_to notifications_path
+      redirect_to root_path, notice: "You have successfully deleted all your notifications"
     end
 
     private

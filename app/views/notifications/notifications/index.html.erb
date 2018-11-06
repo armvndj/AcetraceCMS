@@ -1,21 +1,14 @@
-<% provide( :title, "My Events") %>
+<% provide( :title, "My Notifications") %>
 
-      <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">My Events</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-<div class="row">
-<div class="col-lg-9">
+    
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+    
+</div>
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> Activities</h3> </div> <div class="panel-body">
+        <br />
+
                         <div class="card">
                             <div class="card-body">
         
@@ -39,17 +32,22 @@
           </div>
        <div class="card-body" style="font-size:16px">
           <%= render notifications %>
-        </div>
+       
       <% end %>
     <% end %>
-  </div>
+
   <%= paginate @notifications %>
 </div>
+ </div>
+</div>
+  </div>
 
-<br>
-<br>
-<br>
-<br>
-  <%= link_to 'Dashboard', main_app.root_path, class:"btn btn-info" %> |
+
+<div style="float:right;">
+<%= link_to 'Back to Dashboard', main_app.root_path, class:"btn btn-info" %> |
 
 <%= link_to "Back", :back, class:"btn btn-warning"%> 
+</div>
+</div>
+
+

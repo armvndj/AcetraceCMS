@@ -29,15 +29,6 @@
         <%end%>
 
 
-<%if @post.file? %>
-<p>
- 
-
-<%= link_to "download post photo", download_file_post_path(@post), data: "case_file", class:'btn-info btn-sm' %>
- </p>
-
-
-<%end%>
 
 <p class="lead">
  <%= raw @post.body %></p>
@@ -100,7 +91,7 @@ Be the first to post discussion
  <br>
 <br>
 <br>
-<%= link_to 'Back', posts_path, class: "btn btn-primary" %>
+<%= link_to 'Back to Forum', posts_path, class: "btn btn-primary" %>
   <%= link_to 'Dashboard', root_path, class:"btn btn-info" %> |
  
    <%= link_to "Back", :back, class:"btn btn-warning"%> 
