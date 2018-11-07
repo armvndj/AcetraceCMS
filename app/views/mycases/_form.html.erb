@@ -57,6 +57,7 @@
     <%= form.text_field :rep_first, id: :mycase_rep_first, type:"text", required:"required", class:"form-control"%>
     </div</div>
 
+<div class="col-md-6">
      <div class="form-group">
     <%= form.label :rep_last, "Rep. Last name" %>
     <%= form.text_field :rep_last, id: :mycase_rep_last, type:"text", required:"required", class:"form-control"%>
@@ -98,11 +99,11 @@
     <%= form.date_select :due_date, id: :mycase_due_date, class:"form-control" %>
   </div></div>
 
-
+<div class="col-md-6">
  <div class="form-group">
     <%= form.label :summary_of_brief %>
     <%= form.text_area :summary_of_brief, id: :mycase_summary_of_brief, type:"text", required:"required", class:"form-control" %>
-  </div>
+  </div></div>
 <div class="col-md-6">
   <div class="form-group">
     <%= form.label :add_judge %>
