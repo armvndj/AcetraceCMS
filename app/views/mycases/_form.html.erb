@@ -23,8 +23,9 @@
     <%= form.text_field :caseNo, id: :mycase_caseNo, class:"form-control" %>
   </div></div>
 
-  <h2>Private Individual</h2>
+ 
 <div class="col-md-6">
+ <h2>Private Individual</h2>
    <div class="form-group">
     <%= form.label :f_name, "Client First Name" %>
     <%= form.text_field :f_name, id: :mycase_f_name, type:"text", required:"required", class:"form-control"%>
@@ -37,8 +38,9 @@
     </div</div>
 
 
-<h2>Corporate Entity</h2>
+
  <div class="col-md-6">
+ <h2>Corporate Entity</h2>
    <div class="form-group">
     <%= form.label :company_name %>
     <%= form.text_field :company_name, id: :mycase_company_name, type:"text", required:"required", class:"form-control"%>
@@ -51,7 +53,7 @@
     </div</div>
   
 
-
+<div class="col-md-6">
        <div class="form-group">
     <%= form.label :rep_first, "Rep. First name" %>
     <%= form.text_field :rep_first, id: :mycase_rep_first, type:"text", required:"required", class:"form-control"%>
