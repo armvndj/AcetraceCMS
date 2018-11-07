@@ -76,18 +76,11 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Caseno</th>
      
       <th>Subject</th>
       
       <th>Status</th>
-       <th>Lawfirm</th>
-      <th>Show</th>
-      
-     
-     
-    
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
@@ -95,15 +88,16 @@
     <% @user_cases.each do |mycase| %>
   <tr>
          
-        <td><%= mycase.caseNo %></td>
         
         <td><%= mycase.subject %></td>
        
         <td><%= mycase.status %></td>
-   
-     <td><%= mycase.lawfirm.name %></td>
         
-        <td><%= link_to 'Show', mycase_path(mycase), class:"btn btn-info" %></td>
+        <td><a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/legal-case/<%=mycase.id%>">
+        <i style="font-size:27px"class="fa fa-eye"></i>
+
+        </a></td>
         
       <%if @user.tasks.any?%>
        <%if @user.tasks == mycase.tasks%>

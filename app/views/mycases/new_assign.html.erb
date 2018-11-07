@@ -1,38 +1,19 @@
   
   <% provide( :title, @mycase.caseNo) %>
 
+<div class="col-md-12 panel-grids">
+</div>
+ 
+            <div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> <%= @mycase.caseNo %> </h3> </div> <div class="panel-body">
 
-
-
-      <div class="row page-titles">
-                <div class="col-md-9 align-self-center">
-                    <h3 class="text-themecolor"><%=@mycase.caseNo%></h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div>
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-        
-            <div class="container-fluid">
+           
  <div class="col-md-12 col-lg-12 d-none d-lg-block">
             <div class="card">
               
 
 
 <div class="card-body card-body">
-              <div class="card-header">
-            
-                <h5 class="card-title"><strong>Case - <%= @mycase.caseNo %></strong></h5>
-                  <div class="text-center py-20">
-                  <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7"><%= @mycase.caseNo %></div>
-                </div>
-              </div>
+          
 
 
 <div class="card-body card-body">
