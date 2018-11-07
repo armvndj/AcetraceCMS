@@ -78,14 +78,22 @@ end
           if current_user.attorney? || current_user.client?
             if current_user.mycases.any?
 
-                  @aopen = current_user.mycases.where(status: 0)
-                  @ainview = current_user.mycases.where(status: 1)
-                  @acompleted = current_user.mycases.where(status: 2)
+                  @aopen = current_user.mycases.where(status: 0).count
+                  @ainview = current_user.mycases.where(status: 1).count
+                  @acompleted = current_user.mycases.where(status: 2).count
+
+                  @copen = current_user.mycases.where(status: 0).count
+                  @cinview = current_user.mycases.where(status: 1).count
+                  @ccompleted = current_user.mycases.where(status: 2).count
 
             else
                   @aopen = 0
                   @ainview = 0
                   @acompleted = 0
+
+                   @copen = 0
+                  @cinview = 0
+                  @ccompleted = 0
             end
           end
     if current_user.lawfirm.mycases || current_user.lawfirm.clients || current_user.lawfirm.attorneys|| current_user.lawfirm.adminassistances
@@ -98,9 +106,7 @@ end
       
 
       
-      @copen = current_user.mycases.where(status: 0)
-      @cinview = current_user.mycases.where(status: 1)
-      @ccompleted = current_user.mycases.where(status: 2)
+      
   
       @clients = current_user.lawfirm.clients
       
