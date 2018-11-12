@@ -137,6 +137,17 @@ end
   def lawfirmcases
     home
   end
+
+   def clawfirmcases
+    home
+  end
+
+  def assignattorney
+    home
+  end
+
+
+
    def attorneycases
     home
   end
@@ -157,6 +168,23 @@ end
 def attorneys
   lawfirmusers
   
+ end
+
+
+ def cattorneys
+ lawfirmusers
+ @com_attorneys ||= [] 
+ @lawfirm_attorneys.each do |u|
+
+  if u.mycases.any?
+    u.mycases.each do |c|
+
+      if c.status == "completed"
+        @com_attorneys << u
+      end and return
+    end
+  end
+ end
  end
 
 

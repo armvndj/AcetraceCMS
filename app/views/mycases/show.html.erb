@@ -125,7 +125,7 @@
 
  <tr>
   <td><strong>Status:</strong></td>
-  <td><%= @mycase.status %></td>
+  <td><strong style="color:orange;"><%= @mycase.status %></strong></td>
 </tr>
 
 <%if current_user.admin? || current_user.attorney? %>
@@ -160,6 +160,27 @@
   <td><%= @mycase.add_court %></td>
 </tr>
 <tr>
+<tr><td>
+  
+
+                                  <!-- /.modal -->
+<h3>Case Billings</h3>
+<ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+                                
+
+
+ <%if @mycase.billings.count > 1%>
+
+<%= render :partial =>'billings/billing',
+:collection => @mycase.billings  %>
+
+<%else%>
+<li style="color:orange;">No Case Billing added yet!</li>
+<%end%>
+</ul>
+  
+
+</td></tr>
 <br>
 <br>
  <td><h5><strong>Case Client</strong></h5></td>
@@ -269,8 +290,8 @@
 <%= link_to 'Add Task', casetask_mycase_path(@mycase) , class:'btn btn-primary'%> 
 
 <%= link_to 'Add Billing', billing_mycase_path(@mycase) , class:'btn btn-warning'%> 
-<%else%>
-<%= link_to 'See Billing', billing_mycase_path(@mycase) , class:'btn btn-info'%> 
+<%elsif current_user.client?%>
+<%= link_to 'Upload Payment Info', billing_mycase_path(@mycase) , class:'btn btn-info'%> 
 
 <%end%>
 

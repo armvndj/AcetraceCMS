@@ -5,7 +5,7 @@
 
 
      
-      <h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;">Lawfirm Attorneys</h2>
+      <h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;">Lawfirm Attorneys that have completed their cases</h2>
           <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
          
   
@@ -16,9 +16,7 @@
 
     
 <div class="col-md-12 panel-grids">
-<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> Details </h3> 
-
- <p style="float:right; color:red;">Inactive attorneys have never been assigned to a case before</p></div> <div class="panel-body">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> Details  </h3> </div> <div class="panel-body">
         <br />
 
                                     <table style="font-size:16px;" class="table">
@@ -30,8 +28,8 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-            <% if @lawfirm_attorneys.any?%>
-           <% @lawfirm_attorneys.each do |user| %>
+            <% if @com_attorneys.any?%>
+           <% @com_attorneys.each do |user| %>
             <div style="font-size:16px;">
 <tr>
                                                 <td style="width:50px;">
@@ -54,40 +52,10 @@
    onMouseOut="this.style.color='#73879C'" href="/attorneys/<%=user.id%>/edit">
         <i style="font-size:27px"class="fa fa-edit"></i>
 
-        </a></span>
-
-
-        <span>
-
-  <%= link_to attorney_path(user.id), method: :delete, data: { confirm: 'Are you sure you really want to delete this post?' } do%><i onMouseOver="this.style.color='orange'"
-   onMouseOut="this.style.color='#73879C'" style="font-size:27px"class="fa fa-trash"></i><%end%>
-
-        </span>
-
-
-              </span></td>
+      </td>
          
                                             
-                                              
-                                            <%if user.mycases.any?%>
-                                            <td>
-                                            <h5 style="color:orange;"><strong>
-                                            Active
-                                            </strong>
-                                            </h5>
-                                            </td>
-                                            <%else%>
-
-                                             <td>
-                                              <td>
-                                            <h5 style="color:orange;"><strong>
-                                            Inactive
-                                            </strong>
-                                            </h5>
-                                            </td>
-                                            </td>
-
-                                            <%end%>
+                                        
 
                                             </tr>
                                                        
@@ -102,7 +70,7 @@
 
 
            <%else%>
-<h5>There are no Attorneys on this lawfirm yet!</h5>
+<h5>No Attorney has Completed his Case yet!</h5>
 <%end%>
 
 
@@ -111,7 +79,7 @@
 <%end%>
   <%= link_to 'Back to Dashboard', root_path, class:"btn btn-info" %> |
 
-<%= link_to "Back", :back, class:"btn btn-warning"%> | <a href="/cases-completed-attorneys" class="btn btn-info">Attorneys that have Completed their Cases</a>
+<%= link_to "Back", :back, class:"btn btn-warning"%> 
 
                                 </div>
                             </div>

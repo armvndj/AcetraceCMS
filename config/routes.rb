@@ -30,10 +30,17 @@ Rails.application.routes.draw do
   get 'dashboard' => 'static_pages#home'
   get 'lawfirm-users-repository' => 'static_pages#lawfirmusers'
   get 'lawfirm-legalcases-repository' => 'static_pages#lawfirmcases'
+
+  get 'lawfirm-legalcases-assign-cost' => 'static_pages#clawfirmcases'
+
+   get 'lawfirm-legalcases-assign-attorney' => 'static_pages#assignattorney'
+  
   get 'attorney-legalcases-repo' => 'static_pages#attorneycases'
   get 'client-legalcases-repo' => 'static_pages#clientcases'
   get 'subcribers' =>'static_pages#subcribers'
   get 'lawfirm-attorneys-repository' => 'static_pages#attorneys'
+get 'cases-completed-attorneys' => 'static_pages#cattorneys'
+
   get 'lawfirm-clients-repository' => 'static_pages#clients'
   get '7QXY84CQ3ZX9H21HQOVN24M5NF89L2WQQ4L3IUHW253C5JH60WA84622U9SRBYW8TMVE2B9Uacetrace-lawfirms-admins' => 'static_pages#admins'
   get 'legalcase-new-entry' => 'mycases#new'

@@ -4,7 +4,7 @@
 
 
     
- <h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;">Lawfirm Cases</h2>
+ <h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;">Asign Attorney to Cases</h2>
           <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
     
 </div>
@@ -29,7 +29,6 @@
       <th>Subject</th>
       <th>Status</th>
       <th>Due Date</th>
-       <th>Lawfirm</th>
       <th>action</th>
      
      
@@ -45,12 +44,12 @@
         <td><%= mycase.client_name %></td>
         <td><%= mycase.subject %></td>
         
-        <td><%= mycase.status%></td>
+        <td><%= mycase.status %></td>
         <td><%= mycase.due_date %></td>
        
-     <td><%= link_to current_user.lawfirm.name, lawfirm_path(current_user.lawfirm.id) %></td>
+    
         
-   
+    <%if current_user.admin?%>
        
 <td>
 
@@ -63,24 +62,12 @@
 
         
 
-        <a onMouseOver="this.style.color='orange'"
-   onMouseOut="this.style.color='#73879C'" href="/legal-case/<%=mycase.id%>/edit">
-        <i style="font-size:27px"class="fa fa-edit"></i>
-
-        </a>
-
-         <%if current_user.admin?%>
-
-        <%= link_to mycase, method: :delete, data: { confirm: 'Are you sure you really want to delete this post?' } do%><i onMouseOver="this.style.color='orange'"
-   onMouseOut="this.style.color='#73879C'" style="font-size:27px"class="fa fa-trash"></i>
-    <% end %>
+  <%= link_to 'Assign Attorney', new_assign_mycase_path(mycase), class:'btn btn-warning' %>
 
 
-
- <% end %>
        </td>
       </tr>
-   
+    <% end %>
     <%end%>
   </tbody>
 </table>
