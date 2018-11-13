@@ -4,7 +4,7 @@ class Lawfirm < ApplicationRecord
 	belongs_to :admin, foreign_key: :admin_id
 	has_many :clients
   has_many :attorneys
-  has_many :adminassistances
+  has_many :adminassistants
 	has_many :mycases, dependent: :destroy
 	mount_uploader :logos, LogosUploader
 	before_save { self.email = email.downcase }

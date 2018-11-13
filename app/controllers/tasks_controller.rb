@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 before_action :in_check
 def in_check
-   if current_user.admin? || current_user.adminassistance? || current_user.client? || current_user.attorney?
+   if current_user.admin? || current_user.adminassistant? || current_user.client? || current_user.attorney?
    if current_user.lawfirm
     if current_user.lawfirm.status == "inactive" ||  current_user.lawfirm.status == nil
          redirect_to new_transaction_path, notice: 'Your Lawfirm Subscription has Expire Contact your Lawfirm Admin!'

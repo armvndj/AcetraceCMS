@@ -36,7 +36,13 @@ Rails.application.routes.draw do
    get 'lawfirm-legalcases-assign-attorney' => 'static_pages#assignattorney'
   
   get 'attorney-legalcases-repo' => 'static_pages#attorneycases'
+
+   get 'attorney-legalcases-discussion' => 'static_pages#attorneycasesdis'
+    get 'attorney-legalcases-tasks' => 'static_pages#attorneycasestask'
+
   get 'client-legalcases-repo' => 'static_pages#clientcases'
+  get 'client-legalcases-discussion' => 'static_pages#clientcasesdis'
+
   get 'subcribers' =>'static_pages#subcribers'
   get 'lawfirm-attorneys-repository' => 'static_pages#attorneys'
 get 'cases-completed-attorneys' => 'static_pages#cattorneys'
@@ -87,7 +93,7 @@ resources :lawfirms do
     end
     
 
-resources :adminassistances
+resources :adminassistants
 resources :lawfirms, :path => 'L3D7ZLU9SEMWM0R7F8O906ILVU5WY91WV4MUJJKSTM774ONCMBTNVTMNJJHSQKH80OCASGF3F0S-acetrace-lawfirms-repo'
  
 

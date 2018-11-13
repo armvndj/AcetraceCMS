@@ -27,9 +27,9 @@ class User < ApplicationRecord
       self.is_a?(Admin) 
     end 
 
-    def adminassistance?
+    def adminassistant?
 
-      self.is_a?(Adminassistance) 
+      self.is_a?(Adminassistant) 
     end
 
      def attorney?

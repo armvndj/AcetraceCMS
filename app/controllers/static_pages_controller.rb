@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
 before_action :in_check
 def in_check
-  if current_user.admin? || current_user.adminassistance? || current_user.client? || current_user.attorney?
+  if current_user.admin? || current_user.adminassistant? || current_user.client? || current_user.attorney?
     if current_user.lawfirm
     if current_user.lawfirm.status == "inactive" ||  current_user.lawfirm.status == nil
          redirect_to new_transaction_path, notice: 'Your Lawfirm Subscription has Expire Contact your Lawfirm Admin!'
@@ -73,7 +73,7 @@ end
     end
 
       def lawfirmusers
-         if current_user.admin? || current_user.adminassistance? || current_user.client? || current_user.attorney?
+         if current_user.admin? || current_user.adminassistant? || current_user.client? || current_user.attorney?
      if current_user.lawfirm
           if current_user.attorney? || current_user.client?
             if current_user.mycases.any?
@@ -96,7 +96,7 @@ end
                   @ccompleted = 0
             end
           end
-    if current_user.lawfirm.mycases || current_user.lawfirm.clients || current_user.lawfirm.attorneys|| current_user.lawfirm.adminassistances
+    if current_user.lawfirm.mycases || current_user.lawfirm.clients || current_user.lawfirm.attorneys|| current_user.lawfirm.adminassistants
      @lawfirm_users ||= []
       @lawfirm_cases = current_user.lawfirm.mycases
      
@@ -110,10 +110,10 @@ end
   
       @clients = current_user.lawfirm.clients
       
-       @lawfirm_adminassistance = current_user.lawfirm.adminassistances
+       @lawfirm_adminassistant = current_user.lawfirm.adminassistants
        @lawfirm_attorneys= current_user.lawfirm.attorneys
     
- @lawfirm_adminassistance.each do |u| 
+ @lawfirm_adminassistant.each do |u| 
      @lawfirm_users << u
     
     end
@@ -151,9 +151,24 @@ end
    def attorneycases
     home
   end
-   def clientcases
+
+  def attorneycases
     home
   end
+
+  def attorneycasesdis
+    home
+  end
+
+   def clientcasesdis
+    home
+  end
+
+     def clientcases
+    home
+  end
+
+
 
   def clients
     lawfirmusers  

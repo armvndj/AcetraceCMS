@@ -1,6 +1,6 @@
   <% provide( :title, "Attorney cases") %>
 
-<h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;"> Attorney Cases</h2>
+<h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;"> Attorney Cases Tasks</h2>
           <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 
 </div>
@@ -58,7 +58,7 @@
        
      <td><%= link_to current_user.lawfirm.name, lawfirm_path(current_user.lawfirm.id) %></td>       
         <td><%= link_to 'Show', mycase %></td>
-        <td><%= link_to 'Update', edit_mycase_path(mycase) %></td>
+        <td><%= link_to 'See Task', casetask_mycase_path(mycase) , class:'btn btn-succes'%> </td>
       
       </tr>
     <% end %>

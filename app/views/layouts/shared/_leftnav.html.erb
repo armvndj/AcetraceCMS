@@ -11,9 +11,9 @@
 
 <%= render partial: 'layouts/attorney' %>
 
-<%elsif current_user.adminassistance?%>
+<%elsif current_user.adminassistant?%>
 
-<%= render partial: 'layouts/adminassistance' %>
+<%= render partial: 'layouts/adminassistant' %>
 
 <%elsif current_user.client?%>
 

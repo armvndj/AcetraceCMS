@@ -1,4 +1,4 @@
-class Adminassistance < User
+class Adminassistant < User
 	  #alias_attribute :slug, :first_name
   #before_create :generate_guid
   
