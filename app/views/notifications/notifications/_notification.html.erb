@@ -3,6 +3,7 @@
 <div id="notification-<%= notification.id %>"
      data-id="<%= notification.id %>"
      class="media notification notification-<%= notification.notify_type %><%= ' unread' unless notification.read? %>">
+     <%if Mycase.find(notification.target.id)%>
   <div class="media-left">
     <% if notification.actor_profile_url && notification.actor_avatar_url %>
       <%= link_to image_tag(notification.actor_avatar_url), notification.actor_profile_url, title: notification.actor_name, class: 'user-avatar' %>
@@ -14,6 +15,7 @@
   <div class="right">
     <%= l notification.created_at, format: :short %>
   </div>
+  <% end %>
 </div>
 <% end %>
 
