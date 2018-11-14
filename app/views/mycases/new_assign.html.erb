@@ -4,6 +4,7 @@
 <div class="col-md-12 panel-grids">
 </div>
  
+<%if current_user.admin?%>
             <div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> <%= @mycase.caseNo %> </h3> </div> <div class="panel-body">
 
            
@@ -171,6 +172,12 @@
 </div>
 </div>
 
+
+<%else%>
+
+<h5>Your are not authorized  to view this page</h5>
+
+ <%end%>
 
 </div>
 </div>

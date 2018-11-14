@@ -1,7 +1,7 @@
   
   <% provide( :title, "Transaction History") %>
 
-
+<%if current_user.sadmin?%>
 <div class="forms">
         
           <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
@@ -48,6 +48,11 @@
 </div>
 </div>
 
+<%else%>
+
+<h5>Your are not allowed to view this page</h5>
+
+ <%end%>
 
 <br>
  <%= link_to 'Back to Dashboard', root_path, class:"btn btn-info" %> |
