@@ -46,7 +46,18 @@
                                             </span></td>
                                                 <td>
                                                     <h6><%= lawfirm.name %></h6><small class="text-muted"><%= lawfirm.phone_number %></small></td>
-                                                <td> <%= link_to 'Show', lawfirm_path(lawfirm.id) %><%= link_to 'Edit', edit_lawfirm_path(lawfirm) %><%= link_to 'Delete', lawfirm_path(lawfirm.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                <td> 
+
+
+
+
+<a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/L3D7ZLU9SEMWM0R7F8O906ILVU5WY91WV4MUJJKSTM774ONCMBTNVTMNJJHSQKH80OCASGF3F0S-acetrace-lawfirms-repo/<%=lawfirm.id%>">
+        <i style="font-size:27px"class="fa fa-eye"></i>
+
+        </a>
+
+
 
               </td>
                                                 <td><%= lawfirm.email %></td>
