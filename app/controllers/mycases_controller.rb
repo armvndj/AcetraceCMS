@@ -54,6 +54,7 @@ end
      @mycase.save
      if @mycase.users.any?
       @mycase.users.each do |f|
+          NewCaseEmailJob.set(wait: 20.seconds).perform_later(f, @mycase)
           Notification.create(
           notify_type: 'mention',
           actor: current_user,
@@ -231,6 +232,11 @@ end
  @mycase.save
       respond_to do |format|
         if @mycase.save
+          NewCaseEmailJob.set(wait: 20.seconds).perform_later(@admin, @mycase)
+
+          NewCaseEmailJob.set(wait: 20.seconds).perform_later(@mycase.client, @mycase)
+
+
            Notification.create(
       notify_type: 'mention',
       actor: current_user,
