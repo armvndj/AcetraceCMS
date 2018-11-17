@@ -26,15 +26,16 @@ end
 	end
 
   end
+
   def show
 	@user = User.find(params[:id])
-if @user.admin? || @user.client? || @user.attorney?
+    if @user.admin? || @user.client? || @user.attorney?
    
-	@user_lawfirm = @user.lawfirm 
+	     @user_lawfirm = @user.lawfirm 
 
-	@user_cases = @user.mycases
+	     @user_cases = @user.mycases
        
-end
+    end
 end
 
   
