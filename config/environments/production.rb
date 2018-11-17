@@ -3,6 +3,7 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
+config.active_job.queue_adapter = :delayed_job
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -65,17 +66,19 @@ config.assets.compile = true
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "legalcase_#{Rails.env}"
   config.action_mailer.perform_caching = false
-    config.action_mailer.default_url_options = { host: 'acetracecms.herokuapp.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default charset: 'utf-8'
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-  address: 'localhost',
-  port: 25,
-  domain: 'acetracecms.herokuapp.com',
-  tls: false,
-  enable_starttls_auto: false,
+ 
+config.action_mailer.delivery_method = :smtp
+# SMTP settings for gmail
+config.action_mailer.smtp_settings = {
+ :address              => "smtp.gmail.com",
+ :port                 => 587,
+ :user_name            => ENV['gmail_username'],
+ :password             => ENV['gmail_password'],
+ :authentication       => "plain",
+:enable_starttls_auto => true
 }
 
   # Ignore bad email addresses and do not raise email delivery errors.

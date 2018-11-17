@@ -70,6 +70,7 @@ if @user.update(user_params)
         
 	  respond_to do |format|
       if @user.save
+        SendEmailJob.set(wait: 20.seconds).perform_later(@user)
         format.html { redirect_to  @user, notice: 'Successfully added a new Client profile.' }
         format.json { render :show, status: :created, location: @user }
       else

@@ -27,6 +27,7 @@ class AdminsController < ApplicationController
 	  respond_to do |format|
 
       if @user.save
+        SendEmailJob.set(wait: 20.seconds).perform_later(@user)
         sign_in(@user)
         format.html { redirect_to  root_path, notice: 'Successfully Created Lawfirm Admin Acount.' }
         format.json { render :show, status: :created, location: @user }
