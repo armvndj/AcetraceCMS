@@ -286,20 +286,31 @@
               </div>
 
 <%if current_user.admin?%>
+<%= link_to 'Discussions', meet_mycase_path(@mycase) , class:'btn btn-info'%> 
 <%= link_to 'Add Task', casetask_mycase_path(@mycase) , class:'btn btn-primary'%> 
 
 <%= link_to 'Add Billing', billing_mycase_path(@mycase) , class:'btn btn-warning'%> 
 <%elsif current_user.client?%>
+<%= link_to 'Discussions', meet_mycase_path(@mycase) , class:'btn btn-info'%> |
 <%= link_to 'Upload Payment Info', billing_mycase_path(@mycase) , class:'btn btn-info'%> 
 
 <%end%>
 
 <%if current_user.attorney?%>
+<%= link_to 'Discussions', meet_mycase_path(@mycase) , class:'btn btn-info'%> 
 <%= link_to 'See Task', casetask_mycase_path(@mycase) , class:'btn btn-succes'%> 
+
 <%end%>
 
 
+<%if current_user.adminassistant?%>
 <%= link_to 'Discussions', meet_mycase_path(@mycase) , class:'btn btn-info'%> 
+
+<%end%>
+
+
+
+
 
 
 <%if current_user.admin? || current_user.attorney?%>
@@ -307,6 +318,9 @@
 
 
 <%end%>
+
+
+
 </div>
 </div>
 </tbody>

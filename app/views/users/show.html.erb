@@ -178,9 +178,7 @@ Acetracecms
 
 <tr><td>
 <%if current_user.id == @user.id%>
-    <%= link_to 'Update Profile', edit_user_registration_path %> |
-  <%else%>
-<%= link_to 'Edit User', edit_users_admin_path(@user) %> |
+    <%= link_to 'Update Profile', edit_user_registration_path %> 
 <%end%>
 </td>
 </tr>
