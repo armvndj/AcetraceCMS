@@ -3,7 +3,7 @@ class SendEmailJob < ApplicationJob
 
    def perform(user)
     @user = user
-    WelcomeMailer.sample_email(@user).deliver_later
+    WelcomeMailer.welcome_email(@user).deliver_later
   end
 
 end
