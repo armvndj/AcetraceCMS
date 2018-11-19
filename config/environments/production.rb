@@ -65,7 +65,7 @@ config.assets.compile = true
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "legalcase_#{Rails.env}"
-  config.action_mailer.default_url_options = { :host => 'acetracecms.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'https://acetracecms.herokuapp.com' }
   config.action_mailer.perform_caching = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
