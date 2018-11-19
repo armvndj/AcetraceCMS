@@ -43,22 +43,23 @@ class RetractsController < ApplicationController
   def web
     res = 0;
     @paystackObj = Paystack.new(ENV['PUBLIC_KEY'], ENV['SECRET_KEY'])
-    transaction_reference = params[:trxref]
-    transactions = PaystackTransactions.new(@paystackObj)
-    result = transactions.verify(transaction_reference)
-    @res = result['data']
-  @customer = result['data']['customer']
+    #transaction_reference = params[:trxref]
+    #transactions = PaystackTransactions.new(@paystackObj)
+    #result = transactions.verify(transaction_reference)
+    @res = params['data']
+    @plan = params['data']['plan']['interval']
+    @customer = params['data']['customer']
   
   if @res['status'] == "success"
     lawfirm = lawfirm.find_by_email(@customer['email']) 
       lawfirm.update(status: 1 )
 
       
-      if lawfirm.interval == "monthly"
+      if @plan == "monthly"
          res = 30
-       elsif lawfirm.interval == "quarterly"
+       elsif @plan == "quarterly"
          res = 90
-       elsif lawfirm == "annually"
+       elsif @plan == "annually"
           res = 365
       end
         lawfirm.transactions.create(amount: (@res['amount'].to_f)/100,
