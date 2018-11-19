@@ -62,8 +62,9 @@ end
           target: @mycase)
       end
     end
-  
-  Notification.create(
+    SendAttorneyAsignEmailJob.set(wait: 20.seconds).perform_later(@mycase.client, @mycase)
+    
+    Notification.create(
           notify_type: 'update',
           actor: current_user,
           user: @mycase.client,
