@@ -11,7 +11,6 @@ def in_check
       end
       else
         redirect_to new_lawfirm_path, notice: 'Setup Your Lawfirm First'
-
     end
 end
   end
@@ -52,6 +51,9 @@ end
      # @mycase.users << @attorney_user
       
      @mycase.save
+     UpdateCaseEmailJob.set(wait: 20.seconds).perform_later(@mycase.client, @mycase)
+     UpdateCaseEmailJob.set(wait: 20.seconds).perform_later(current_user.lawfirm.admin, @mycase)
+
      if @mycase.users.any?
       @mycase.users.each do |f|
           NewCaseEmailJob.set(wait: 20.seconds).perform_later(f, @mycase)
@@ -92,8 +94,14 @@ end
       @mycase.update(status: 1)
        respond_to do |format|
       if @mycase.update(status: 1)
+        UpdateCaseEmailJob.set(wait: 20.seconds).perform_later(@mycase.client, @mycase)
+      
+      UpdateCaseEmailJob.set(wait: 20.seconds).perform_later(@mycase.admin, @mycase)
+      
          if @mycase.users.any?
       @mycase.users.each do |f|
+        UpdateCaseEmailJob.set(wait: 20.seconds).perform_later(f, @mycase)
+      
           Notification.create(
           notify_type: 'update',
           actor: current_user,
@@ -124,12 +132,20 @@ end
 def completed
   @mycase = Mycase.find(params[:id])
      # @company =  Company.find(params[:company_id])
-      
+     
+
+
       @mycase.update(status: 2)
        respond_to do |format|
       if @mycase.update(status: 2)
+
+    UpdateCaseEmailJob.set(wait: 20.seconds).perform_later(@mycase.client, @mycase)
+      
+      UpdateCaseEmailJob.set(wait: 20.seconds).perform_later(@mycase.admin, @mycase)
+      
          if @mycase.users.any?
       @mycase.users.each do |f|
+        UpdateCaseEmailJob.set(wait: 20.seconds).perform_later(f, @mycase)
           Notification.create(
           notify_type: 'update',
           actor: current_user,
@@ -266,9 +282,20 @@ end
   # PATCH/PUT /mycases/1
   # PATCH/PUT /mycases/1.json
   def update
-  
+   
     respond_to do |format|
       if @mycase.update_attributes(mycase_params)
+        if @mycase.users.any?
+      @mycase.users.each do |f|
+          UpdateCaseEmailJob.set(wait: 20.seconds).perform_later(f, @mycase)
+      
+      end
+    end
+
+    UpdateCaseEmailJob.set(wait: 20.seconds).perform_later(@mycase.client, @mycase)
+      
+      UpdateCaseEmailJob.set(wait: 20.seconds).perform_later(@mycase.admin, @mycase)
+      
         format.html { redirect_to @mycase, notice: 'Mycase was successfully updated.' }
         format.json { render :show, status: :ok, location: @mycase }
       else

@@ -3,13 +3,12 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-
   <body>
     <h1>Hello, <%= @user.first_name %></h1>
     <%if @user.type == "Admin" %>
 
      <p>
-      A new Legal Case has been created in your Lawfirm <%= @user.lawfirm.name %>. <em><b>The details are below:</b></em><br/>
+      A Legal Case in your Lawfirm <%= @user.lawfirm.name %> has been updated. <em><b>The details are below:</b></em><br/>
         <table class="table table-user-information">
                     <tbody>
                       <tr>
@@ -108,18 +107,21 @@
 
 </tbody>
 </table>
-
+<p style="color:orange;">Please login to your account to see update.</p>
+<br/>
 <br/>
       We are glad to serve you.
+
 <br/>
-<br/>
- <p style="float:left; color:blue;">Acetrace-CMS Team </p>
-    </p>
+      <p style="float:left; color:blue;">Acetrace-CMS Team </p>
+
+    
 
     <%elsif @user.type == "Attorney"%>
 
+
       <p>
-      You have been asigned as an Attorney in a Legal created at <%= @mycase.lawfirm.name %><br/><em><b> Lawfirm. The details are below:</b></em><br/>
+      A Legal Case  you are assigned as an Attorney created at <%= @mycase.lawfirm.name %><br/><em><b> Lawfirm has been updated. The details are below:</b></em><br/>
         <table class="table table-user-information">
                     <tbody>
                       <tr>
@@ -220,11 +222,12 @@
 </table>
 
 <br/>
-      Please log into your Acetrace-CMS account. with your e-mail: <%= @user.email %>
-      to follow up.
+      Please log into your Acetrace-CMS account. with your e-mail: <%= @user.email %> to <b style="color:orange;">see update.</b>
 <br/>
 <br/>
-<p style="float:left; color:blue;">Acetrace-CMS Team </p>
+      <p style="float:left; color:blue;">Acetrace-CMS Team </p>
+
+    
     </p>
 
 
@@ -232,7 +235,7 @@
 
     <%else%>
     <p>
-      Your Legal Case Iniatition at <%=@mycase.lawfirm.name%> has been completed. <b><em>See Details Below</em></b><br/> 
+      Your Legal Case iniatiated at <%=@mycase.lawfirm.name%> has been Updated. <b><em>See Details Below</em></b><br/> 
 <table class="table table-user-information">
                     <tbody>
                       <tr>
@@ -333,10 +336,10 @@
 </table>
 
       Please log into your Acetrace-CMS account. with your e-mail: <%= @user.email %>
-      to follow up.
+      to <p style="color:orange;">see update.</p>
 <br/>
 <br/>
-<p style="float:left; color:blue;">Acetrace-CMS Team </p>
+      <p style="float:left; color:blue;">Acetrace-CMS Team </p>
 
     </p>
   <%end%>

@@ -8,5 +8,9 @@ class NewCaseMailerPreview < ActionMailer::Preview
     	NewCaseMailer.attorney_assign_email(User.first, Mycase.first)
     end
 
+    def update_case_mail_preview
+    	NewCaseMailer.update_case_email(User.first, Mycase.first)
+  	end
+
 end
 

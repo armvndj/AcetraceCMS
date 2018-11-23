@@ -1,6 +1,6 @@
 Hello, <%= @user.first_name %>
 
-      A new Legal Case has been created in your Lawfirm <%= @user.lawfirm.name %>.The details are below:
+      A Legal Case in your Lawfirm <%= @user.lawfirm.name %> has been updated.The details are below:
    <%if @user.type == "Admin" %>    
  Caseno:
  <%= @mycase.caseNo %>
@@ -65,22 +65,15 @@ Hello, <%= @user.first_name %>
 <%= @mycase.subject %>
 
 
-
  Area of practice:
  <%= @mycase.area_of_practice %>
-
 
 
  Opponents:
  <%= @mycase.opponents %>
 
-
-
-
  Arrival date:
  <%= @mycase.arrival_date %>
-
-
 
  Due date:
  <%= @mycase.due_date %>
@@ -89,16 +82,14 @@ Hello, <%= @user.first_name %>
  Status:
 <%= @mycase.status %>
 
-Please login to your account to see update.
-      We are glad to serve you.
+
+    We are glad to serve you.
 
       Acetrace-CMS Team 
 
     <%elsif @user.type == "Attorney"%>
 
-
-
-      You have been asigned as an Attorney in a Legal created at <%= @mycase.lawfirm.name %> Lawfirm. The details are below:
+       A Legal Case  you are assigned as an Attorney created at <%= @mycase.lawfirm.name %> Lawfirm has been updated. The details are below:
                      
  Caseno:
  <%= @mycase.caseNo %>
@@ -192,7 +183,7 @@ Please login to your account to see update.
 
 
 
-      Please log into your Acetrace-CMS account. with your e-mail: <%= @user.email %>
+      Please log into your Acetrace-CMS. with your e-mail: <%= @user.email %>
       to follow up.
 
       Acetrace-CMS Team 
@@ -203,12 +194,10 @@ Please login to your account to see update.
 
     <%else%>
  
-      Your Legal Case Iniatition at <%=@mycase.lawfirm.name%> has been completed at. See Details Below:
+      Your Legal Case iniatiated at <%=@mycase.lawfirm.name%> has been updated. See Details Below:
                      
  Caseno:
  <%= @mycase.caseNo %>
-
-
 
   Entity:
  <%= @mycase.entity %>
