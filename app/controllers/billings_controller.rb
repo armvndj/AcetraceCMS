@@ -45,6 +45,8 @@ end
 
     if @mycase.users.any?
         @mycase.users.each do |f|
+           CaseBillingEmailJob.set(wait: 20.seconds).perform_later(f, @mycase, @task)
+  
           Notification.create(
           notify_type: 'billing',
           actor: current_user,
@@ -57,7 +59,7 @@ end
            Notification.create(
                 notify_type: 'billing',
                 actor: current_user,
-                user: current_user.lawfirm.admin,
+                user: @mycase.admin,
                 target: @mycase)
       elsif current_user.admin?
          Notification.create(
@@ -67,6 +69,10 @@ end
                 target: @mycase)
 
       end
+      CaseBillingEmailJob.set(wait: 20.seconds).perform_later(@mycase.client, @mycase, @task)
+  
+  CaseBillingEmailJob.set(wait: 20.seconds).perform_later(@mycase.client, @mycase, @task)
+  
         
 
     respond_to do |format|
@@ -81,7 +87,10 @@ end
 
   def approve_billing
     @billing.update(status: 1)
-   redirect_to billing_mycase_path(@billing.mycase.id), notice: 'Billing was successfully approved.' 
+     CaseBillingApprovedEmailJob.set(wait: 20.seconds).perform_later(@mycase.admin, @mycase)
+    CaseBillingApprovedEmailJob.set(wait: 20.seconds).perform_later(@mycase.client, @mycase)
+    redirect_to billing_mycase_path(@billing.mycase.id), notice: 'Billing was successfully approved.' 
+    
   end
 
   # PATCH/PUT /billings/1

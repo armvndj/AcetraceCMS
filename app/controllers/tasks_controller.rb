@@ -50,6 +50,8 @@ if @task.save
 
           if @mycase.users.any?
       @mycase.users.each do |f|
+         CaseTaskEmailJob.set(wait: 20.seconds).perform_later(f, @mycase, @task)
+  
           Notification.create(
           notify_type: 'task',
           actor: current_user,
@@ -62,10 +64,11 @@ if @task.save
     Notification.create(
           notify_type: 'task',
           actor: current_user,
-          user: current_user.lawfirm.admin,
+          user: @mycase.admin,
           target: @mycase)
 
-
+ CaseTaskEmailJob.set(wait: 20.seconds).perform_later(@mycase.admin, @mycase, @task)
+  
     respond_to do |format|
       
         format.html { redirect_to casetask_mycase_path(@mycase.id), notice: 'Task was successfully created.' }

@@ -29,7 +29,7 @@ class NewCaseMailer < ApplicationMailer
       @user = user
       @mycase = mycase
       @comment = comment
-      mail(to: @user.email, subject: 'Someone Posted discussion on a Legal Case')
+      mail(to: @user.email, subject: 'Someone Posted discussion on Legal Case')
     end
 
 
@@ -37,6 +37,12 @@ class NewCaseMailer < ApplicationMailer
       @user = user
       @mycase = mycase
       @billing = billing
+      mail(to: @user.email, subject: 'Legal Case Billing has been posted')
+    end
+
+    def case_billing_approved_email(user, mycase)
+      @user = user
+      @mycase = mycase
       mail(to: @user.email, subject: 'Legal Case Billing has been posted')
     end
 

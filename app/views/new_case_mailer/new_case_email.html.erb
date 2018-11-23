@@ -9,7 +9,7 @@
     <%if @user.type == "Admin" %>
 
      <p>
-      A new Legal Case has been created in your Lawfirm <%= @user.lawfirm.name %>. <em><b>The details are below:</b></em><br/>
+      A new Legal Case has been created in your Lawfirm <em><b style="color:orange;"><%= @user.lawfirm.name %></b></em>. <em><b>The details are below:</b></em><br/>
         <table class="table table-user-information">
                     <tbody>
                       <tr>
@@ -119,7 +119,7 @@
     <%elsif @user.type == "Attorney"%>
 
       <p>
-      You have been asigned as an Attorney in a Legal created at <%= @mycase.lawfirm.name %><br/><em><b> Lawfirm. The details are below:</b></em><br/>
+      You have been asigned as an Attorney in a Legal created at <<em><b style="color:orange;"><%= @user.lawfirm.name %> Lawfirm </b></em><br/><em><b>The details are below:</b></em><br/>
         <table class="table table-user-information">
                     <tbody>
                       <tr>
@@ -232,7 +232,7 @@
 
     <%else%>
     <p>
-      Your Legal Case Iniatition at <%=@mycase.lawfirm.name%> has been completed. <b><em>See Details Below</em></b><br/> 
+      Your Legal Case Iniatition at <em><b style="color:orange;"><%= @user.lawfirm.name %> Lawfirm </b></em> has been completed. <b><em>See Details Below</em></b><br/> 
 <table class="table table-user-information">
                     <tbody>
                       <tr>

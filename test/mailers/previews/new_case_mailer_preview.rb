@@ -12,5 +12,22 @@ class NewCaseMailerPreview < ActionMailer::Preview
     	NewCaseMailer.update_case_email(User.first, Mycase.first)
   	end
 
+  	def case_task_mail_preview
+    	NewCaseMailer.case_task_email(User.first, Mycase.first, Task.first)
+  	end
+
+  	def case_comment_mail_preview
+    	NewCaseMailer.case_comment_email(User.first, Mycase.first, Mycasecomment.first)
+  	end
+
+  	def case_billing_mail_preview
+    	NewCaseMailer.case_billing_email(User.first, Mycase.first, Billing.first)
+  	end
+
+  		def case_billing_approved_mail_preview
+    	NewCaseMailer.case_billing_approved_email(User.first, Mycase.first)
+  	end
+
+
 end
 

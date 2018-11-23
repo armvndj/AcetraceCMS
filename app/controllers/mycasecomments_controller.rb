@@ -48,6 +48,8 @@ end
   if @mycasecomment.save  
     if @mycase.users.any?
       @mycase.users.each do |f|
+        CaseCommentEmailJob.set(wait: 20.seconds).perform_later(f, @mycase, @mycasecomment)
+  
           Notification.create(
           notify_type: 'casecomment',
           actor: current_user,
@@ -60,7 +62,7 @@ end
     Notification.create(
           notify_type: 'casecomment',
           actor: current_user,
-          user: current_user.lawfirm.admin,
+          user: @mycase.admin,
           target: @mycase)
 
     Notification.create(
@@ -68,6 +70,11 @@ end
           actor: current_user,
           user: @mycase.client,
           target: @mycase) 
+
+     CaseCommentEmailJob.set(wait: 20.seconds).perform_later(@mycase.admin, @mycase, @mycasecomment)
+  
+   CaseCommentEmailJob.set(wait: 20.seconds).perform_later(@mycase.client, @mycase, @mycasecomment)
+  
     respond_to do |format|
       
         format.html { redirect_to meet_mycase_path(@mycase.id), notice: 'Dicussion posted was successfully created.' }
