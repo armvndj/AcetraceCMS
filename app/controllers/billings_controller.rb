@@ -91,6 +91,7 @@ end
     CaseBillingApprovedEmailJob.set(wait: 20.seconds).perform_later(@mycase.client, @mycase)
     redirect_to billing_mycase_path(@billing.mycase.id), notice: 'Billing was successfully approved.' 
     
+    
   end
 
   # PATCH/PUT /billings/1
