@@ -31,9 +31,9 @@ config.active_job.queue_adapter = :delayed_job
   # Do not fallback to assets pipeline if a precompiled asset is missed.
  
   config.serve_static_files = true
-config.assets.compile = true
+config.assets.compile = false
  config.serve_static_assets = true
- config.assets.digest = true
+ config.assets.digest = false
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -65,7 +65,7 @@ config.assets.compile = true
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "legalcase_#{Rails.env}"
-  config.action_mailer.default_url_options = { :host => 'https://acetracecms.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'https://milmap.herokuapp.com' }
   config.action_mailer.perform_caching = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
